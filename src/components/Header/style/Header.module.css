@@ -10,7 +10,7 @@ header {
   grid-area: h;
   height: 50px;
   padding: 0;
-  width: 1336px;
+  /* width: 1336px; */
 }
 .size h1 {
   color: red;

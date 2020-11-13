@@ -2,14 +2,18 @@
   display: grid;
   /* border: 1px solid #000; */
   width: 1488px;
-  grid-template-columns: 150px 1fr;
+  grid-template-columns: 150px 1050px;
   margin: 0 100px 0 100px;
   grid-template-rows: 50px 2fr;
+  grid-gap: 5px;
   grid-template-areas:
     'h h'
     'n c';
-  grid-gap: 5px;
 }
 body {
   background: rgba(0, 0, 0, 0.1);
+}
+.content {
+  grid-area: c;
+  background-color: aqua;
 }

@@ -1,9 +1,3 @@
-.content {
-  grid-area: c;
-  background-color: aqua;
-  margin: 0 auto;
-  /* width: 1000px; */
-}
 .img {
   height: 140px;
   display: flex;

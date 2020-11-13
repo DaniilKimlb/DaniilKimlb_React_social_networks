@@ -3,10 +3,15 @@ nav {
   background-color: blue;
   width: 300px;
 }
-.item {
+
+.item a {
   padding: 10px;
   font-size: 20px;
   color: #fff;
+  text-decoration: none;
+}
+a.active {
+  color: gold;
 }
 .item.setting {
   margin: 50px 0;
