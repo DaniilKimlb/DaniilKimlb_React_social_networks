@@ -1,0 +1,17 @@
+header img {
+  width: 100px;
+  height: 50px;
+  position: relative;
+  /* border: 1px solid black; */
+  /* border-radius: 50%; */
+}
+header {
+  background-color: black;
+  grid-area: h;
+  height: 50px;
+  padding: 0;
+  width: 1336px;
+}
+.size h1 {
+  color: red;
+}

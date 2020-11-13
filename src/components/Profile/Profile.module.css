@@ -1,0 +1,28 @@
+.content {
+  grid-area: c;
+  background-color: aqua;
+  margin: 0 auto;
+  /* width: 1000px; */
+}
+.img {
+  height: 140px;
+  display: flex;
+}
+.avaInfo {
+  height: 20px;
+}
+.posts {
+  color: red;
+}
+.ava img {
+  height: 100px;
+  width: 100px;
+  display: flex;
+}
+.info {
+  display: flex;
+  position: relative;
+  left: 100px;
+  bottom: 100px;
+  height: 500px;
+}
