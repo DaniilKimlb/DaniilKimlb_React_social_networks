@@ -1,6 +1,7 @@
 import MyPost from './MyPost/MyPost';
 import Post from './MyPost/Post/Post';
 import s from './Profile.module.css';
+import ProfileInf from './ProfileInf/Profileinf';
 
 console.log(s);
 // const s = {
@@ -11,12 +12,8 @@ console.log(s);
 // };
 const Content = () => (
   <div className={s.content}>
-    <div className={s.img}>
-      <img src="https://p.bigstockphoto.com/GeFvQkBbSLaMdpKXF1Zv_bigstock-Aerial-View-Of-Blue-Lakes-And--227291596.jpg" />
-    </div>
-    <div className={s.avaInfo}>ava + de</div>
+    <ProfileInf img="https://p.bigstockphoto.com/GeFvQkBbSLaMdpKXF1Zv_bigstock-Aerial-View-Of-Blue-Lakes-And--227291596.jpg" />
     <MyPost />
-    
   </div>
 );
 export default Content;

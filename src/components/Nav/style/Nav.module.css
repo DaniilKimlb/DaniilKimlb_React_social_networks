@@ -5,10 +5,13 @@ nav {
 }
 
 .item a {
-  padding: 10px;
+  padding: 0 10px;
   font-size: 20px;
   color: #fff;
   text-decoration: none;
+
+  /* outline: 1px solid red; */
+  /* pad */
 }
 a.active {
   color: gold;

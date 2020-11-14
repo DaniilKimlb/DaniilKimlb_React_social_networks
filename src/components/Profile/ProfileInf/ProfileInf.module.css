@@ -1,0 +1,23 @@
+.img {
+  height: 140px;
+  display: flex;
+}
+.avaInfo {
+  height: 20px;
+  padding: 10px;
+}
+.posts {
+  color: red;
+}
+.ava img {
+  height: 100px;
+  width: 100px;
+  display: flex;
+}
+.info {
+  display: flex;
+  position: relative;
+  left: 100px;
+  bottom: 100px;
+  height: 500px;
+}
