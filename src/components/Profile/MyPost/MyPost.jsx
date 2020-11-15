@@ -4,18 +4,18 @@ const MessagPo = [
   { id: 1, message: "It's my life!!!", like: 48 },
   { id: 2, message: 'How are you do?', like: 15 },
 ];
+const Messaq = MessagPo.map((m) => <Post message={m.message} like={m.like} />);
 
 const MyPost = () => {
   // like.innerHTML = '<h1> afaf</h1>';
   return (
     <div className={s.MyPost}>
-      <div> my post</div>
+      <h3> my post</h3>
       <div className={s.getInfo}>
         <input type="text" placeholder="Введите текст..." />
         <button>Оправить</button>
       </div>
-      <Post message={MessagPo[0].message} like={MessagPo[0].like} />
-      <Post message={MessagPo[1].message} like={MessagPo[1].like} />
+      {Messaq}
     </div>
   );
 };

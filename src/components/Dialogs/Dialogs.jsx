@@ -2,8 +2,10 @@ import { NavLink } from 'react-router-dom';
 import s from './Dialogs.module.css';
 const ItemDialogs = (props) => {
   return (
-    <div className={s.Dialog + ' ' + s.active}>
-      <NavLink to={`/Messages/${props.id}`}>{props.name}</NavLink>
+    <div className={s.Dialog}>
+      <NavLink className={s.Dialogm} to={`/Messages/${props.id}`}>
+        {props.name}
+      </NavLink>
     </div>
   );
 };
@@ -22,23 +24,14 @@ const MessageI = [
   { id: 4, message: 'My' },
   { id: 5, message: 'Niggas' },
 ];
-
+const Items = ItemDialogsInf.map((i) => (
+  <ItemDialogs name={i.name} id={i.id} />
+));
+const Messagef = MessageI.map((m) => <Message message={m.message} />);
 const Dialogs = (props) => (
   <div className={s.Dialogs}>
-    <div className={s.itemDialogs}>
-      <ItemDialogs name={ItemDialogsInf[0].name} id={ItemDialogsInf[0].id} />
-      <ItemDialogs name={ItemDialogsInf[1].name} id={ItemDialogsInf[1].id} />
-      <ItemDialogs name={ItemDialogsInf[2].name} id={ItemDialogsInf[2].id} />
-      <ItemDialogs name={ItemDialogsInf[3].name} id={ItemDialogsInf[3].id} />
-      <ItemDialogs name={ItemDialogsInf[4].name} id={ItemDialogsInf[4].id} />
-    </div>
-    <div className={s.Messages}>
-      <Message message={MessageI[0].message} />
-      <Message message={MessageI[1].message} />
-      <Message message={MessageI[2].message} />
-      <Message message={MessageI[3].message} />
-      <Message message={MessageI[4].message} />
-    </div>
+    <div className={s.itemDialogs}>{Items}</div>
+    <div className={s.Messages}>{Messagef}</div>
   </div>
 );
 export default Dialogs;

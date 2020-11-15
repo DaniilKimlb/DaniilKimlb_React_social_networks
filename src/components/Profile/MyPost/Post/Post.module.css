@@ -1,6 +1,8 @@
 .posts {
   color: green;
   border-bottom: 1px solid black;
+  margin-top: 10px;
+  font-family: Helvetica;
 }
 .img1 {
   width: 50px;

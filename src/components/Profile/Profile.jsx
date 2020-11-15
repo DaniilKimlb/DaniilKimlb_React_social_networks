@@ -3,7 +3,7 @@ import Post from './MyPost/Post/Post';
 import s from './Profile.module.css';
 import ProfileInf from './ProfileInf/Profileinf';
 
-console.log(s);
+// console.log(s);
 // const s = {
 //   avaInfo: 'Profile_avaInfo__1Uk_n',
 //   content: 'Profile_content__1byG_',
