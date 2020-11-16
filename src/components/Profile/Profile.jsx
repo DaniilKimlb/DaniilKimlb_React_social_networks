@@ -10,10 +10,11 @@ import ProfileInf from './ProfileInf/Profileinf';
 //   img: 'Profile_img__y_yQq',
 //   item: 'Profile_item__1boul',
 // };
-const Content = () => (
+
+const Content = (props) => (
   <div className={s.content}>
     <ProfileInf img="https://p.bigstockphoto.com/GeFvQkBbSLaMdpKXF1Zv_bigstock-Aerial-View-Of-Blue-Lakes-And--227291596.jpg" />
-    <MyPost />
+    <MyPost MessagePo={props.MessagePo} />
   </div>
 );
 export default Content;

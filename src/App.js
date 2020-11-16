@@ -8,18 +8,29 @@ import { BrowserRouter, Route } from '../node_modules/react-router-dom';
 import Setting from './components/Settings/Setting';
 import Music from './components/Music/Music';
 import News from './components/News/News';
-const App = () => {
+const App = (props) => {
   return (
     <BrowserRouter>
       <div className="wrapper">
         <Header />
         <Nav />
         <div class="content">
-          <Route path="/Messages" component={Dialogs} />
-          <Route path="/Profile" component={Profile} />
-          <Route path="/News" component={News} />
-          <Route path="/Music" component={Music} />
-          <Route path="/Setting" component={Setting} />
+          <Route
+            path="/Messages"
+            render={() => (
+              <Dialogs
+                ItemDialogsInf={props.ItemDialogsInf}
+                MessageI={props.MessageI}
+              />
+            )}
+          />
+          <Route
+            path="/Profile"
+            render={() => <Profile MessagePo={props.MessagePo} />}
+          />
+          <Route path="/News" render={() => <News />} />
+          <Route path="/Music" render={() => <Music />} />
+          <Route path="/Setting" render={() => <Setting />} />
         </div>
       </div>
     </BrowserRouter>

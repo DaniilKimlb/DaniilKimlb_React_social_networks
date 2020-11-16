@@ -1,4 +1,5 @@
 import s from './ProfileInf.module.css';
+
 const ProfileInf = (props) => {
   return (
     <div>
