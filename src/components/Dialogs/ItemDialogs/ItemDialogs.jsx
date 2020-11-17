@@ -1,10 +1,11 @@
 import { NavLink } from 'react-router-dom/cjs/react-router-dom.min';
 import s from './../Dialogs.module.css';
 const ItemDialogs = (props) => {
+  // debugger;
   return (
     <div className={s.Dialog}>
       <NavLink className={s.Dialogm} to={`/Messages/${props.id}`}>
-        {props.name}
+        <img src={props.ava} /> {props.name}
       </NavLink>
     </div>
   );

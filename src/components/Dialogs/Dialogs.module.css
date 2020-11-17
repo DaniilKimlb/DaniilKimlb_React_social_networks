@@ -22,3 +22,18 @@
 .Messages {
   padding: 10px;
 }
+.Dialog img {
+  width: 25px;
+  height: 25px;
+  border-radius: 50%;
+}
+.MessageOne {
+  /* border: 1px solid black; */
+  /* border-radius: 20%; */
+  background-color: coral;
+}
+.MessageTwo {
+  /* border: 1px solid black; */
+  position: relative;
+  right: 0;
+}

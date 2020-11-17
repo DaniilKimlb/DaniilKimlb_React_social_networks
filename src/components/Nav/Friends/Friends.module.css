@@ -1,0 +1,22 @@
+.FriendSt {
+  display: inline-flex;
+  font-size: 10px;
+  justify-content: center;
+  align-items: center;
+  border-radius: 50%;
+  background-color: aliceblue;
+  /* outline: solid; */
+  width: 30px;
+  height: 30px;
+  position: relative;
+  left: 0px;
+  color: black;
+  margin-left: 2px;
+  cursor: pointer;
+  /* display: grid; */
+  /* grid-template-columns: 1fr 1fr 1fr; */
+}
+.Friend {
+  display: flex;
+  margin: 0 35px;
+}

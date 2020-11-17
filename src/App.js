@@ -13,20 +13,21 @@ const App = (props) => {
     <BrowserRouter>
       <div className="wrapper">
         <Header />
-        <Nav />
+        <Nav InfoFriends={props.Nav.InfoFriends} />
         <div class="content">
           <Route
             path="/Messages"
             render={() => (
               <Dialogs
-                ItemDialogsInf={props.ItemDialogsInf}
-                MessageI={props.MessageI}
+                ItemDialogsInf={props.Dialog.ItemDialogsInf}
+                MessageI={props.Dialog.MessageI}
               />
             )}
           />
+
           <Route
             path="/Profile"
-            render={() => <Profile MessagePo={props.MessagePo} />}
+            render={() => <Profile MessagePo={props.Profile.MessagePo} />}
           />
           <Route path="/News" render={() => <News />} />
           <Route path="/Music" render={() => <Music />} />

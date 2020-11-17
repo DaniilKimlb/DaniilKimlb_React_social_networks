@@ -4,14 +4,17 @@ nav {
   width: 300px;
 }
 
-.item a {
+.item {
   padding: 0 10px;
   font-size: 20px;
   color: #fff;
-  text-decoration: none;
 
   /* outline: 1px solid red; */
   /* pad */
+}
+.item a {
+  text-decoration: none;
+  color: #fff;
 }
 a.active {
   color: gold;
@@ -19,4 +22,15 @@ a.active {
 .item.setting {
   margin: 50px 0;
   padding: 0;
+}
+.Friend .fr {
+  border-radius: 50%;
+  background-color: blue;
+  outline: solid;
+  width: 30px;
+  height: 30px;
+  font-size: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }

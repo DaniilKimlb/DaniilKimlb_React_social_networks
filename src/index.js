@@ -3,30 +3,13 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
-const ItemDialogsInf = [
-  { id: 1, name: 'Ivan' },
-  { id: 2, name: 'Max' },
-  { id: 3, name: 'Anton' },
-  { id: 4, name: 'Grisha' },
-  { id: 5, name: 'Misha' },
-];
-const MessageI = [
-  { id: 1, message: 'Hi!' },
-  { id: 2, message: 'How are do?' },
-  { id: 3, message: 'Yo' },
-  { id: 4, message: 'My' },
-  { id: 5, message: 'Niggas' },
-];
-const MessagePo = [
-  { id: 1, message: "It's my life!!!", like: 48 },
-  { id: 2, message: 'How are you do?', like: 14 },
-];
+import state from './redux/state';
 ReactDOM.render(
   <React.StrictMode>
     <App
-      ItemDialogsInf={ItemDialogsInf}
-      MessageI={MessageI}
-      MessagePo={MessagePo}
+      Dialog={state.DialogPage}
+      Profile={state.ProfilePage}
+      Nav={state.NavPage}
     />
   </React.StrictMode>,
   document.getElementById('root')
