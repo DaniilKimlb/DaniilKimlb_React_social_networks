@@ -1,3 +1,5 @@
+import { reactPortThree } from '../render';
+
 const state = {
   ProfilePage: {
     MessagePo: [
@@ -37,10 +39,20 @@ const state = {
     ],
     MessageI: [
       { id: 1, message: 'Hi!' },
+      { id: 2, message: 'Hi!' },
       { id: 2, message: 'How are do?' },
       { id: 1, message: 'Yo' },
-      { id: 2, message: 'My' },
+      { id: 1, message: 'My' },
       { id: 1, message: 'Niggas' },
+      { id: 1, message: 'Vse good' },
+      { id: 2, message: 'ok!!!' },
+      { id: 2, message: 'ok!!!' },
+      { id: 1, message: 'ok!!!' },
+      { id: 1, message: 'ok!!!' },
+      { id: 2, message: 'ok!!!' },
+      { id: 1, message: 'ok!!!' },
+      { id: 2, message: 'ok!!!' },
+      { id: 1, message: 'ok!!!' },
     ],
   },
   NavPage: {
@@ -51,5 +63,11 @@ const state = {
       { id: 1, name: 'Gleb', status: false },
     ],
   },
+};
+
+export let getPost = (post) => {
+  const m = { id: 3, message: post, like: 0 };
+  state.ProfilePage.MessagePo.push(m);
+  reactPortThree(state, getPost);
 };
 export default state;

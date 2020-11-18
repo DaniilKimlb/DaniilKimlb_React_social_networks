@@ -11,12 +11,14 @@
   position: relative;
   left: 0px;
   color: black;
-  margin-left: 2px;
   cursor: pointer;
+  margin-left: 2px;
   /* display: grid; */
   /* grid-template-columns: 1fr 1fr 1fr; */
 }
 .Friend {
   display: flex;
   margin: 0 35px;
+  outline: none;
+  cursor: pointer;
 }

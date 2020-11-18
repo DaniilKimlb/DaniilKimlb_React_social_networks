@@ -3,10 +3,12 @@
   grid-template-columns: 150px 1fr;
   margin: 0 100px 0 100px;
   grid-template-rows: 50px 2fr;
-  grid-gap: 5px;
+  /* width: 1200px; */
+  grid-gap: 10px;
   grid-template-areas:
     'h h'
     'n c';
+  /* outline: 1px solid red; */
 }
 body {
   background: rgba(182, 116, 116, 0.1);

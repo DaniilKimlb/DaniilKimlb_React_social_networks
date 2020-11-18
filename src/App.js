@@ -27,7 +27,12 @@ const App = (props) => {
 
           <Route
             path="/Profile"
-            render={() => <Profile MessagePo={props.Profile.MessagePo} />}
+            render={() => (
+              <Profile
+                MessagePo={props.Profile.MessagePo}
+                getPost={props.getPost}
+              />
+            )}
           />
           <Route path="/News" render={() => <News />} />
           <Route path="/Music" render={() => <Music />} />

@@ -15,7 +15,9 @@
 }
 .itemDialogs .Dialog {
 }
-
+.DialogsBlock {
+  border: 1px solid black;
+}
 .active {
   color: gold;
 }

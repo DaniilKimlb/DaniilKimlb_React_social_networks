@@ -1,7 +1,6 @@
 nav {
   grid-area: n;
   background-color: black;
-  width: 300px;
 }
 
 .item {
