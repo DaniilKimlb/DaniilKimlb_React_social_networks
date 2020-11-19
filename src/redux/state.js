@@ -6,6 +6,7 @@ const state = {
       { id: 1, message: "It's my life!!!", like: 48 },
       { id: 2, message: 'How are you do?', like: 14 },
     ],
+    pValue: '',
   },
   DialogPage: {
     ItemDialogsInf: [
@@ -54,6 +55,7 @@ const state = {
       { id: 2, message: 'ok!!!' },
       { id: 1, message: 'ok!!!' },
     ],
+    mValue: '',
   },
   NavPage: {
     InfoFriends: [
@@ -65,9 +67,25 @@ const state = {
   },
 };
 
-export let getPost = (post) => {
-  const m = { id: 3, message: post, like: 0 };
+export let getPost = () => {
+  const m = { id: 3, message: state.ProfilePage.pValue, like: 0 };
   state.ProfilePage.MessagePo.push(m);
-  reactPortThree(state, getPost);
+  state.ProfilePage.pValue = '';
+  reactPortThree(state);
+};
+export let getText = (text) => {
+  state.ProfilePage.pValue = text;
+  reactPortThree(state);
+};
+window.state = state;
+export let getMessage = (Message) => {
+  const m = { id: 1, message: Message };
+  state.DialogPage.MessageI.push(m);
+  state.DialogPage.mValue = '';
+  reactPortThree(state);
+};
+export let getTextM = (text) => {
+  state.DialogPage.mValue = text;
+  reactPortThree(state);
 };
 export default state;

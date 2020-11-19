@@ -14,7 +14,12 @@ import ProfileInf from './ProfileInf/Profileinf';
 const Content = (props) => (
   <div className={s.content}>
     <ProfileInf img="https://p.bigstockphoto.com/GeFvQkBbSLaMdpKXF1Zv_bigstock-Aerial-View-Of-Blue-Lakes-And--227291596.jpg" />
-    <MyPost MessagePo={props.MessagePo} getPost={props.getPost} />
+    <MyPost
+      MessagePo={props.MessagePo}
+      getPost={props.getPost}
+      pValue={props.pValue}
+      getText={props.getText}
+    />
   </div>
 );
 export default Content;

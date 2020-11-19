@@ -11,21 +11,29 @@ const Dialogs = (props) => {
   const Messagef = props.MessageI.map((m) => (
     <Message message={m.message} id={m.id} />
   ));
+  const getMessageg = React.createRef();
   let sub = () => {
-    let a = getMessage.current.value;
-    alert(a);
+    let a = getMessageg.current.value;
+    props.getMessage(a);
   };
-  const getMessage = React.createRef();
+  let getMessageText = () => {
+    let text = getMessageg.current.value;
+    props.getTextM(text);
+  };
+
   return (
     <div className={s.Dialogs}>
       <div className={s.itemDialogs}>{Items}</div>
       <div className={s.Messages}>
-        {Messagef}{' '}
+        {Messagef}
         <input
+          required
           type="text"
+          value={props.mValue}
+          onChange={getMessageText}
           placeholder="Введите сообщение..."
-          ref={getMessage}
-        />{' '}
+          ref={getMessageg}
+        />
         <input type="submit" onClick={sub} value="Отправить" />
       </div>
     </div>

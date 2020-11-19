@@ -8,15 +8,21 @@ const MyPost = (props) => {
   ));
   let createReactElement = React.createRef();
   let l = () => {
-    let newPost = createReactElement.current.value;
-    props.getPost(newPost);
-    createReactElement.current.value = '';
+    props.getPost();
+  };
+
+  let k = () => {
+    let text = createReactElement.current.value;
+    props.getText(text);
   };
   let i = (
     <input
+      required
       type="text"
+      onChange={k}
       ref={createReactElement}
       placeholder="Введите текст..."
+      value={props.pValue}
     />
   );
 

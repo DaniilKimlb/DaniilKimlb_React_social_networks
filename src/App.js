@@ -21,6 +21,9 @@ const App = (props) => {
               <Dialogs
                 ItemDialogsInf={props.Dialog.ItemDialogsInf}
                 MessageI={props.Dialog.MessageI}
+                getMessage={props.getMessage}
+                getTextM={props.getTextM}
+                mValue={props.Dialog.mValue}
               />
             )}
           />
@@ -31,6 +34,8 @@ const App = (props) => {
               <Profile
                 MessagePo={props.Profile.MessagePo}
                 getPost={props.getPost}
+                getText={props.getText}
+                pValue={props.Profile.pValue}
               />
             )}
           />
