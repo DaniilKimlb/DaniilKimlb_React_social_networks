@@ -13,17 +13,17 @@ const App = (props) => {
     <BrowserRouter>
       <div className="wrapper">
         <Header />
-        <Nav InfoFriends={props.Nav.InfoFriends} />
+        <Nav InfoFriends={props.state.NavPage.InfoFriends} />
         <div class="content">
           <Route
             path="/Messages"
             render={() => (
               <Dialogs
-                ItemDialogsInf={props.Dialog.ItemDialogsInf}
-                MessageI={props.Dialog.MessageI}
-                getMessage={props.getMessage}
-                getTextM={props.getTextM}
-                mValue={props.Dialog.mValue}
+                ItemDialogsInf={props.state.DialogPage.ItemDialogsInf}
+                MessageI={props.state.DialogPage.MessageI}
+                getMessage={props.store.getMessage}
+                getTextM={props.store.getTextM}
+                mValue={props.state.DialogPage.mValue}
               />
             )}
           />
@@ -32,10 +32,10 @@ const App = (props) => {
             path="/Profile"
             render={() => (
               <Profile
-                MessagePo={props.Profile.MessagePo}
-                getPost={props.getPost}
-                getText={props.getText}
-                pValue={props.Profile.pValue}
+                MessagePo={props.state.ProfilePage.MessagePo}
+                getPost={props.store.getPost}
+                getText={props.store.getText}
+                pValue={props.state.ProfilePage.pValue}
               />
             )}
           />

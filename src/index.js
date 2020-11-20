@@ -3,7 +3,24 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
-import state from './redux/state';
+import state, {
+  getMessage,
+  getPost,
+  getText,
+  getTextM,
+  subscribe,
+} from './redux/state';
 import reactRouterDom from 'react-router-dom';
-import { reactPortThree } from './render';
-reactPortThree(state);
+import store from './redux/state';
+// reactPortThree(state, getPost, getText, getMessage, getTextM);
+
+let reactPortThree = () => {
+  ReactDOM.render(
+    <React.StrictMode>
+      <App state={store.state} store={store} />
+    </React.StrictMode>,
+    document.getElementById('root')
+  );
+};
+reactPortThree();
+store.subscribe(reactPortThree);

@@ -20,7 +20,6 @@ const Dialogs = (props) => {
     let text = getMessageg.current.value;
     props.getTextM(text);
   };
-
   return (
     <div className={s.Dialogs}>
       <div className={s.itemDialogs}>{Items}</div>
