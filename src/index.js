@@ -14,13 +14,13 @@ import reactRouterDom from 'react-router-dom';
 import store from './redux/state';
 // reactPortThree(state, getPost, getText, getMessage, getTextM);
 
-let reactPortThree = () => {
+let reactPortThree = (state) => {
   ReactDOM.render(
     <React.StrictMode>
-      <App state={store.state} store={store} />
+      <App state={state} dispatch={store.dispatch.bind(store)} />
     </React.StrictMode>,
     document.getElementById('root')
   );
 };
-reactPortThree();
+reactPortThree(store.getState());
 store.subscribe(reactPortThree);

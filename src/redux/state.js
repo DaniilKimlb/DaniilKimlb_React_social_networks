@@ -1,8 +1,5 @@
-let reactPortThree = () => {
-  console.log('adsd');
-};
 const store = {
-  state: {
+  _state: {
     ProfilePage: {
       MessagePo: [
         { id: 1, message: "It's my life!!!", like: 48 },
@@ -10,6 +7,7 @@ const store = {
       ],
       pValue: '',
     },
+
     DialogPage: {
       ItemDialogsInf: [
         {
@@ -68,28 +66,80 @@ const store = {
       ],
     },
   },
-  getPost() {
-    const m = { id: 3, message: store.state.ProfilePage.pValue, like: 0 };
-    store.state.ProfilePage.MessagePo.push(m);
-    store.state.ProfilePage.pValue = '';
-    reactPortThree(store.state);
+  _callSubscriber() {
+    console.log('adsd');
   },
-  getText(text) {
-    store.state.ProfilePage.pValue = text;
-    reactPortThree(store.state);
-  },
-  getMessage(Message) {
-    const m = { id: 1, message: Message };
-    store.state.DialogPage.MessageI.push(m);
-    store.state.DialogPage.mValue = '';
-    reactPortThree(store.state);
-  },
-  getTextM(text) {
-    store.state.DialogPage.mValue = text;
-    reactPortThree(store.state);
+  getState() {
+    return this._state;
   },
   subscribe(observer) {
-    reactPortThree = observer;
+    this._callSubscriber = observer; // observer -  Pattern
+  },
+  _getPost() {
+    const m = { id: 3, message: this._state.ProfilePage.pValue, like: 0 };
+    this._state.ProfilePage.MessagePo.push(m);
+    this._state.ProfilePage.pValue = '';
+    this._callSubscriber(this._state);
+  },
+  _getText(text) {
+    this._state.ProfilePage.pValue = text;
+    this._callSubscriber(this._state);
+  },
+  _getMessage() {
+    const m = { id: 1, message: this._state.DialogPage.mValue };
+    this._state.DialogPage.MessageI.push(m);
+    this._state.DialogPage.mValue = '';
+    this._callSubscriber(this._state);
+  },
+  _getTextM(text) {
+    this._state.DialogPage.mValue = text;
+    this._callSubscriber(this._state);
+  },
+  dispatch(action) {
+    //================= способ 1 ===============
+    // switch (action.type) {
+    //   case 'GET-POST':
+    //     this._getPost();
+    //     break;
+    //   case 'GET-TEXT':
+    //     this._getText(action.text);
+    //     break;
+    //   case 'GET-MESSAGE':
+    //     this._getMessage();
+    //     break;
+    //   case 'GET-TEXTM':
+    //     this._getTextM(action.text);
+    //     break;
+    //   default:
+    //     break;
+    // ======================== Способ 2 ====================
+    if (action.type === 'GET-POST') {
+      const m = { id: 3, message: this._state.ProfilePage.pValue, like: 0 };
+      this._state.ProfilePage.MessagePo.push(m);
+      this._state.ProfilePage.pValue = '';
+      this._callSubscriber(this._state);
+    } else if (action.type === 'GET-TEXT') {
+      this._state.ProfilePage.pValue = action.text;
+      this._callSubscriber(this._state);
+    } else if (action.type === 'GET-MESSAGE') {
+      const m = { id: 1, message: this._state.DialogPage.mValue };
+      this._state.DialogPage.MessageI.push(m);
+      this._state.DialogPage.mValue = '';
+      this._callSubscriber(this._state);
+    } else if (action.type === 'GET-TEXTM') {
+      this._state.DialogPage.mValue = action.text;
+      this._callSubscriber(this._state);
+    }
+    // =============== Способ 3 =============================
+    //   if (action.type === 'GET-POST') {
+    //     this._getPost();
+    //   } else if (action.type === 'GET-TEXT') {
+    //     this._getText(action.text);
+    //   } else if (action.type === 'GET-MESSAGE') {
+    //     this._getMessage();
+    //   } else if (action.type === 'GET-TEXTM') {
+    //     this._getTextM(action.text);
+    //   }
   },
 };
 

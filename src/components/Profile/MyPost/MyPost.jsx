@@ -8,29 +8,26 @@ const MyPost = (props) => {
   ));
   let createReactElement = React.createRef();
   let l = () => {
-    props.getPost();
+    props.dispatch({ type: 'GET-POST' });
   };
 
   let k = () => {
     let text = createReactElement.current.value;
-    props.getText(text);
+    props.dispatch({ type: 'GET-TEXT', text: text });
   };
-  let i = (
-    <input
-      required
-      type="text"
-      onChange={k}
-      ref={createReactElement}
-      placeholder="Введите текст..."
-      value={props.pValue}
-    />
-  );
 
   return (
     <div className={s.MyPost}>
       <h3> my post</h3>
       <div className={s.getInfo}>
-        {i}
+        <input
+          required
+          type="text"
+          onChange={k}
+          ref={createReactElement}
+          placeholder="Введите текст..."
+          value={props.pValue}
+        />
         <button onClick={l}>Оправить</button>
       </div>
       {Messaq}

@@ -13,12 +13,11 @@ const Dialogs = (props) => {
   ));
   const getMessageg = React.createRef();
   let sub = () => {
-    let a = getMessageg.current.value;
-    props.getMessage(a);
+    props.dispatch({ type: 'GET-MESSAGE' });
   };
   let getMessageText = () => {
     let text = getMessageg.current.value;
-    props.getTextM(text);
+    props.dispatch({ type: 'GET-TEXTM', text: text });
   };
   return (
     <div className={s.Dialogs}>
