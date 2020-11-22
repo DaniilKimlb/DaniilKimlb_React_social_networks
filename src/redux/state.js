@@ -1,3 +1,7 @@
+const GET_MESSAGE = 'GET-MESSAGE';
+const GET_TEXTM = 'GET-TEXTM';
+const GET_POST = 'GET-POST';
+const GET_TEXT = 'GET-TEXT';
 const store = {
   _state: {
     ProfilePage: {
@@ -98,49 +102,59 @@ const store = {
   dispatch(action) {
     //================= способ 1 ===============
     // switch (action.type) {
-    //   case 'GET-POST':
+    //   case GET_POST:
     //     this._getPost();
     //     break;
-    //   case 'GET-TEXT':
+    //   case GET_TEXT:
     //     this._getText(action.text);
     //     break;
-    //   case 'GET-MESSAGE':
+    //   case GET_MESSAGE:
     //     this._getMessage();
     //     break;
-    //   case 'GET-TEXTM':
+    //   case GET_TEXTM:
     //     this._getTextM(action.text);
     //     break;
     //   default:
     //     break;
     // ======================== Способ 2 ====================
-    if (action.type === 'GET-POST') {
+    if (action.type === GET_POST) {
       const m = { id: 3, message: this._state.ProfilePage.pValue, like: 0 };
       this._state.ProfilePage.MessagePo.push(m);
       this._state.ProfilePage.pValue = '';
       this._callSubscriber(this._state);
-    } else if (action.type === 'GET-TEXT') {
+    } else if (action.type === GET_TEXT) {
       this._state.ProfilePage.pValue = action.text;
       this._callSubscriber(this._state);
-    } else if (action.type === 'GET-MESSAGE') {
+    } else if (action.type === GET_MESSAGE) {
       const m = { id: 1, message: this._state.DialogPage.mValue };
       this._state.DialogPage.MessageI.push(m);
       this._state.DialogPage.mValue = '';
       this._callSubscriber(this._state);
-    } else if (action.type === 'GET-TEXTM') {
+    } else if (action.type === GET_TEXTM) {
       this._state.DialogPage.mValue = action.text;
       this._callSubscriber(this._state);
     }
     // =============== Способ 3 =============================
-    //   if (action.type === 'GET-POST') {
+    //   if (action.type === GET_POST) {
     //     this._getPost();
-    //   } else if (action.type === 'GET-TEXT') {
+    //   } else if (action.type === GET_TEXT) {
     //     this._getText(action.text);
-    //   } else if (action.type === 'GET-MESSAGE') {
+    //   } else if (action.type === GET_MESSAGE) {
     //     this._getMessage();
-    //   } else if (action.type === 'GET-TEXTM') {
+    //   } else if (action.type === GET_TEXTM) {
     //     this._getTextM(action.text);
     //   }
   },
 };
+export let GET_MESSAGE_ACTION_CREATE = () => ({ type: GET_MESSAGE });
+export let GET_TEXTM_ACTION_CREATE = (text) => ({
+  type: GET_TEXTM,
+  text: text,
+});
+export const GET_POST_ACTION_CREATE = () => ({ type: GET_POST });
+export const GET_TEXT_ACTION_CREATE = (text) => ({
+  type: GET_TEXT,
+  text: text,
+});
 
 export default store;

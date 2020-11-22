@@ -3,6 +3,13 @@ import React from 'react';
 import s from './Dialogs.module.css';
 import ItemDialogs from './ItemDialogs/ItemDialogs';
 import Message from './Message/Message';
+import {
+  GET_MESSAGE_ACTION_CREATE,
+  GET_TEXTM_ACTION_CREATE,
+} from '../../redux/state';
+///=================================
+
+////===========================================
 
 const Dialogs = (props) => {
   const Items = props.ItemDialogsInf.map((i) => (
@@ -13,11 +20,12 @@ const Dialogs = (props) => {
   ));
   const getMessageg = React.createRef();
   let sub = () => {
-    props.dispatch({ type: 'GET-MESSAGE' });
+    props.dispatch(GET_MESSAGE_ACTION_CREATE());
   };
+
   let getMessageText = () => {
     let text = getMessageg.current.value;
-    props.dispatch({ type: 'GET-TEXTM', text: text });
+    props.dispatch(GET_TEXTM_ACTION_CREATE(text));
   };
   return (
     <div className={s.Dialogs}>
@@ -25,14 +33,19 @@ const Dialogs = (props) => {
       <div className={s.Messages}>
         {Messagef}
         <input
-          required
+          className={s.inp}
           type="text"
           value={props.mValue}
           onChange={getMessageText}
           placeholder="Введите сообщение..."
           ref={getMessageg}
         />
-        <input type="submit" onClick={sub} value="Отправить" />
+        <input
+          className={s.but}
+          type="submit"
+          onClick={sub}
+          value="Отправить"
+        />
       </div>
     </div>
   );

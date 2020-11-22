@@ -1,6 +1,6 @@
 .Dialogs {
   display: grid;
-  grid-template-columns: 2fr 10fr;
+  grid-template-columns: 2fr 10fr 
   /* padding: 10px; */
 }
 .Dialogm {
@@ -38,4 +38,20 @@
   /* border: 1px solid black; */
   position: relative;
   right: 0;
+}
+.Messages input {
+  border: none;
+  /* border-radius: 6%; */
+  outline: none;
+  background-color: #fff;
+}
+
+.Messages input:active {
+}
+.inp {
+  width: 753px;
+}
+.but:active {
+  background-color: #c6c6c6;
+  border-radius: 5%;
 }
