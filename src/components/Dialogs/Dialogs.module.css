@@ -1,6 +1,6 @@
 .Dialogs {
   display: grid;
-  grid-template-columns: 2fr 10fr 
+  grid-template-columns: 2fr 10fr;
   /* padding: 10px; */
 }
 .Dialogm {
@@ -46,12 +46,17 @@
   background-color: #fff;
 }
 
-.Messages input:active {
+.inp:focus {
+  border-bottom: 1px solid #000;
 }
+
 .inp {
   width: 753px;
 }
 .but:active {
   background-color: #c6c6c6;
   border-radius: 5%;
+}
+.but:focus {
+  border: none;
 }

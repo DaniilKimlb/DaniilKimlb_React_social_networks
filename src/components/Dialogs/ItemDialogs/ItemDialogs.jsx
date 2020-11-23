@@ -3,7 +3,7 @@ import s from './../Dialogs.module.css';
 const ItemDialogs = (props) => {
   // debugger;
   return (
-    <div className={s.Dialog}>
+    <div title={props.name} className={s.Dialog}>
       <NavLink className={s.Dialogm} to={`/Messages/${props.id}`}>
         <img src={props.ava} /> {props.name}
       </NavLink>

@@ -1,4 +1,3 @@
-import { NavLink } from 'react-router-dom';
 import React from 'react';
 import s from './Dialogs.module.css';
 import ItemDialogs from './ItemDialogs/ItemDialogs';
@@ -7,10 +6,6 @@ import {
   GET_MESSAGE_ACTION_CREATE,
   GET_TEXTM_ACTION_CREATE,
 } from '../../redux/state';
-///=================================
-
-////===========================================
-
 const Dialogs = (props) => {
   const Items = props.ItemDialogsInf.map((i) => (
     <ItemDialogs name={i.name} id={i.id} ava={i.ava} />
@@ -23,8 +18,8 @@ const Dialogs = (props) => {
     props.dispatch(GET_MESSAGE_ACTION_CREATE());
   };
 
-  let getMessageText = () => {
-    let text = getMessageg.current.value;
+  let getMessageText = (event) => {
+    let text = event.target.value;
     props.dispatch(GET_TEXTM_ACTION_CREATE(text));
   };
   return (
@@ -38,7 +33,7 @@ const Dialogs = (props) => {
           value={props.mValue}
           onChange={getMessageText}
           placeholder="Введите сообщение..."
-          ref={getMessageg}
+          // ref={getMessageg}
         />
         <input
           className={s.but}
