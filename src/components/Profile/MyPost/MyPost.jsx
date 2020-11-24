@@ -2,7 +2,7 @@ import React from '../../../../node_modules/react';
 import {
   GET_POST_ACTION_CREATE,
   GET_TEXT_ACTION_CREATE,
-} from '../../../redux/state';
+} from '../../../redux/ProfilePageReducer';
 import s from './MyPost.module.css';
 import Post from './Post/Post';
 // ====
@@ -31,10 +31,10 @@ const MyPost = (props) => {
           type="text"
           onChange={k}
           ref={createReactElement}
-          placeholder="Введите текст..."
+          placeholder="Enter text..."
           value={props.pValue}
         />
-        <button onClick={l}>Оправить</button>
+        <button onClick={l}>Send</button>
       </div>
       {Messaq}
     </div>

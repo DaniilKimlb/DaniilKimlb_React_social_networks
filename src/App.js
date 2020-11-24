@@ -16,6 +16,16 @@ const App = (props) => {
         <Nav InfoFriends={props.state.NavPage.InfoFriends} />
         <div class="content">
           <Route
+            path="/Profile"
+            render={() => (
+              <Profile
+                MessagePo={props.state.ProfilePage.MessagePo}
+                dispatch={props.dispatch}
+                pValue={props.state.ProfilePage.pValue}
+              />
+            )}
+          />
+          <Route
             path="/Messages"
             render={() => (
               <Dialogs
@@ -23,17 +33,6 @@ const App = (props) => {
                 MessageI={props.state.DialogPage.MessageI}
                 dispatch={props.dispatch}
                 mValue={props.state.DialogPage.mValue}
-              />
-            )}
-          />
-
-          <Route
-            path="/Profile"
-            render={() => (
-              <Profile
-                MessagePo={props.state.ProfilePage.MessagePo}
-                dispatch={props.dispatch}
-                pValue={props.state.ProfilePage.pValue}
               />
             )}
           />

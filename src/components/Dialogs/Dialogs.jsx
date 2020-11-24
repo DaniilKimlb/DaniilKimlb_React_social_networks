@@ -5,7 +5,7 @@ import Message from './Message/Message';
 import {
   GET_MESSAGE_ACTION_CREATE,
   GET_TEXTM_ACTION_CREATE,
-} from '../../redux/state';
+} from '../../redux/DialogPageReducer';
 const Dialogs = (props) => {
   const Items = props.ItemDialogsInf.map((i) => (
     <ItemDialogs name={i.name} id={i.id} ava={i.ava} />
@@ -32,15 +32,10 @@ const Dialogs = (props) => {
           type="text"
           value={props.mValue}
           onChange={getMessageText}
-          placeholder="Введите сообщение..."
+          placeholder="Enter your message..."
           // ref={getMessageg}
         />
-        <input
-          className={s.but}
-          type="submit"
-          onClick={sub}
-          value="Отправить"
-        />
+        <input className={s.but} type="submit" onClick={sub} value="send" />
       </div>
     </div>
   );

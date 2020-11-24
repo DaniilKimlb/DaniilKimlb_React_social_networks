@@ -17,7 +17,7 @@ const Friends = (props) => {
   ));
   return (
     <div className={s.FriendNav}>
-      <div class={s.Friend} title={`Сейчас онлайн ${b} человека `}>
+      <div class={s.Friend} title={`online now  ${b} people `}>
         Friend
       </div>
       <div>{a}</div>
