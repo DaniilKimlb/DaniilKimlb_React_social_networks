@@ -5,21 +5,15 @@ import {
 } from '../../../redux/ProfilePageReducer';
 import s from './MyPost.module.css';
 import Post from './Post/Post';
-// ====
-
-// ====
 const MyPost = (props) => {
-  const Messaq = props.MessagePo.map((m) => (
-    <Post message={m.message} like={m.like} />
-  ));
-  let createReactElement = React.createRef();
+  // let createReactElement = React.createRef();
   let l = () => {
-    props.dispatch(GET_POST_ACTION_CREATE());
+    props.ll();
   };
 
-  let k = () => {
-    let text = createReactElement.current.value;
-    props.dispatch(GET_TEXT_ACTION_CREATE(text));
+  let k = (event) => {
+    let text = event.target.value;
+    props.kl(text);
   };
 
   return (
@@ -30,13 +24,12 @@ const MyPost = (props) => {
           required
           type="text"
           onChange={k}
-          ref={createReactElement}
           placeholder="Enter text..."
           value={props.pValue}
         />
         <button onClick={l}>Send</button>
       </div>
-      {Messaq}
+      {props.Messaq}
     </div>
   );
 };

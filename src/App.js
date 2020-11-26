@@ -8,33 +8,21 @@ import { BrowserRouter, Route } from '../node_modules/react-router-dom';
 import Setting from './components/Settings/Setting';
 import Music from './components/Music/Music';
 import News from './components/News/News';
+import DialogsContainer from './components/Dialogs/DialogContainer';
 const App = (props) => {
   return (
     <BrowserRouter>
       <div className="wrapper">
         <Header />
-        <Nav InfoFriends={props.state.NavPage.InfoFriends} />
+        <Nav store={props.store} />
         <div class="content">
           <Route
             path="/Profile"
-            render={() => (
-              <Profile
-                MessagePo={props.state.ProfilePage.MessagePo}
-                dispatch={props.dispatch}
-                pValue={props.state.ProfilePage.pValue}
-              />
-            )}
+            render={() => <Profile store={props.store} />}
           />
           <Route
             path="/Messages"
-            render={() => (
-              <Dialogs
-                ItemDialogsInf={props.state.DialogPage.ItemDialogsInf}
-                MessageI={props.state.DialogPage.MessageI}
-                dispatch={props.dispatch}
-                mValue={props.state.DialogPage.mValue}
-              />
-            )}
+            render={() => <DialogsContainer store={props.store} />}
           />
           <Route path="/News" render={() => <News />} />
           <Route path="/Music" render={() => <Music />} />

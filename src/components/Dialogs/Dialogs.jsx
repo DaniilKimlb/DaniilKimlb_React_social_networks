@@ -1,32 +1,18 @@
 import React from 'react';
 import s from './Dialogs.module.css';
-import ItemDialogs from './ItemDialogs/ItemDialogs';
-import Message from './Message/Message';
-import {
-  GET_MESSAGE_ACTION_CREATE,
-  GET_TEXTM_ACTION_CREATE,
-} from '../../redux/DialogPageReducer';
 const Dialogs = (props) => {
-  const Items = props.ItemDialogsInf.map((i) => (
-    <ItemDialogs name={i.name} id={i.id} ava={i.ava} />
-  ));
-  const Messagef = props.MessageI.map((m) => (
-    <Message message={m.message} id={m.id} />
-  ));
-  const getMessageg = React.createRef();
   let sub = () => {
-    props.dispatch(GET_MESSAGE_ACTION_CREATE());
+    props.subL();
   };
-
   let getMessageText = (event) => {
     let text = event.target.value;
-    props.dispatch(GET_TEXTM_ACTION_CREATE(text));
+    props.getMessageTextL(text);
   };
   return (
     <div className={s.Dialogs}>
-      <div className={s.itemDialogs}>{Items}</div>
+      <div className={s.itemDialogs}>{props.ItemsL}</div>
       <div className={s.Messages}>
-        {Messagef}
+        {props.MessagefL}
         <input
           className={s.inp}
           type="text"
