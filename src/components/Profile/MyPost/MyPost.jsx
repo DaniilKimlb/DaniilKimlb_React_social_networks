@@ -7,13 +7,17 @@ import s from './MyPost.module.css';
 import Post from './Post/Post';
 const MyPost = (props) => {
   // let createReactElement = React.createRef();
+  let state = props.ProfilePage;
   let l = () => {
-    props.ll();
+    props.l();
   };
+  const Messaq = state.MessagePo.map((m) => (
+    <Post message={m.message} like={m.like} />
+  ));
 
   let k = (event) => {
     let text = event.target.value;
-    props.kl(text);
+    props.k(text);
   };
 
   return (
@@ -29,7 +33,7 @@ const MyPost = (props) => {
         />
         <button onClick={l}>Send</button>
       </div>
-      {props.Messaq}
+      {Messaq}
     </div>
   );
 };

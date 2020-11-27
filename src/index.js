@@ -3,18 +3,21 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
 import store from './redux/state-Redux';
-// reactPortThree(state, getPost, getText, getMessage, getTextM);
+import { Provider } from 'react-redux';
+// import { Provider } from 'react-redux';
 
-let reactPortThree = (state) => {
+let reactPortThree = () => {
   ReactDOM.render(
     <React.StrictMode>
-      <App state={state} dispatch={store.dispatch.bind(store)} store={store} />
+      <Provider store={store}>
+        <App />
+      </Provider>
     </React.StrictMode>,
     document.getElementById('root')
   );
 };
-reactPortThree(store.getState());
+reactPortThree();
 store.subscribe(() => {
-  let da = store.getState();
-  reactPortThree(da);
+  let av = store.getState();
+  reactPortThree(av);
 });

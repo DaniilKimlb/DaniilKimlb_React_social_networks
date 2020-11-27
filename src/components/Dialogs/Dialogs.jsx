@@ -1,25 +1,33 @@
 import React from 'react';
 import s from './Dialogs.module.css';
+import ItemDialogs from './ItemDialogs/ItemDialogs';
+import Message from './Message/Message';
 const Dialogs = (props) => {
+  const state = props.DialogPage;
+  const Items = state.ItemDialogsInf.map((i) => (
+    <ItemDialogs name={i.name} id={i.id} ava={i.ava} />
+  ));
+  const Messagef = state.MessageI.map((m) => (
+    <Message message={m.message} id={m.id} />
+  ));
   let sub = () => {
-    props.subL();
+    props.sub();
   };
   let getMessageText = (event) => {
     let text = event.target.value;
-    props.getMessageTextL(text);
+    props.getMessageText(text);
   };
   return (
     <div className={s.Dialogs}>
-      <div className={s.itemDialogs}>{props.ItemsL}</div>
+      <div className={s.itemDialogs}>{Items}</div>
       <div className={s.Messages}>
-        {props.MessagefL}
+        {Messagef}
         <input
           className={s.inp}
           type="text"
           value={props.mValue}
           onChange={getMessageText}
           placeholder="Enter your message..."
-          // ref={getMessageg}
         />
         <input className={s.but} type="submit" onClick={sub} value="send" />
       </div>
