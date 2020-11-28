@@ -51,14 +51,19 @@ const initialState = {
 };
 const DialogPageReducer = (state = initialState, action) => {
   switch (action.type) {
-    case GET_MESSAGE:
+    case GET_MESSAGE: {
       const m = { id: 1, message: state.mValue };
-      state.MessageI.push(m);
-      state.mValue = '';
-      return state;
-    case GET_TEXTM:
-      state.mValue = action.text;
-      return state;
+      let StateCopy = { ...state };
+      StateCopy.MessageI = [...state.MessageI];
+      StateCopy.MessageI.push(m);
+      StateCopy.mValue = '';
+      return StateCopy;
+    }
+    case GET_TEXTM: {
+      let StateCopy = { ...state };
+      StateCopy.mValue = action.text;
+      return StateCopy;
+    }
     default:
       return state;
   }
