@@ -12,6 +12,7 @@ const Friends = (props) => {
       className={s.FriendSt}
       title={`${f.name} is ${f.status ? 'online' : 'offline'} now`}
       style={{ backgroundColor: `${f.status ? 'green' : 'red'}` }}
+      key={f.id}
     >
       <div className={s.Font}>{f.name}</div>
     </div>

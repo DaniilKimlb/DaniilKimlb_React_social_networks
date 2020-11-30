@@ -5,10 +5,10 @@ import Message from './Message/Message';
 const Dialogs = (props) => {
   const state = props.DialogPage;
   const Items = state.ItemDialogsInf.map((i) => (
-    <ItemDialogs name={i.name} id={i.id} ava={i.ava} />
+    <ItemDialogs name={i.name} id={i.id} ava={i.ava} key={i.id} />
   ));
   const Messagef = state.MessageI.map((m) => (
-    <Message message={m.message} id={m.id} />
+    <Message message={m.message} id={m.id} key={m.id} />
   ));
   let sub = () => {
     props.sub();

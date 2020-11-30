@@ -9,19 +9,11 @@ const initialState = {
 };
 const ProfilePageReducer = (state = initialState, action) => {
   switch (action.type) {
-    case GET_POST: {
+    case GET_POST:
       const m = { id: 3, message: state.pValue, like: 0 };
-      let StateCopy = { ...state };
-      StateCopy.MessagePo = [...state.MessagePo];
-      StateCopy.MessagePo.push(m);
-      StateCopy.pValue = '';
-      return StateCopy;
-    }
-    case GET_TEXT: {
-      let StateCopy = { ...state };
-      StateCopy.pValue = action.text;
-      return StateCopy;
-    }
+      return { ...state, MessagePo: [...state.MessagePo, m], pValue: '' };
+    case GET_TEXT:
+      return { ...state, pValue: action.text };
     default:
       return state;
   }

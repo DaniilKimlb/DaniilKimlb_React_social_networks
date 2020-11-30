@@ -12,7 +12,7 @@ const MyPost = (props) => {
     props.l();
   };
   const Messaq = state.MessagePo.map((m) => (
-    <Post message={m.message} like={m.like} />
+    <Post message={m.message} key={m.id} like={m.like} />
   ));
 
   let k = (event) => {
