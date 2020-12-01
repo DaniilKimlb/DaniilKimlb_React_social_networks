@@ -1,0 +1,32 @@
+.ava img {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+}
+.info {
+  outline: none;
+  padding: 5px;
+  position: absolute;
+  margin: 0 0 0 5px;
+}
+.ava {
+  /* outline: 1px red solid; */
+}
+.but {
+  /* background-color: ivory; */
+  /* outline: none; */
+  /* border: none; */
+  /* background-color: red; */
+}
+.status {
+  margin: 10px 0 0;
+}
+.wrapper {
+  border: 3px solid beige;
+  margin-top: 10px;
+  border-radius: 2%;
+}
+.live {
+  position: absolute;
+  left: 500px;
+}

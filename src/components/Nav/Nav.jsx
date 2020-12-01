@@ -25,6 +25,11 @@ const Nav = (props) => (
           Music
         </NavLink>
       </div>
+      <div className={s.FindUsers}>
+        <NavLink to="/FindUser" activeClassName={s.active}>
+          Find users
+        </NavLink>
+      </div>
       <div className={`${s.item} ${s.setting}`}>
         <NavLink to="/Setting" activeClassName={s.active}>
           Settings
