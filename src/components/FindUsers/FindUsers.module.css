@@ -33,3 +33,6 @@
 .pageSelection {
   font-weight: bold;
 }
+.pageCount {
+  cursor: pointer;
+}

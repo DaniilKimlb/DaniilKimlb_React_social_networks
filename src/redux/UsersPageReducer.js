@@ -3,11 +3,13 @@ const OnFollower = 'OnFollower';
 const SET_USERS = 'SET-USERS';
 const SET_CURRENT_PAGE = 'SET_CURRENT_PAGE';
 const SET_USERS_TOTAL_COUNT = 'SET_USERS_TOTAL_COUNT';
+const SET_IS_FETCHING = 'SET_IS_FETCHING';
 const initialState = {
   users: [],
   pageSize: 4,
   totalUserCount: 0,
-  currentPage: 3,
+  currentPage: 1,
+  isFetching: false,
 };
 const UsersPageReducer = (state = initialState, action) => {
   switch (action.type) {
@@ -37,7 +39,8 @@ const UsersPageReducer = (state = initialState, action) => {
       return { ...state, currentPage: action.currentPage };
     case SET_USERS_TOTAL_COUNT:
       return { ...state, totalUserCount: action.totalUserCount };
-
+    case SET_IS_FETCHING:
+      return { ...state, isFetching: action.isFetching };
     default:
       return state;
   }
@@ -55,5 +58,9 @@ export const setCurrentPageAC = (currentPage) => ({
 export const setUsersTotalCountAC = (totalUserCount) => ({
   type: SET_USERS_TOTAL_COUNT,
   totalUserCount,
+});
+export const isFetchingAC = (isFetching) => ({
+  type: SET_IS_FETCHING,
+  isFetching,
 });
 export default UsersPageReducer;

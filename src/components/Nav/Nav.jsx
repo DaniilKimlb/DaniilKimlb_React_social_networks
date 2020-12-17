@@ -27,7 +27,7 @@ const Nav = (props) => (
       </div>
       <div className={s.FindUsers}>
         <NavLink to="/FindUser" activeClassName={s.active}>
-          Find users
+          Users
         </NavLink>
       </div>
       <div className={`${s.item} ${s.setting}`}>
