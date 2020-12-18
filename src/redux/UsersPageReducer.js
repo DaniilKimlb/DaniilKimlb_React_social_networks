@@ -1,5 +1,5 @@
-const Follower = 'Follower';
-const OnFollower = 'OnFollower';
+const FOLLOWER = 'FOLLOWER';
+const ONFOLLOWER = 'ONFOLLOWER';
 const SET_USERS = 'SET-USERS';
 const SET_CURRENT_PAGE = 'SET_CURRENT_PAGE';
 const SET_USERS_TOTAL_COUNT = 'SET_USERS_TOTAL_COUNT';
@@ -13,7 +13,7 @@ const initialState = {
 };
 const UsersPageReducer = (state = initialState, action) => {
   switch (action.type) {
-    case Follower:
+    case FOLLOWER:
       return {
         ...state,
         users: state.users.map((u) => {
@@ -23,7 +23,7 @@ const UsersPageReducer = (state = initialState, action) => {
           return u;
         }),
       };
-    case OnFollower:
+    case ONFOLLOWER:
       return {
         ...state,
         users: state.users.map((u) => {
@@ -45,21 +45,21 @@ const UsersPageReducer = (state = initialState, action) => {
       return state;
   }
 };
-export const FollowerAC = (userId) => ({ type: Follower, userId });
-export const OnFollowerAC = (userId) => ({
-  type: OnFollower,
+export const follow = (userId) => ({ type: FOLLOWER, userId });
+export const onFollow = (userId) => ({
+  type: ONFOLLOWER,
   userId,
 });
-export const setUsersAC = (users) => ({ type: SET_USERS, users });
-export const setCurrentPageAC = (currentPage) => ({
+export const setUsers = (users) => ({ type: SET_USERS, users });
+export const setCurrentPage = (currentPage) => ({
   type: SET_CURRENT_PAGE,
   currentPage,
 });
-export const setUsersTotalCountAC = (totalUserCount) => ({
+export const setUsersTotalCount = (totalUserCount) => ({
   type: SET_USERS_TOTAL_COUNT,
   totalUserCount,
 });
-export const isFetchingAC = (isFetching) => ({
+export const isPreloader = (isFetching) => ({
   type: SET_IS_FETCHING,
   isFetching,
 });

@@ -3,8 +3,13 @@
   display: flex;
 }
 .avaInfo {
-  height: 20px;
+  height: 90px;
   padding: 10px;
+  border: solid;
+  width: 450px;
+  border-radius: 25px;
+  background: #000;
+  color: #fff;
 }
 .posts {
   color: red;
@@ -20,4 +25,26 @@
   left: 100px;
   bottom: 100px;
   height: 500px;
+  padding-left: 10px;
+  font: 1em braggadocio;
+}
+.avaInfo img {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+}
+.contacts {
+  font-weight: bold;
+}
+.contacts a {
+  text-decoration: none;
+  color: white;
+}
+.contacts {
+  position: absolute;
+  margin: 58px 0 0 0;
+}
+.jobstatus {
+  position: absolute;
+  margin: 38px 0 0 0;
 }

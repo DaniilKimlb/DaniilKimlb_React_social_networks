@@ -2,13 +2,13 @@
 import './App.css';
 import Header from './components/Header/Header';
 import Nav from './components/Nav/Nav';
-import Profile from './components/Profile/Profile';
 import { BrowserRouter, Route } from '../node_modules/react-router-dom';
 import Setting from './components/Settings/Setting';
 import Music from './components/Music/Music';
 import News from './components/News/News';
 import DialogsContainer from './components/Dialogs/DialogContainer';
 import FindUsersContainer from './components/FindUsers/FindUsersContainer';
+import Content from './components/Profile/Profile';
 const App = () => {
   return (
     <BrowserRouter>
@@ -16,7 +16,7 @@ const App = () => {
         <Header />
         <Nav />
         <div class="content">
-          <Route path="/Profile" render={() => <Profile />} />
+          <Route path="/Profile" render={() => <Content />} />
           <Route path="/Messages" render={() => <DialogsContainer />} />
           <Route path="/News" render={() => <News />} />
           <Route path="/Music" render={() => <Music />} />

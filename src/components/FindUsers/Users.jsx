@@ -1,6 +1,7 @@
 import s from './FindUsers.module.css';
 import React from 'react';
 import userPhoto from '../../assets/images/manusericon.png';
+import { NavLink } from 'react-router-dom';
 const Users = (props) => {
   const pagesCount = Math.ceil(props.totalUserCount / props.pageSize);
   const pages = [];
@@ -24,7 +25,14 @@ const Users = (props) => {
       {props.users.map((m) => (
         <div key={m.id} className={s.wrapper}>
           <span className={s.ava}>
-            <img className={s.ava} src={m.photos.small || userPhoto} alt="#" />
+            <NavLink to={'/Profile' + '/' + m.id}>
+              {' '}
+              <img
+                className={s.ava}
+                src={m.photos.small || userPhoto}
+                alt="#"
+              />
+            </NavLink>
             <span className={s.info}>
               <span className={s.name}> {m.name}</span>
               <div className={s.status}>{m.status}</div>

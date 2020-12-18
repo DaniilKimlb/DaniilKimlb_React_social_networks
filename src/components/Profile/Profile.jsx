@@ -1,8 +1,6 @@
-import MyPost from './MyPost/MyPost';
 import MyPostContainer from './MyPost/MyPostContainer';
-import Post from './MyPost/Post/Post';
 import s from './Profile.module.css';
-import ProfileInf from './ProfileInf/Profileinf';
+import ProfileinfContainer from './ProfileInf/ProfileinfContainer';
 
 // console.log(s);
 // const s = {
@@ -11,11 +9,11 @@ import ProfileInf from './ProfileInf/Profileinf';
 //   img: 'Profile_img__y_yQq',
 //   item: 'Profile_item__1boul',
 // };
-
 const Content = (props) => (
   <div className={s.content}>
-    <ProfileInf />
-    <MyPostContainer store={props.store} />
+    <ProfileinfContainer />
+    <MyPostContainer />
   </div>
 );
+
 export default Content;
