@@ -7,7 +7,7 @@ import Setting from './components/Settings/Setting';
 import Music from './components/Music/Music';
 import News from './components/News/News';
 import DialogsContainer from './components/Dialogs/DialogContainer';
-import FindUsersContainer from './components/FindUsers/FindUsersContainer';
+import FindUsersContainer from './components/Users/UsersContainer';
 import Content from './components/Profile/Profile';
 const App = () => {
   return (

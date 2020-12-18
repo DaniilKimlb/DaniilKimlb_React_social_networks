@@ -7,6 +7,7 @@ const Post = (props) => {
       <img
         className={s.img1}
         src="https://klike.net/uploads/posts/2019-03/1551511862_28.jpg"
+        alt="#"
       />
 
       {props.message}

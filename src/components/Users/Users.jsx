@@ -1,4 +1,4 @@
-import s from './FindUsers.module.css';
+import s from './Users.module.css';
 import React from 'react';
 import userPhoto from '../../assets/images/manusericon.png';
 import { NavLink } from 'react-router-dom';

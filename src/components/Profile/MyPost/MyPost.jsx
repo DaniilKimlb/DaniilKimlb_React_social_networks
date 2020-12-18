@@ -31,7 +31,7 @@ const MyPost = (props) => {
           placeholder="Enter text..."
           value={props.pValue}
         />
-        <button onClick={l}>Send</button>
+        <input type="button" onClick={l} value="Send" />
       </div>
       {Messaq}
     </div>

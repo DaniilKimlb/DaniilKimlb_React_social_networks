@@ -27,11 +27,12 @@
   height: 500px;
   padding-left: 10px;
   font: 1em braggadocio;
+  height: 80px;
 }
 .avaInfo img {
   width: 100px;
   height: 100px;
-  border-radius: 50%;
+  border-radius: 20%;
 }
 .contacts {
   font-weight: bold;
