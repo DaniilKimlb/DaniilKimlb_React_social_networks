@@ -1,24 +1,24 @@
 nav {
   grid-area: n;
-  background-color: black;
 }
 
-.item {
+.items {
   padding: 0 10px;
-  font-size: 20px;
+  font: 15px;
   color: #fff;
+  width: auto;
 
   /* outline: 1px solid red; */
   /* pad */
 }
-.item a {
+.items a {
   text-decoration: none;
-  color: #fff;
+  color: #000;
 }
 a.active {
   color: gold;
 }
-.item.setting {
+.items.setting {
   margin: 0 0 25px 0;
   padding: 0;
 }
@@ -33,6 +33,6 @@ a.active {
   justify-content: center;
   align-items: center;
 }
-.FindUsers {
-  margin: 25px 0;
+.item a {
+  width: 50px;
 }

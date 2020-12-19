@@ -1,11 +1,13 @@
-.img {
+.img img {
   height: 140px;
+  width: 710px;
   display: flex;
+  box-shadow: 0px 0px 15px 0px rgba(0, 0, 0, 0.75);
+  border-radius: 20px;
 }
 .avaInfo {
   height: 90px;
   padding: 10px;
-  border: solid;
   width: 450px;
   border-radius: 25px;
   background: #000;
@@ -14,20 +16,35 @@
 .posts {
   color: red;
 }
+.ava {
+  margin-top: 10px;
+  background-color: #fff;
+  width: 170px;
+  border-radius: 20px;
+  box-shadow: 0px 0px 15px 0px rgba(0, 0, 0, 0.75);
+}
 .ava img {
-  height: 100px;
-  width: 100px;
+  padding: 10px;
+  height: 150px;
+  border-radius: 20px;
+
+  width: 150px;
   display: flex;
 }
 .info {
+  border-radius: 20px;
+  background-color: white;
+  box-shadow: 0px 0px 15px 0px rgba(0, 0, 0, 0.75);
   display: flex;
   position: relative;
-  left: 100px;
-  bottom: 100px;
-  height: 500px;
+  /* top: 400px; */
+  left: 200px;
+  bottom: 165px;
+  /* height: 500px; */
   padding-left: 10px;
   font: 1em braggadocio;
-  height: 80px;
+  height: 170px;
+  width: 500px;
 }
 .avaInfo img {
   width: 100px;
@@ -39,13 +56,33 @@
 }
 .contacts a {
   text-decoration: none;
-  color: white;
+  color: color;
+  color: black;
+}
+.contacts a:hover {
+  text-decoration: underline;
+  color: color;
+  color: blue;
 }
 .contacts {
   position: absolute;
-  margin: 58px 0 0 0;
+  /* top: 500px; */
+  left: 400px;
+  top: 40px;
+  width: 50px;
+  margin: 0 100px 0 0;
 }
 .jobstatus {
   position: absolute;
-  margin: 38px 0 0 0;
+  margin: 78px 0 0 0;
+}
+.UserName {
+  padding: 0;
+  margin: 0;
+  height: 15px;
+  font-size: 30px;
+}
+.AboutMe {
+  position: absolute;
+  margin: 40px 0 0 0;
 }
