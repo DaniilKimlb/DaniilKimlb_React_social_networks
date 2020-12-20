@@ -24,14 +24,16 @@ const MyPost = (props) => {
     <div className={s.MyPost}>
       <h3> my post</h3>
       <div className={s.getInfo}>
-        <input
+        <textarea
           required
           type="text"
           onChange={k}
           placeholder="Enter text..."
           value={props.pValue}
-        />
-        <input type="button" onClick={l} value="Send" />
+        ></textarea>
+        <div className={s.but}>
+          <input type="button" onClick={l} value="Send" />
+        </div>
       </div>
       {Messaq}
     </div>

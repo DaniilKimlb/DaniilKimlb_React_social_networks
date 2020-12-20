@@ -1,6 +1,6 @@
 .img img {
   height: 140px;
-  width: 710px;
+  width: 812px;
   display: flex;
   box-shadow: 0px 0px 15px 0px rgba(0, 0, 0, 0.75);
   border-radius: 20px;
@@ -8,7 +8,7 @@
 .avaInfo {
   height: 90px;
   padding: 10px;
-  width: 450px;
+  width: 100%;
   border-radius: 25px;
   background: #000;
   color: #fff;
@@ -16,8 +16,24 @@
 .posts {
   color: red;
 }
+.ava button:focus {
+  outline: none;
+}
+.ava button:hover {
+  background-color: darkgrey;
+  cursor: pointer;
+}
+.ava button {
+  display: flex;
+  border-radius: 25px;
+  background-color: white;
+  border: none;
+  margin: auto;
+  font-weight: bold;
+  width: 120px;
+  font-size: 15px;
+}
 .ava {
-  margin-top: 10px;
   background-color: #fff;
   width: 170px;
   border-radius: 20px;
@@ -27,24 +43,27 @@
   padding: 10px;
   height: 150px;
   border-radius: 20px;
-
+  /* display: flex; */
   width: 150px;
-  display: flex;
+}
+.infoAva {
+  display: inline-flex;
+  margin-top: 10px;
+  width: 100%;
 }
 .info {
+  margin-left: 30px;
   border-radius: 20px;
   background-color: white;
   box-shadow: 0px 0px 15px 0px rgba(0, 0, 0, 0.75);
   display: flex;
-  position: relative;
-  /* top: 400px; */
-  left: 200px;
-  bottom: 165px;
-  /* height: 500px; */
+  /* position: relative; */
+  /* left: 200px; */
+  /* bottom: 165px; */
   padding-left: 10px;
   font: 1em braggadocio;
   height: 170px;
-  width: 500px;
+  width: 600px;
 }
 .avaInfo img {
   width: 100px;
@@ -65,16 +84,12 @@
   color: blue;
 }
 .contacts {
-  position: absolute;
-  /* top: 500px; */
-  left: 400px;
-  top: 40px;
   width: 50px;
-  margin: 0 100px 0 0;
+  margin-top: 190px;
+  margin-left: -740px;
+  padding: 10px;
 }
 .jobstatus {
-  position: absolute;
-  margin: 78px 0 0 0;
 }
 .UserName {
   padding: 0;
@@ -83,6 +98,5 @@
   font-size: 30px;
 }
 .AboutMe {
-  position: absolute;
   margin: 40px 0 0 0;
 }

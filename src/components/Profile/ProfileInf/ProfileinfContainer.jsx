@@ -2,7 +2,7 @@ import * as axios from 'axios';
 import React from 'react';
 import { connect } from 'react-redux';
 import { withRouter } from 'react-router-dom';
-import { setUsersProfile } from '../../../redux/ProfilePageReducer';
+import { setUsersProfile, Contacts } from '../../../redux/ProfilePageReducer';
 import ProfileInf from './Profileinf';
 
 class ProfileinfContainer extends React.Component {
@@ -17,9 +17,21 @@ class ProfileinfContainer extends React.Component {
   }
 
   render() {
-    return <ProfileInf {...this.props} profile={this.props.profile} />;
+    return (
+      <ProfileInf
+        {...this.props}
+        profile={this.props.profile}
+        IsContacts={this.props.IsContacts}
+      />
+    );
   }
 }
 let WithGetRouter = withRouter(ProfileinfContainer);
-const mapStateToProps = (state) => ({ profile: state.ProfilePage.profile });
-export default connect(mapStateToProps, { setUsersProfile })(WithGetRouter);
+const mapStateToProps = (state) => ({
+  profile: state.ProfilePage.profile,
+  IsContacts: state.ProfilePage.IsContacts,
+});
+export default connect(mapStateToProps, {
+  setUsersProfile,
+  Contacts,
+})(WithGetRouter);
