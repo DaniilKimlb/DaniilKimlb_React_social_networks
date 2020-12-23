@@ -27,7 +27,7 @@ const Nav = (props) => (
       </div>
       <hr />
       <div className={s.item + ' ' + s.FindUsers}>
-        <NavLink to="/FindUser" activeClassName={s.active}>
+        <NavLink to="/Users" activeClassName={s.active}>
           Users
         </NavLink>
       </div>

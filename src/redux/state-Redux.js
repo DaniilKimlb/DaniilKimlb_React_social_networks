@@ -1,5 +1,6 @@
 import { createStore } from 'redux';
 import { combineReducers } from 'redux/es/redux';
+import AuthReducer from './authReducer';
 import DialogPageReducer from './DialogPageReducer';
 import NavPageReducer from './NavPageReducer';
 import ProfilePageReducer from './ProfilePageReducer';
@@ -10,6 +11,7 @@ const reducer = combineReducers({
   ProfilePage: ProfilePageReducer,
   NavPage: NavPageReducer,
   UsersPage: UsersPageReducer,
+  Auth: AuthReducer,
 });
 
 const store = createStore(reducer);

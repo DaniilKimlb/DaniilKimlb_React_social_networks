@@ -3,7 +3,7 @@ const ONFOLLOWER = 'ONFOLLOWER';
 const SET_USERS = 'SET-USERS';
 const SET_CURRENT_PAGE = 'SET_CURRENT_PAGE';
 const SET_USERS_TOTAL_COUNT = 'SET_USERS_TOTAL_COUNT';
-const SET_IS_FETCHING = 'SET_IS_FETCHING';
+const IS_FETCHING = 'IS_FETCHING';
 const initialState = {
   users: [],
   pageSize: 4,
@@ -39,7 +39,7 @@ const UsersPageReducer = (state = initialState, action) => {
       return { ...state, currentPage: action.currentPage };
     case SET_USERS_TOTAL_COUNT:
       return { ...state, totalUserCount: action.totalUserCount };
-    case SET_IS_FETCHING:
+    case IS_FETCHING:
       return { ...state, isFetching: action.isFetching };
     default:
       return state;
@@ -60,7 +60,7 @@ export const setUsersTotalCount = (totalUserCount) => ({
   totalUserCount,
 });
 export const isPreloader = (isFetching) => ({
-  type: SET_IS_FETCHING,
+  type: IS_FETCHING,
   isFetching,
 });
 export default UsersPageReducer;

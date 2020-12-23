@@ -39,3 +39,19 @@ header a {
   font-weight: bold;
   color: #000;
 }
+.l {
+  width: 968px;
+  left: 306px;
+  position: absolute;
+  top: 0;
+  height: 50px;
+}
+.login {
+  margin-top: 10px;
+  float: right;
+  font: 20px Luminari, fantasy;
+}
+
+.login a {
+  color: rgba(0, 0, 0, 0.75);
+}

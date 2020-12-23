@@ -9,7 +9,7 @@ class ProfileinfContainer extends React.Component {
   componentDidMount() {
     let usersId = this.props.match.params.usersId;
     if (!usersId) {
-      usersId = 2;
+      usersId = this.props.id;
     }
     axios
       .get('https://social-network.samuraijs.com/api/1.0/profile/' + usersId)
@@ -30,6 +30,7 @@ let WithGetRouter = withRouter(ProfileinfContainer);
 const mapStateToProps = (state) => ({
   profile: state.ProfilePage.profile,
   IsContacts: state.ProfilePage.IsContacts,
+  id: state.Auth.userId,
 });
 export default connect(mapStateToProps, {
   setUsersProfile,

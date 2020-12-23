@@ -1,12 +1,20 @@
 import { NavLink } from 'react-router-dom';
 import Pikachu from '../../assets/images/Pikachu.png';
+import Preloader from '../Preloader/Preloader';
 import s from './style/Header.module.css';
-const Header = () => (
-  <header className={s.header}>
-    <div className={s.Pikachu}>
-      <img src={Pikachu} alt="pc" />
-      <span className={s.NH}>PIKACHU</span>
-    </div>
-  </header>
-);
+const Header = (props) => {
+  return (
+    <header className={s.header}>
+      <div className={s.Pikachu}>
+        <img src={Pikachu} alt="pc" />
+        <span className={s.NH}>PIKACHU</span>
+      </div>
+      <div className={s.l}>
+        <div className={s.login}>
+          {props.IsAuth ? props.login : <NavLink to="/login">Login</NavLink>}
+        </div>
+      </div>
+    </header>
+  );
+};
 export default Header;

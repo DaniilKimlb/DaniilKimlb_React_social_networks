@@ -30,6 +30,7 @@ const MyPost = (props) => {
           onChange={k}
           placeholder="Enter text..."
           value={props.pValue}
+          maxLength="555"
         ></textarea>
         <div className={s.but}>
           <input type="button" onClick={l} value="Send" />

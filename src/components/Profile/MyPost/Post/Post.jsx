@@ -1,7 +1,7 @@
 import s from './Post.module.css';
 
 const Post = (props) => {
-  let a = `  ${props.like} лайков`;
+  let a = `  ${props.like} likes`;
   return (
     <div className={s.posts}>
       <img

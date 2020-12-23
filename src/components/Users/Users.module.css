@@ -12,23 +12,40 @@
 .ava {
   /* outline: 1px red solid; */
 }
-.but {
-  /* background-color: ivory; */
-  /* outline: none; */
-  /* border: none; */
-  /* background-color: red; */
+.but button {
+  position: relative;
+  top: -40px;
+  background-color: #fff;
+  border: none;
+  outline: none;
+  font-weight: bolder;
+  border-radius: 20px;
+}
+.but button:hover {
+  background-color: #6e7f80;
+}
+.name {
+  font-weight: bold;
 }
 .status {
-  margin: 10px 0 0;
+  margin: -5 0 0 5px;
+  font: 15px italic;
 }
 .wrapper {
   border: 3px solid beige;
   margin-top: 10px;
-  border-radius: 2%;
+  border-radius: 16px;
+  box-shadow: 0px 0px 12px -3px rgba(0, 0, 0, 0.75);
+  background-color: white;
+  width: 520px;
+  height: 90px;
+  padding: 10px;
 }
 .live {
-  position: absolute;
-  left: 500px;
+  position: relative;
+  left: 384px;
+  width: 50px;
+  top: -63px;
 }
 .pageSelection {
   font-weight: bold;
