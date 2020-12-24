@@ -1,5 +1,4 @@
 import React from 'react';
-import * as axios from 'axios';
 import { connect } from 'react-redux';
 import {
   follow,
@@ -8,40 +7,31 @@ import {
   setCurrentPage,
   setUsers,
   setUsersTotalCount,
+  isFollowing,
 } from '../../redux/UsersPageReducer';
 import Users from './Users';
 import Preloader from '../Preloader/Preloader';
+import { usersAPI } from '../../API/API';
 // ========================
 class UsersAPIComponent extends React.Component {
   componentDidMount() {
     this.props.isPreloader(true);
-    axios
-      .get(
-        `https://social-network.samuraijs.com/api/1.0/users?count=${this.props.pageSize}&page=${this.props.currentPage}`,
-        {
-          withCredentials: true,
-        }
-      )
-      .then((response) => {
+    usersAPI
+      .getUsers(this.props.pageSize, this.props.currentPage)
+      .then((data) => {
         this.props.isPreloader(false);
-        this.props.setUsers(response.data.items);
-        this.props.setUsersTotalCount(response.data.totalCount);
+        this.props.setUsers(data.items);
+        this.props.setUsersTotalCount(data.totalCount);
       });
   }
   onPageChanged = (pageNumber) => {
     this.props.setCurrentPage(pageNumber);
     this.props.isPreloader(true);
-    axios
-      .get(
-        `https://social-network.samuraijs.com/api/1.0/users?count=${this.props.pageSize}&page=${pageNumber}`,
-        {
-          withCredentials: true,
-        }
-      )
-      .then((response) => {
-        this.props.isPreloader(false);
-        this.props.setUsers(response.data.items);
-      });
+
+    usersAPI.getUsers(this.props.pageSize, pageNumber).then((data) => {
+      this.props.isPreloader(false);
+      this.props.setUsers(data.items);
+    });
   };
   render() {
     return (
@@ -55,6 +45,8 @@ class UsersAPIComponent extends React.Component {
           onFollow={this.props.onFollow}
           follow={this.props.follow}
           onPageChanged={this.onPageChanged}
+          followingInProgress={this.props.followingInProgress}
+          isFollowing={this.props.isFollowing}
         />
       </>
     );
@@ -68,6 +60,7 @@ let mapStateToProps = (state) => {
     totalUserCount: state.UsersPage.totalUserCount,
     currentPage: state.UsersPage.currentPage,
     isFetching: state.UsersPage.isFetching,
+    followingInProgress: state.UsersPage.followingInProgress,
   };
 };
 // let mapDispatchToProps = (dispatch) => {
@@ -100,4 +93,5 @@ export default connect(mapStateToProps, {
   setCurrentPage,
   setUsersTotalCount,
   isPreloader,
+  isFollowing,
 })(UsersAPIComponent);

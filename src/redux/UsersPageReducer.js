@@ -4,12 +4,14 @@ const SET_USERS = 'SET-USERS';
 const SET_CURRENT_PAGE = 'SET_CURRENT_PAGE';
 const SET_USERS_TOTAL_COUNT = 'SET_USERS_TOTAL_COUNT';
 const IS_FETCHING = 'IS_FETCHING';
+const IS_FOLLOWING = 'IS_FOLLOWING';
 const initialState = {
   users: [],
   pageSize: 4,
   totalUserCount: 0,
   currentPage: 1,
   isFetching: false,
+  followingInProgress: [],
 };
 const UsersPageReducer = (state = initialState, action) => {
   switch (action.type) {
@@ -18,7 +20,7 @@ const UsersPageReducer = (state = initialState, action) => {
         ...state,
         users: state.users.map((u) => {
           if (u.id === action.userId) {
-            return { ...u, follower: true };
+            return { ...u, followed: true };
           }
           return u;
         }),
@@ -28,7 +30,7 @@ const UsersPageReducer = (state = initialState, action) => {
         ...state,
         users: state.users.map((u) => {
           if (u.id === action.userId) {
-            return { ...u, follower: false };
+            return { ...u, followed: false };
           }
           return u;
         }),
@@ -41,6 +43,13 @@ const UsersPageReducer = (state = initialState, action) => {
       return { ...state, totalUserCount: action.totalUserCount };
     case IS_FETCHING:
       return { ...state, isFetching: action.isFetching };
+    case IS_FOLLOWING:
+      return {
+        ...state,
+        followingInProgress: action.isFol
+          ? [...state.followingInProgress, action.userId]
+          : state.followingInProgress.filter((id) => id !== action.userId),
+      };
     default:
       return state;
   }
@@ -62,5 +71,10 @@ export const setUsersTotalCount = (totalUserCount) => ({
 export const isPreloader = (isFetching) => ({
   type: IS_FETCHING,
   isFetching,
+});
+export const isFollowing = (isFol, userId) => ({
+  type: IS_FOLLOWING,
+  isFol,
+  userId,
 });
 export default UsersPageReducer;
