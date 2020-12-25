@@ -1,5 +1,6 @@
 import { createStore } from 'redux';
-import { combineReducers } from 'redux/es/redux';
+import thunkMiddleware from 'redux-thunk';
+import { applyMiddleware, combineReducers } from 'redux/es/redux';
 import AuthReducer from './authReducer';
 import DialogPageReducer from './DialogPageReducer';
 import NavPageReducer from './NavPageReducer';
@@ -14,5 +15,5 @@ const reducer = combineReducers({
   Auth: AuthReducer,
 });
 
-const store = createStore(reducer);
+const store = createStore(reducer, applyMiddleware(thunkMiddleware));
 export default store;

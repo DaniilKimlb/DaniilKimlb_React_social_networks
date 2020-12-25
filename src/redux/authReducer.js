@@ -1,3 +1,5 @@
+import { usersAPI } from '../API/API';
+
 const IS_AUTH = 'IS_AUTH';
 const SET_USER_DATA = 'SET_USER_DATA';
 const IS_FETCHING = 'IS_FETCHING';
@@ -24,5 +26,13 @@ export const auth = (auth) => ({
   type: IS_AUTH,
   auth,
 });
+export const authInfo = () => (dispatch) => {
+  usersAPI.Auth().then((data) => {
+    if (data.resultCode === 0) {
+      const { id, login, email } = data.data;
+      dispatch(UserData(id, login, email));
+    }
+  });
+};
 
 export default AuthReducer;

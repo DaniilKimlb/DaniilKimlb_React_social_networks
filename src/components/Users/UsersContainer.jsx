@@ -1,9 +1,10 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import {
+  GetUsers,
   follow,
   isPreloader,
-  onFollow,
+  unfollow,
   setCurrentPage,
   setUsers,
   setUsersTotalCount,
@@ -15,23 +16,11 @@ import { usersAPI } from '../../API/API';
 // ========================
 class UsersAPIComponent extends React.Component {
   componentDidMount() {
-    this.props.isPreloader(true);
-    usersAPI
-      .getUsers(this.props.pageSize, this.props.currentPage)
-      .then((data) => {
-        this.props.isPreloader(false);
-        this.props.setUsers(data.items);
-        this.props.setUsersTotalCount(data.totalCount);
-      });
+    this.props.GetUsers(this.props.pageSize, this.props.currentPage);
   }
   onPageChanged = (pageNumber) => {
     this.props.setCurrentPage(pageNumber);
-    this.props.isPreloader(true);
-
-    usersAPI.getUsers(this.props.pageSize, pageNumber).then((data) => {
-      this.props.isPreloader(false);
-      this.props.setUsers(data.items);
-    });
+    this.props.GetUsers(this.props.pageSize, pageNumber);
   };
   render() {
     return (
@@ -42,7 +31,7 @@ class UsersAPIComponent extends React.Component {
           pageSize={this.props.pageSize}
           currentPage={this.props.currentPage}
           users={this.props.users}
-          onFollow={this.props.onFollow}
+          unfollow={this.props.unfollow}
           follow={this.props.follow}
           onPageChanged={this.onPageChanged}
           followingInProgress={this.props.followingInProgress}
@@ -88,10 +77,11 @@ let mapStateToProps = (state) => {
 
 export default connect(mapStateToProps, {
   follow,
-  onFollow,
+  unfollow,
   setUsers,
   setCurrentPage,
   setUsersTotalCount,
   isPreloader,
   isFollowing,
+  GetUsers,
 })(UsersAPIComponent);

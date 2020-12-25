@@ -1,6 +1,5 @@
 import { NavLink } from 'react-router-dom';
 import Pikachu from '../../assets/images/Pikachu.png';
-import Preloader from '../Preloader/Preloader';
 import s from './style/Header.module.css';
 const Header = (props) => {
   return (

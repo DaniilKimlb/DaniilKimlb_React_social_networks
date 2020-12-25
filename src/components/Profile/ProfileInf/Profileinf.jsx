@@ -1,6 +1,4 @@
 import Preloader from '../../Preloader/Preloader';
-import down from '../../../assets/images/down.png';
-import up from '../../../assets/images/up.png';
 import s from './ProfileInf.module.css';
 import avatarDefoult from '../../../assets/images/manusericon.png';
 const ProfileInf = (props) => {

@@ -1,3 +1,5 @@
+import { usersAPI } from '../API/API';
+
 const GET_POST = 'GET-POST';
 const GET_TEXT = 'GET-TEXT';
 const SET_USERS_PROFILE = 'SET_USERS_PROFILE';
@@ -39,4 +41,10 @@ export const Contacts = (Contacts) => ({
   type: iS_CONTACTS,
   Contacts,
 });
+export const getProfile = (usersId) => (dispatch) => {
+  usersAPI
+    .UsersProfile(usersId)
+    .then((data) => dispatch(setUsersProfile(data)));
+};
+
 export default ProfilePageReducer;

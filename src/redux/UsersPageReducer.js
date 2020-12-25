@@ -1,3 +1,5 @@
+import { usersAPI } from '../API/API';
+
 const FOLLOWER = 'FOLLOWER';
 const ONFOLLOWER = 'ONFOLLOWER';
 const SET_USERS = 'SET-USERS';
@@ -54,8 +56,8 @@ const UsersPageReducer = (state = initialState, action) => {
       return state;
   }
 };
-export const follow = (userId) => ({ type: FOLLOWER, userId });
-export const onFollow = (userId) => ({
+export const followSuccess = (userId) => ({ type: FOLLOWER, userId });
+export const UnfollowSuccess = (userId) => ({
   type: ONFOLLOWER,
   userId,
 });
@@ -77,4 +79,37 @@ export const isFollowing = (isFol, userId) => ({
   isFol,
   userId,
 });
+export const GetUsers = (pageSize, currentPage) => {
+  return (dispatch) => {
+    dispatch(isPreloader(true));
+    usersAPI.getUsers(pageSize, currentPage).then((data) => {
+      dispatch(isPreloader(false));
+      dispatch(setUsers(data.items));
+      dispatch(setUsersTotalCount(data.totalCount));
+    });
+  };
+};
+export const unfollow = (userId) => {
+  return (dispatch) => {
+    dispatch(isFollowing(true, userId));
+    usersAPI.Unfollower(userId).then((data) => {
+      if (data.resultCode === 0) {
+        dispatch(UnfollowSuccess(userId));
+      }
+      dispatch(isFollowing(false, userId));
+    });
+  };
+};
+export const follow = (userId) => {
+  return (dispatch) => {
+    dispatch(isFollowing(true, userId));
+    usersAPI.follower(userId).then((data) => {
+      if (data.resultCode === 0) {
+        dispatch(followSuccess(userId));
+      }
+
+      dispatch(isFollowing(false, userId));
+    });
+  };
+};
 export default UsersPageReducer;
