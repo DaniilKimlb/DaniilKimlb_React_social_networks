@@ -9,6 +9,7 @@ let mapStateToProps = (state) => {
   return {
     DialogPage: state.DialogPage,
     mValue: state.DialogPage.mValue,
+    isAuth: state.Auth.isAuth,
   };
 };
 let mapDispatchToProps = (dispatch) => {

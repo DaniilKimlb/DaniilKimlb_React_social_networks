@@ -1,19 +1,20 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { withRouter } from 'react-router-dom';
-
+import { Redirect, withRouter } from 'react-router-dom';
+import { timer } from '../../../API/API';
 import { Contacts, getProfile } from '../../../redux/ProfilePageReducer';
 import ProfileInf from './Profileinf';
 
 class ProfileinfContainer extends React.Component {
   componentDidMount() {
-    let usersId = this.props.match.params.usersId;
-    if (!usersId) {
-      usersId = this.props.id;
-    }
-    this.props.getProfile(usersId);
+    let userId = this.props.match.params.usersId || this.props.id;
+    this.props.getProfile(userId);
   }
   render() {
+    if (!this.props.isAuth) {
+      return <Redirect to="/Login" />;
+    }
+
     return <ProfileInf {...this.props} />;
   }
 }
@@ -22,6 +23,7 @@ const mapStateToProps = (state) => ({
   profile: state.ProfilePage.profile,
   IsContacts: state.ProfilePage.IsContacts,
   id: state.Auth.userId,
+  isAuth: state.Auth.isAuth,
 });
 export default connect(mapStateToProps, {
   Contacts,
