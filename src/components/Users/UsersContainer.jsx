@@ -13,6 +13,7 @@ import {
 import Users from './Users';
 import Preloader from '../Preloader/Preloader';
 import { usersAPI } from '../../API/API';
+import { withAuthRedirect } from '../../hoc/withAuthRedirect';
 // ========================
 class UsersAPIComponent extends React.Component {
   componentDidMount() {
@@ -41,6 +42,7 @@ class UsersAPIComponent extends React.Component {
     );
   }
 }
+
 // ========================
 let mapStateToProps = (state) => {
   return {
@@ -75,6 +77,7 @@ let mapStateToProps = (state) => {
 //   };
 // };
 
+const withAuth = withAuthRedirect(UsersAPIComponent);
 export default connect(mapStateToProps, {
   follow,
   unfollow,
@@ -84,4 +87,4 @@ export default connect(mapStateToProps, {
   isPreloader,
   isFollowing,
   GetUsers,
-})(UsersAPIComponent);
+})(withAuth);

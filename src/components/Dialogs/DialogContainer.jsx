@@ -4,6 +4,7 @@ import {
   GET_TEXTM_ACTION_CREATE,
 } from '../../redux/DialogPageReducer';
 import Dialogs from './Dialogs';
+import { withAuthRedirect } from '../../hoc/withAuthRedirect';
 import { connect } from 'react-redux';
 let mapStateToProps = (state) => {
   return {
@@ -22,5 +23,6 @@ let mapDispatchToProps = (dispatch) => {
     },
   };
 };
-let DialogsContainer = connect(mapStateToProps, mapDispatchToProps)(Dialogs);
+let withAuth = withAuthRedirect(Dialogs);
+let DialogsContainer = connect(mapStateToProps, mapDispatchToProps)(withAuth);
 export default DialogsContainer;
