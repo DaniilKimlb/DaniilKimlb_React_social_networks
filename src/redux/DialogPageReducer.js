@@ -65,8 +65,8 @@ const DialogPageReducer = (state = initialState, action) => {
       return state;
   }
 };
-export let GET_MESSAGE_ACTION_CREATE = () => ({ type: GET_MESSAGE });
-export let GET_TEXTM_ACTION_CREATE = (text) => ({
+export let sub = () => ({ type: GET_MESSAGE });
+export let getMessageText = (text) => ({
   type: GET_TEXTM,
   text: text,
 });

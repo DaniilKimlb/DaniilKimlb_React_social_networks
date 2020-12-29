@@ -3,7 +3,6 @@ import { usersAPI } from '../API/API';
 const GET_POST = 'GET-POST';
 const GET_TEXT = 'GET-TEXT';
 const SET_USERS_PROFILE = 'SET_USERS_PROFILE';
-const iS_CONTACTS = 'iS_CONTACTS';
 const initialState = {
   MessagePo: [
     { id: 1, message: "It's my life!!!", like: 48 },
@@ -22,8 +21,6 @@ const ProfilePageReducer = (state = initialState, action) => {
       return { ...state, pValue: action.text };
     case SET_USERS_PROFILE:
       return { ...state, profile: action.profile };
-    case iS_CONTACTS:
-      return { ...state, IsContacts: action.Contacts };
     default:
       return state;
   }
@@ -36,10 +33,6 @@ export const GET_TEXT_ACTION_CREATE = (text) => ({
 export const setUsersProfile = (profile) => ({
   type: SET_USERS_PROFILE,
   profile,
-});
-export const Contacts = (Contacts) => ({
-  type: iS_CONTACTS,
-  Contacts,
 });
 export const getProfile = (usersId) => (dispatch) => {
   usersAPI

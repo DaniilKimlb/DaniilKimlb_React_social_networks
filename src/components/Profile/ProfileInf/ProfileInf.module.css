@@ -98,5 +98,13 @@
   font-size: 30px;
 }
 .AboutMe {
-  margin: 40px 0 0 0;
+  margin: 10px 0 0 0;
+}
+.status {
+  margin-top: 20px;
+}
+.status input:focus {
+  outline: none;
+  border: 1px solid;
+  border-radius: 3px;
 }
