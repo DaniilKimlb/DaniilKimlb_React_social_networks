@@ -21,10 +21,13 @@ export const usersAPI = {
   follower(id) {
     return instance.post('follow/' + id).then((response) => response.data);
   },
-  Auth() {
-    return instance.get('auth/me').then((response) => response.data);
-  },
+
   UsersProfile(usersId) {
     return instance.get('profile/' + usersId).then((response) => response.data);
+  },
+};
+export const authAPI = {
+  me() {
+    return instance.get('auth/me').then((response) => response.data);
   },
 };

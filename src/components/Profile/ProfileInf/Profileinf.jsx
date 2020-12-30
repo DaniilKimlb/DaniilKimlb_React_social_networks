@@ -8,16 +8,16 @@ class ProfileInf extends React.Component {
   state = {
     IsContacts: false,
   };
-  ContactTrue() {
+  activateContact = () => {
     this.setState({
       IsContacts: true,
     });
-  }
-  ContactFalse() {
+  };
+  disableContact = () => {
     this.setState({
       IsContacts: false,
     });
-  }
+  };
 
   render() {
     if (!this.props.profile) {
@@ -39,15 +39,11 @@ class ProfileInf extends React.Component {
             />
             {!this.state.IsContacts ? (
               <span>
-                <button onClick={this.ContactTrue.bind(this)}>
-                  show contacts
-                </button>
+                <button onClick={this.activateContact}>show contacts</button>
               </span>
             ) : (
               <span className={s.down}>
-                <button onClick={this.ContactFalse.bind(this)}>
-                  hide contacts
-                </button>
+                <button onClick={this.disableContact}>hide contacts</button>
               </span>
             )}
           </div>
