@@ -2,7 +2,6 @@ import { authAPI, usersAPI } from '../API/API';
 
 const IS_AUTH = 'IS_AUTH';
 const SET_USER_DATA = 'SET_USER_DATA';
-const IS_FETCHING = 'IS_FETCHING';
 const initialState = {
   userId: null,
   login: null,
