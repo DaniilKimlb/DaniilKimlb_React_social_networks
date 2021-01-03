@@ -47,7 +47,11 @@ class ProfileInf extends React.Component {
               </span>
             )}
           </div>
-          <ProfileStatus {...this.props} status={this.props.status} />{' '}
+          <ProfileStatus
+            {...this.props}
+            status={this.props.status}
+            updateStatus={this.props.updateStatus}
+          />{' '}
           <Contact {...this.props} IsContacts={this.state.IsContacts} />
         </div>
       </div>

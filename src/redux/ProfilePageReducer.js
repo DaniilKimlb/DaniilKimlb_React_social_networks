@@ -52,5 +52,12 @@ export const getProfile = (usersId) => (dispatch) => {
 export const getStatus = (usersId) => (dispatch) => {
   profileAPI.getStatus(usersId).then((data) => dispatch(setStatus(data)));
 };
+export const updateStatus = (status) => (dispatch) => {
+  profileAPI.updateStatus(status).then((data) => {
+    if (data.resultCode === 0) {
+      dispatch(setStatus(status));
+    }
+  });
+};
 //
 export default ProfilePageReducer;
