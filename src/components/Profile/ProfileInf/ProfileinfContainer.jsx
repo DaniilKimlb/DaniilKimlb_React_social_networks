@@ -12,9 +12,16 @@ import ProfileInf from './Profileinf';
 
 class ProfileinfContainer extends React.Component {
   componentDidMount() {
-    let userId = this.props.match.params.usersId || this.props.id;
-    this.props.getProfile(userId);
-    this.props.getStatus(userId);
+    this.props.getProfile(this.props.id || this.props.match.params.usersId);
+  }
+  componentDidUpdate(prevProps, prevState) {
+    if (!this.props.match.params.usersId) {
+      this.props.getProfile(this.props.id);
+      this.props.getStatus(this.props.id);
+    } else {
+      this.props.getProfile(this.props.match.params.usersId);
+      this.props.getStatus(this.props.match.params.usersId);
+    }
   }
   render() {
     return (
