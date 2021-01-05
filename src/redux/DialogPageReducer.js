@@ -1,5 +1,4 @@
 const GET_MESSAGE = 'GET-MESSAGE';
-const GET_TEXTM = 'GET-TEXTM';
 const initialState = {
   ItemDialogsInf: [
     {
@@ -47,27 +46,16 @@ const initialState = {
     { id: 2, message: 'ok!!!' },
     { id: 1, message: 'ok!!!' },
   ],
-  mValue: '',
 };
 const DialogPageReducer = (state = initialState, action) => {
   switch (action.type) {
     case GET_MESSAGE: {
-      const m = { id: 1, message: state.mValue };
-      return { ...state, MessageI: [...state.MessageI, m], mValue: '' };
+      const m = { id: 1, message: action.text };
+      return { ...state, MessageI: [...state.MessageI, m] };
     }
-
-    case GET_TEXTM:
-      return {
-        ...state,
-        mValue: action.text,
-      };
     default:
       return state;
   }
 };
-export let sub = () => ({ type: GET_MESSAGE });
-export let getMessageText = (text) => ({
-  type: GET_TEXTM,
-  text: text,
-});
+export let sub = (text) => ({ type: GET_MESSAGE, text });
 export default DialogPageReducer;

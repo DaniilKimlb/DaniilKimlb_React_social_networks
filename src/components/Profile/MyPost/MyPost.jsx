@@ -1,40 +1,25 @@
+import { Field, reduxForm } from 'redux-form';
 import React from '../../../../node_modules/react';
-import {
-  GET_POST_ACTION_CREATE,
-  GET_TEXT_ACTION_CREATE,
-} from '../../../redux/ProfilePageReducer';
 import s from './MyPost.module.css';
 import Post from './Post/Post';
+import RenderDialogForm from './MyPostForm';
+
 const MyPost = (props) => {
   // let createReactElement = React.createRef();
   let state = props.ProfilePage;
-  let l = () => {
-    props.l();
-  };
+
   const Messaq = state.MessagePo.map((m) => (
     <Post message={m.message} key={m.id} like={m.like} />
   ));
-
-  let k = (event) => {
-    let text = event.target.value;
-    props.k(text);
+  const onsubmit = (FormInfo) => {
+    props.l(FormInfo.post);
+    FormInfo.post = '';
   };
-
   return (
     <div className={s.MyPost}>
       <h3> my post</h3>
       <div className={s.getInfo}>
-        <textarea
-          required
-          type="text"
-          onChange={k}
-          placeholder="Enter text..."
-          value={props.pValue}
-          maxLength="86" //"550"
-        ></textarea>
-        <div className={s.but}>
-          <input type="button" onClick={l} value="Send" />
-        </div>
+        <RenderDialogForm onSubmit={onsubmit} />
       </div>
       {Messaq}
     </div>

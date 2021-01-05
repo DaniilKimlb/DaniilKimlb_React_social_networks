@@ -33,5 +33,12 @@ export const authInfo = () => (dispatch) => {
     }
   });
 };
-
+export const loginInfo = (email, password, rememberMe) => (dispatch) => {
+  authAPI.login(email, password, rememberMe).then((data) => {
+    if (data.resultCode === 0) {
+      const { userId } = data.data;
+      dispatch(UserData(userId));
+    }
+  });
+};
 export default AuthReducer;

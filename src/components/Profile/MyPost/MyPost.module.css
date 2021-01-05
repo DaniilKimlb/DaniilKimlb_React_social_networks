@@ -14,13 +14,12 @@
   box-shadow: 0px 0px 15px 0px rgba(0, 0, 0, 0.75);
   overflow: hidden;
 }
-
 .getInfo textarea:focus {
-  height: 80px;
+  /* height: 80px; */
   outline: none;
   /* width: 180px; */
 }
-.getInfo input {
+.getInfo button {
   box-shadow: 0px 0px 15px 0px rgba(0, 0, 0, 0.75);
   background-color: blue;
   border: none;
@@ -30,6 +29,6 @@
   color: #fff;
   margin-right: 5px;
 }
-.getInfo input:focus {
+.getInfo button:focus {
   outline: none;
 }

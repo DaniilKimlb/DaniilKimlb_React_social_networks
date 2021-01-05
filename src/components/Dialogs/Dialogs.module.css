@@ -43,7 +43,7 @@
   border: none;
   /* border-radius: 6%; */
   outline: none;
-  background-color: #fff;
+  background-color: #f7f0f0;
 }
 
 .inp:focus {
@@ -51,12 +51,20 @@
 }
 
 .inp {
-  width: 582px;
+  width: 553px;
 }
-.but:active {
+.but button:active {
   background-color: #c6c6c6;
-  border-radius: 5%;
 }
-.but:focus {
+.but {
+  float: right;
+}
+.but button {
+  background-color: blue;
+  border-radius: 5%;
+  color: #fff;
   border: none;
+  border-radius: 10px;
+  width: 50px;
+  outline: none;
 }

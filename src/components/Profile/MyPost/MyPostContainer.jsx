@@ -1,9 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import {
-  GET_POST_ACTION_CREATE,
-  GET_TEXT_ACTION_CREATE,
-} from '../../../redux/ProfilePageReducer';
+import { compose } from 'redux/es/redux';
+import { GET_POST_ACTION_CREATE } from '../../../redux/ProfilePageReducer';
 import MyPost from './MyPost';
 
 let mapStateToProps = (state) => {
@@ -14,14 +12,9 @@ let mapStateToProps = (state) => {
 };
 let mapDispatchToProps = (dispatch) => {
   return {
-    l: () => {
-      dispatch(GET_POST_ACTION_CREATE());
-    },
-    k: (text) => {
-      dispatch(GET_TEXT_ACTION_CREATE(text));
+    l: (text) => {
+      dispatch(GET_POST_ACTION_CREATE(text));
     },
   };
 };
-let MyPostContainer = connect(mapStateToProps, mapDispatchToProps)(MyPost);
-
-export default MyPostContainer;
+export default compose(connect(mapStateToProps, mapDispatchToProps))(MyPost);
