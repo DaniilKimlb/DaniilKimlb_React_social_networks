@@ -1,5 +1,5 @@
 import React from 'react';
-import RenderDialogForm from './DialogForm';
+import RenderDialogForm from './DialogForm/DialogForm';
 import s from './Dialogs.module.css';
 import ItemDialogs from './ItemDialogs/ItemDialogs';
 import Message from './Message/Message';

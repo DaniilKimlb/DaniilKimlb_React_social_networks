@@ -1,16 +1,20 @@
 import React from 'react';
 import { Field, reduxForm } from 'redux-form';
-import s from './Dialogs.module.css';
-
+import { FormControls } from '../../../Form/FormControls';
+import { maxSymbols, required } from '../../../utility/Validation';
+import s from '../Dialogs.module.css';
+const maxLength = maxSymbols(300);
+const FormInput = FormControls('input');
 const DialogsForm = (props) => {
   return (
     <form onSubmit={props.handleSubmit}>
       <Field
-        component={'input'}
+        component={FormInput}
         className={s.inp}
         type={'text'}
         placeholder="Enter your message..."
         name={'text'}
+        validate={[required, maxLength]}
       />
       <span className={s.but}>
         <button type={'submit'}>send</button>

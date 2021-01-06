@@ -87,6 +87,6 @@ export default compose(
     isPreloader,
     isFollowing,
     GetUsers,
-  }),
-  withAuthRedirect
+  })
+  // withAuthRedirect
 )(UsersAPIComponent);

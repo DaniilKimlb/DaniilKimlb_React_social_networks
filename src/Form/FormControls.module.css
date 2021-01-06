@@ -1,0 +1,9 @@
+.Form_error textarea,
+.Form_error input {
+  outline: none;
+  border: 2px solid #ff0000;
+}
+.error {
+  font: 15px Helvetica;
+  color: red;
+}

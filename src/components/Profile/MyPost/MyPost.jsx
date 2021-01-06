@@ -2,7 +2,7 @@ import { Field, reduxForm } from 'redux-form';
 import React from '../../../../node_modules/react';
 import s from './MyPost.module.css';
 import Post from './Post/Post';
-import RenderDialogForm from './MyPostForm';
+import RenderDialogForm from './MyPostForm/MyPostForm';
 
 const MyPost = (props) => {
   // let createReactElement = React.createRef();
