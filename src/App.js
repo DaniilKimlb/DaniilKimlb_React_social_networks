@@ -1,6 +1,6 @@
 // import logo from './logo.svg';
 import './App.css';
-import Nav from './components/Nav/Nav';
+import Nav from './components/Nav/NavContainer';
 import { BrowserRouter, Route } from '../node_modules/react-router-dom';
 import Setting from './components/Settings/Setting';
 import Music from './components/Music/Music';

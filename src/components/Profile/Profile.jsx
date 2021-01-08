@@ -1,4 +1,3 @@
-import { loginInfo } from '../../redux/authReducer';
 import MyPostContainer from './MyPost/MyPostContainer';
 import s from './Profile.module.css';
 import ProfileinfContainer from './ProfileInf/ProfileinfContainer';
@@ -11,10 +10,6 @@ import ProfileinfContainer from './ProfileInf/ProfileinfContainer';
 //   item: 'Profile_item__1boul',
 // };
 const Content = (props) => {
-  const onSubmit = (formData) => {
-    loginInfo(formData);
-  };
-
   return (
     <div className={s.content}>
       <ProfileinfContainer />

@@ -20,7 +20,8 @@
   outline: none;
 }
 .ava button:hover {
-  background-color: darkgrey;
+  background-color: rgba(198, 198, 198, 0.3);
+
   cursor: pointer;
 }
 .ava button {
