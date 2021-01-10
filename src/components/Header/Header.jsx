@@ -36,7 +36,8 @@ class Header extends React.Component {
                 {this.props.login}{' '}
               </span>
             ) : (
-              <NavLink to="/Login">Login</NavLink>
+              ''
+              // <NavLink to="/Login">Login</NavLink>
             )}
             {this.state.isa && (
               <div className={s.menu}>

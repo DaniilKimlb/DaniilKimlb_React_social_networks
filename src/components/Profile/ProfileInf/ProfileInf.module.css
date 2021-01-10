@@ -52,6 +52,9 @@
   margin-top: 10px;
   width: 100%;
 }
+.info input {
+  font: 1em braggadocio;
+}
 .info {
   margin-left: 30px;
   border-radius: 20px;

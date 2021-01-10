@@ -53,14 +53,16 @@
 .inp {
   width: 100%;
 }
-.but button:active {
-  background-color: #c6c6c6;
+.but button:active,
+.but button:focus,
+.but button:hover {
+  opacity: 0.88;
 }
 .but {
   float: right;
 }
 .but button {
-  background-color: blue;
+  background-color: #5181b8;
   border-radius: 5%;
   color: #fff;
   border: none;

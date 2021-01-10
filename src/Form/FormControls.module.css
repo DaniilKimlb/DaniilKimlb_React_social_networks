@@ -4,6 +4,6 @@
   border: 2px solid #ff0000;
 }
 .error {
-  font: 15px Helvetica;
+  font: 15px 'Roboto', sans-serif;
   color: red;
 }

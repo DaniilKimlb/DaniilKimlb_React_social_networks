@@ -17,7 +17,7 @@ const Login = (props) => {
       {props.isAuth ? (
         <Redirect to="/Profile" />
       ) : (
-        <div className={s.signIn}>
+        <div>
           <RenderLoginForm onSubmit={onSubmit} />
         </div>
       )}

@@ -9,6 +9,7 @@ const LoginForm = (props) => {
     <div className={s.loginPage}>
       <div className={s.form}>
         <span className={s.title}>Login</span>
+        {props.error && <div className={s.error}>{props.error}</div>}
         <form
           component={FormInput}
           className={s.loginForm}
@@ -30,11 +31,13 @@ const LoginForm = (props) => {
           />
           <div className={s.rememberMe}>
             <label>
-              remember me
               <Field component={'input'} type="checkbox" name="rememberMe" />
+              remember me
             </label>
           </div>
-          <button>login</button>
+          <div>
+            <button>login</button>
+          </div>
         </form>
       </div>
     </div>
