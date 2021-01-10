@@ -2,37 +2,42 @@ import React from 'react';
 import { Field, reduxForm } from 'redux-form';
 import { FormControls } from '../../Form/FormControls';
 import { maxSymbols, required } from '../../utility/Validation';
-const maxLength = maxSymbols(25);
+import s from './Login.module.css';
 let FormInput = FormControls('input');
 const LoginForm = (props) => {
   return (
-    <form onSubmit={props.handleSubmit}>
-      <div>
-        <Field
+    <div className={s.loginPage}>
+      <div className={s.form}>
+        <span className={s.title}>Login</span>
+        <form
           component={FormInput}
-          type={'text'}
-          placeholder="login"
-          name={'login'}
-          validate={[required, maxLength]}
-        />
+          className={s.loginForm}
+          onSubmit={props.handleSubmit}
+        >
+          <Field
+            component={FormInput}
+            validate={[required]}
+            type="text"
+            name="email"
+            placeholder="email"
+          />
+          <Field
+            component={FormInput}
+            validate={[required]}
+            name="password"
+            type="password"
+            placeholder="password"
+          />
+          <div className={s.rememberMe}>
+            <label>
+              remember me
+              <Field component={'input'} type="checkbox" name="rememberMe" />
+            </label>
+          </div>
+          <button>login</button>
+        </form>
       </div>
-      <div>
-        <Field
-          component={FormInput}
-          type={'password'}
-          name={'password'}
-          placeholder="password"
-          validate={[required, maxLength]}
-        />
-      </div>
-      <div>
-        <Field component={'input'} type="checkbox" name={'rememberMe'} />
-        remember me
-      </div>
-      <div>
-        <button>Login</button>
-      </div>
-    </form>
+    </div>
   );
 };
 const RenderLoginForm = reduxForm({

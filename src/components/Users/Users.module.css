@@ -25,7 +25,9 @@
 .but button:hover {
   background-color: rgba(198, 198, 198, 0.3);
 }
-.name {
+.name a {
+  text-decoration: none;
+  color: black;
   font-weight: bold;
 }
 .status {
