@@ -57,3 +57,4 @@ export const authAPI = {
       .then((response) => response.data);
   },
 };
+export const delay = (ms) => new Promise((r) => setTimeout(() => r(), ms));

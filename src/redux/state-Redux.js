@@ -7,6 +7,7 @@ import NavPageReducer from './NavPageReducer';
 import ProfilePageReducer from './ProfilePageReducer';
 import UsersPageReducer from './UsersPageReducer';
 import { reducer as formReducer } from 'redux-form';
+import AppReducer from './AppReducer';
 const reducer = combineReducers({
   DialogPage: DialogPageReducer,
   ProfilePage: ProfilePageReducer,
@@ -14,6 +15,7 @@ const reducer = combineReducers({
   UsersPage: UsersPageReducer,
   Auth: AuthReducer,
   form: formReducer,
+  App: AppReducer,
 });
 
 const store = createStore(reducer, applyMiddleware(thunkMiddleware));

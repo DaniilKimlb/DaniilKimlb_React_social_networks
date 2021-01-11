@@ -14,6 +14,6 @@ const mapStateToProps = (state) => ({
 });
 
 export default compose(
-  connect(mapStateToProps),
-  withAuthRedirect
+  withAuthRedirect,
+  connect(mapStateToProps)
 )(NavContainer);

@@ -12,14 +12,12 @@ import ProfileInf from './Profileinf';
 
 class ProfileinfContainer extends React.Component {
   componentDidMount() {
-    setTimeout(() => {
-      let userID = this.props.match.params.usersId;
-      if (!userID) {
-        userID = this.props.id;
-      }
-      this.props.getProfile(userID);
-      this.props.getStatus(userID);
-    }, 1000);
+    let userID = this.props.match.params.usersId;
+    if (!userID) {
+      userID = this.props.id;
+    }
+    this.props.getProfile(userID);
+    this.props.getStatus(userID);
   }
 
   render() {

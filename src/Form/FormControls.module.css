@@ -1,7 +1,7 @@
 .Form_error textarea,
 .Form_error input {
   outline: none;
-  border: 2px solid #ff0000;
+  border: 2px solid red;
 }
 .error {
   font: 15px 'Roboto', sans-serif;
