@@ -27,7 +27,7 @@ const ProfilePageReducer = (state = initialState, action) => {
   }
 };
 // ACTION_CREATE================================================
-export const GET_POST_ACTION_CREATE = (text) => ({ type: GET_POST, text });
+export const getPost = (text) => ({ type: GET_POST, text });
 
 const setUsersProfile = (profile) => ({
   type: SET_USERS_PROFILE,

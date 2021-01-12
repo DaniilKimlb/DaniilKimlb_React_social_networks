@@ -79,7 +79,7 @@ export const isFollowing = (isFol, userId) => ({
   isFol,
   userId,
 });
-export const GetUsers = (pageSize, currentPage) => {
+export const requestUsers = (pageSize, currentPage) => {
   return (dispatch) => {
     dispatch(isPreloader(true));
     usersAPI.getUsers(pageSize, currentPage).then((data) => {

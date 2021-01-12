@@ -11,15 +11,15 @@ const MyPost = (props) => {
   const Messaq = state.MessagePo.map((m) => (
     <Post message={m.message} key={m.id} like={m.like} />
   ));
-  const onsubmit = (FormInfo) => {
-    props.l(FormInfo.post);
+  const onSubmit = (FormInfo) => {
+    props.getPost(FormInfo.post);
     FormInfo.post = '';
   };
   return (
     <div className={s.MyPost}>
       <h3> my post</h3>
       <div className={s.getInfo}>
-        <RenderDialogForm onSubmit={onsubmit} />
+        <RenderDialogForm onSubmit={onSubmit} />
       </div>
       {Messaq}
     </div>

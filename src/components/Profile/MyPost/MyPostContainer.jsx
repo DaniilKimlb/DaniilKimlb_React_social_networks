@@ -1,7 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { compose } from 'redux/es/redux';
-import { GET_POST_ACTION_CREATE } from '../../../redux/ProfilePageReducer';
+import { getPost } from '../../../redux/ProfilePageReducer';
 import MyPost from './MyPost';
 
 let mapStateToProps = (state) => {
@@ -10,11 +10,5 @@ let mapStateToProps = (state) => {
     pValue: state.ProfilePage.pValue,
   };
 };
-let mapDispatchToProps = (dispatch) => {
-  return {
-    l: (text) => {
-      dispatch(GET_POST_ACTION_CREATE(text));
-    },
-  };
-};
-export default compose(connect(mapStateToProps, mapDispatchToProps))(MyPost);
+
+export default compose(connect(mapStateToProps, { getPost }))(MyPost);

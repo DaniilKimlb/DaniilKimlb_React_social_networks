@@ -9,7 +9,7 @@ import ProfileinfContainer from './ProfileInf/ProfileinfContainer';
 //   img: 'Profile_img__y_yQq',
 //   item: 'Profile_item__1boul',
 // };
-const Content = (props) => {
+const Profile = (props) => {
   return (
     <div className={s.content}>
       <ProfileinfContainer />
@@ -18,4 +18,4 @@ const Content = (props) => {
   );
 };
 
-export default Content;
+export default Profile;

@@ -4,6 +4,8 @@
   border-radius: 50%;
 }
 .info {
+  /* font-family: 'Roboto', sans-serif; */
+
   position: absolute;
   outline: none;
   padding: 5px;
@@ -32,7 +34,6 @@
 }
 .status {
   margin: -5 0 0 5px;
-  font: 15p 'Roboto', sans-serif;
 }
 .wrapper {
   border: 3px solid beige;
