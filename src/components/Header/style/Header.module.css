@@ -20,7 +20,8 @@ header {
   position: fixed;
   left: 0;
   right: 0;
-  box-shadow: 0px 0px 7px 0px rgba(0, 0, 0, 0.75);
+  z-index: 1;
+  box-shadow: 0px 0px 3px 0px rgba(0, 0, 0, 0.5);
 }
 .size h1 {
   color: red;
@@ -70,6 +71,7 @@ header a {
   cursor: pointer;
   /* margin: auto auto 0 10px; */
   width: 100%;
+  transition-duration: 0.5s;
 }
 .menu button:focus {
   background-color: #c6c6c6;

@@ -62,6 +62,8 @@
   float: right;
 }
 .but button {
+  transition-duration: 0.5s;
+
   background-color: #5181b8;
   border-radius: 5%;
   color: #fff;

@@ -2,7 +2,7 @@
   height: 140px;
   width: 812px;
   display: flex;
-  box-shadow: 0px 0px 15px 0px rgba(0, 0, 0, 0.75);
+  box-shadow: 0px 0px 3px 0px rgba(0, 0, 0, 0.5);
   border-radius: 20px;
 }
 .avaInfo {
@@ -33,12 +33,13 @@
   font-weight: bold;
   width: 120px;
   font-size: 15px;
+  transition-duration: 0.5s;
 }
 .ava {
   background-color: #fff;
   width: 170px;
   border-radius: 20px;
-  box-shadow: 0px 0px 15px 0px rgba(0, 0, 0, 0.75);
+  box-shadow: 0px 0px 3px 0px rgba(0, 0, 0, 0.5);
 }
 .ava img {
   padding: 10px;
@@ -59,7 +60,8 @@
   margin-left: 30px;
   border-radius: 20px;
   background-color: white;
-  box-shadow: 0px 0px 15px 0px rgba(0, 0, 0, 0.75);
+  box-shadow: 0px 0px 3px 0px rgba(0, 0, 0, 0.5);
+
   display: flex;
   /* position: relative; */
   /* left: 200px; */

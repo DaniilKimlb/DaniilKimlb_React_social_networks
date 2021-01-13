@@ -11,7 +11,8 @@
   padding: 0;
   margin: 0;
   padding: 4px;
-  box-shadow: 0px 0px 15px 0px rgba(0, 0, 0, 0.75);
+  box-shadow: 0px 0px 3px 0px rgba(0, 0, 0, 0.5);
+
   overflow: hidden;
 }
 .getInfo textarea:focus {
@@ -21,7 +22,8 @@
 }
 
 .getInfo button {
-  box-shadow: 0px 0px 15px 0px rgba(0, 0, 0, 0.75);
+  box-shadow: 0px 0px 3px 0px rgba(0, 0, 0, 0.5);
+  transition-duration: 0.5s;
   background-color: #5181b8;
   border: none;
   width: 70px;
