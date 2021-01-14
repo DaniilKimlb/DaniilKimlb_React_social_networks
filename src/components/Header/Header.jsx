@@ -1,60 +1,47 @@
-import React from 'react';
-import { NavLink } from 'react-router-dom';
+import React, { useState } from 'react';
 import Pikachu from '../../assets/images/Pikachu.png';
 import s from './style/Header.module.css';
-class Header extends React.Component {
-  state = {
-    isa: false,
+const Header = (props) => {
+  const [isa, setIsa] = useState(false);
+  const isaTrue = () => {
+    setIsa(true);
   };
-  isaTrue = () => {
-    this.setState({
-      isa: true,
-    });
+  const isaFalse = () => {
+    setIsa(false);
   };
-  isaFalse = () => {
-    this.setState({
-      isa: false,
-    });
-  };
-  render() {
-    return (
-      <header className={s.header}>
-        <div className={s.Pikachu}>
-          <img src={Pikachu} alt="pc" />
-          <span className={s.NH}>PIKACHU</span>
-        </div>
-        <div className={s.l}>
-          <div className={s.login}>
-            {this.props.IsAuth ? (
-              <span
-                onClick={
-                  (this.state.isa && this.isaFalse) ||
-                  (!this.state.isa && this.isaTrue)
-                }
+  return (
+    <header className={s.header}>
+      <div className={s.Pikachu}>
+        <img src={Pikachu} alt="pc" />
+        <span className={s.NH}>PIKACHU</span>
+      </div>
+      <div className={s.l}>
+        <div className={s.login}>
+          {props.IsAuth ? (
+            <span onClick={(isa && isaFalse) || (!isa && isaTrue)}>
+              {' '}
+              {props.login}{' '}
+            </span>
+          ) : (
+            ''
+            // <NavLink to="/Login">Login</NavLink>
+          )}
+          {isa && (
+            <div className={s.menu}>
+              <button
+                onClick={() => {
+                  props.logout();
+                  isaFalse();
+                }}
               >
-                {' '}
-                {this.props.login}{' '}
-              </span>
-            ) : (
-              ''
-              // <NavLink to="/Login">Login</NavLink>
-            )}
-            {this.state.isa && (
-              <div className={s.menu}>
-                <button
-                  onClick={() => {
-                    this.props.logout();
-                    this.isaFalse();
-                  }}
-                >
-                  logout
-                </button>
-              </div>
-            )}
-          </div>
+                logout
+              </button>
+            </div>
+          )}
         </div>
-      </header>
-    );
-  }
-}
+      </div>
+    </header>
+  );
+};
+
 export default Header;
