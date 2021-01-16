@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { connect } from 'react-redux';
 import { withRouter } from 'react-router-dom';
 import { compose } from 'redux/es/redux';
@@ -10,26 +10,24 @@ import {
 } from '../../../redux/ProfilePageReducer';
 import ProfileInf from './Profileinf';
 
-class ProfileinfContainer extends React.Component {
-  componentDidMount() {
-    let userID = this.props.match.params.usersId;
+const ProfileinfContainer = (props) => {
+  let userID = props.match.params.usersId;
+  useEffect(() => {
     if (!userID) {
-      userID = this.props.id;
+      userID = props.id;
     }
-    this.props.getProfile(userID);
-    this.props.getStatus(userID);
-  }
+    props.getProfile(userID);
+    props.getStatus(userID);
+  }, [userID]);
+  return (
+    <ProfileInf
+      {...props}
+      status={props.status}
+      updateStatus={props.updateStatus}
+    />
+  );
+};
 
-  render() {
-    return (
-      <ProfileInf
-        {...this.props}
-        status={this.props.status}
-        updateStatus={this.props.updateStatus}
-      />
-    );
-  }
-}
 const mapStateToProps = (state) => ({
   profile: state.ProfilePage.profile,
   id: state.Auth.userId,

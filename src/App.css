@@ -9,7 +9,7 @@
   /* outline: 1px solid red; */
 }
 body {
-  background: rgba(182, 116, 116, 0.1);
+  background: #edeef0;
 }
 .content {
   grid-area: c;

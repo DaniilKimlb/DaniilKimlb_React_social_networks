@@ -35,7 +35,7 @@ const Nav = (props) => (
           Settings
         </NavLink>
       </div>
-      <FriendsContainer />
+      {/* <FriendsContainer /> */}
     </div>
   </nav>
 );

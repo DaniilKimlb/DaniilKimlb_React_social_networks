@@ -17,7 +17,7 @@ const ProfilePageReducer = (state = initialState, action) => {
   switch (action.type) {
     case GET_POST:
       const m = { id: 3, message: action.text, like: 0 };
-      return { ...state, MessagePo: [...state.MessagePo, m], pValue: '' };
+      return { ...state, MessagePo: [...state.MessagePo, m] };
     case SET_USERS_PROFILE:
       return { ...state, profile: action.profile };
     case SET_STATUS:

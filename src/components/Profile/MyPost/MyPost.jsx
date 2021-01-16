@@ -1,14 +1,13 @@
 import { Field, reduxForm } from 'redux-form';
-import React from '../../../../node_modules/react';
+import React from 'react';
 import s from './MyPost.module.css';
 import Post from './Post/Post';
 import RenderDialogForm from './MyPostForm/MyPostForm';
 
 const MyPost = (props) => {
+  console.log(props);
   // let createReactElement = React.createRef();
-  let state = props.ProfilePage;
-
-  const Messaq = state.MessagePo.map((m) => (
+  const Messaq = props.MessagePo.map((m) => (
     <Post message={m.message} key={m.id} like={m.like} />
   ));
   const onSubmit = (FormInfo) => {

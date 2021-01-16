@@ -22,7 +22,7 @@ const initializedSuccess = () => ({
 //====================================
 export const initializeApp = () => async (dispatch) => {
   await dispatch(authInfo());
-  await delay(1000);
+  await delay(1500);
   dispatch(initializedSuccess());
 };
 export default AppReducer;
