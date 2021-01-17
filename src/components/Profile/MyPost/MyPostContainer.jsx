@@ -7,6 +7,7 @@ import MyPost from './MyPost';
 let mapStateToProps = (state) => {
   return {
     MessagePo: state.ProfilePage.MessagePo,
+    profile: state.ProfilePage.profile,
   };
 };
 

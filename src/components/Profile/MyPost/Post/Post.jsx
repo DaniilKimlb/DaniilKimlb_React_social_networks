@@ -1,16 +1,14 @@
 import s from './Post.module.css';
+import avatarDefault from '../../../../assets/images/manusericon.png';
 
 const Post = (props) => {
   let a = `  ${props.like} likes`;
   return (
     <div className={s.posts}>
-      <img
-        className={s.img1}
-        src="https://klike.net/uploads/posts/2019-03/1551511862_28.jpg"
-        alt="#"
-      />
+      <img className={s.img1} src={avatarDefault} alt="#" />
 
-      {props.message}
+      <div className={s.message}>{props.message}</div>
+
       <div className={s.like} title={a}>
         <label>
           <img

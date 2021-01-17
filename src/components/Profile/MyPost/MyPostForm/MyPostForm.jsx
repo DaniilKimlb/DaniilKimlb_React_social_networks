@@ -13,8 +13,8 @@ const MyPostForm = (props) => {
         component={FormTextArea}
         type={'text'}
         placeholder="Enter text..."
-        maxLength={'87'} //"550"
-        validate={[required, maxLength]}
+        // maxLength={'87'} //"550"
+        validate={[required]}
       />
       <div className={s.but}>
         <button>Send</button>

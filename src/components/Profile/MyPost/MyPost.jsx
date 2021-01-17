@@ -1,5 +1,6 @@
 import { Field, reduxForm } from 'redux-form';
 import React from 'react';
+import avatarDefault from '../../../assets/images/manusericon.png';
 import s from './MyPost.module.css';
 import Post from './Post/Post';
 import RenderDialogForm from './MyPostForm/MyPostForm';
@@ -16,8 +17,8 @@ const MyPost = (props) => {
   };
   return (
     <div className={s.MyPost}>
-      <h3> my post</h3>
       <div className={s.getInfo}>
+        <img src={avatarDefault} alt="#" />
         <RenderDialogForm onSubmit={onSubmit} />
       </div>
       {Messaq}

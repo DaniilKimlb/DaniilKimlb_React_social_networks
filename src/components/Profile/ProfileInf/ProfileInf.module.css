@@ -1,116 +1,73 @@
-.img img {
-  height: 140px;
-  width: 812px;
-  display: flex;
-  box-shadow: 0px 0px 3px 0px rgba(0, 0, 0, 0.5);
-  border-radius: 20px;
+@import url('https://fonts.googleapis.com/css?family=DM+Sans:400,500,700|Source+Sans+Pro:300,400,600,700&display=swap');
+.Profileinf {
+  grid-area: p;
 }
-.avaInfo {
-  height: 90px;
-  padding: 10px;
-  width: 100%;
-  border-radius: 25px;
-  background: #000;
-  color: #fff;
+.title {
+  height: 255px;
+  width: 950px;
+  background-color: #151728;
+  border-radius: 5px;
 }
-.posts {
-  color: red;
-}
-.ava button:focus {
-  outline: none;
-}
-.ava button:hover {
-  background-color: rgba(198, 198, 198, 0.3);
-
-  cursor: pointer;
-}
-.ava button {
-  display: flex;
-  border-radius: 25px;
-  background-color: white;
-  border: none;
-  margin: auto;
-  font-weight: bold;
-  width: 120px;
-  font-size: 15px;
-  transition-duration: 0.5s;
-}
-.ava {
-  background-color: #fff;
-  width: 170px;
-  border-radius: 20px;
-  box-shadow: 0px 0px 3px 0px rgba(0, 0, 0, 0.5);
-}
-.ava img {
-  padding: 10px;
-  height: 150px;
-  border-radius: 20px;
-  /* display: flex; */
+.title .avatar img {
+  position: relative;
+  left: 25px;
   width: 150px;
+  height: 150px;
+  top: -105px;
+  border-radius: 50%;
+  border: 1px solid #000;
 }
-.infoAva {
-  display: inline-flex;
-  margin-top: 10px;
+.title .cap img {
+  height: 190px;
   width: 100%;
-}
-.info input {
-  font: 1em braggadocio;
-}
-.info {
-  margin-left: 30px;
-  border-radius: 20px;
-  background-color: white;
   box-shadow: 0px 0px 3px 0px rgba(0, 0, 0, 0.5);
-
-  display: flex;
-  /* position: relative; */
-  /* left: 200px; */
-  /* bottom: 165px; */
-  padding-left: 10px;
-  font: 1em braggadocio;
-  height: 170px;
-  width: 600px;
+  border-radius: 5px;
 }
-.avaInfo img {
-  width: 100px;
-  height: 100px;
-  border-radius: 20%;
+.name {
+  user-select: none;
+  position: relative;
+  font: 20px 'DM Sans', sans-serif;
+  color: #fff;
+  top: -180px;
+  left: 32px;
 }
-.contacts {
-  font-weight: bold;
-}
-.contacts a {
-  text-decoration: none;
-  color: color;
-  color: black;
-}
-.contacts a:hover {
-  text-decoration: underline;
-  color: color;
-  color: blue;
-}
-.contacts {
-  width: 50px;
-  margin-top: 190px;
-  margin-left: -790px;
+.Introduction {
+  background-color: #151728;
+  width: 310px;
+  height: 150px;
+  margin-top: 20px;
+  border-radius: 5px;
   padding: 10px;
 }
-.jobstatus {
+.Introduction .heading {
+  color: #5c5e6e;
+  font: 20px 'DM Sans', sans-serif;
 }
-.UserName {
-  padding: 0;
-  margin: 0;
-  height: 15px;
-  font-size: 30px;
+.Introduction .status {
+  color: #1771d6;
+  font: 15px 'DM Sans', sans-serif;
 }
-.AboutMe {
-  margin: 10px 0 0 0;
+.Introduction .status .preStatus {
+  color: #c3c5d5;
 }
-.status {
-  margin-top: 20px;
-}
-.status input:focus {
+.Introduction .status input {
+  background-color: #151728;
+  color: #1771d6;
+
   outline: none;
-  border: 1px solid;
-  border-radius: 3px;
+  border: none;
+  font: 15px 'DM Sans', sans-serif;
+}
+.contact {
+  background-color: #151728;
+  width: 310px;
+  border-radius: 5px;
+  padding: 10px;
+  margin-top: 20px;
+
+  height: 260px;
+}
+.contact .heading {
+  color: #5c5e6e;
+  font: 20px 'DM Sans', sans-serif;
 }

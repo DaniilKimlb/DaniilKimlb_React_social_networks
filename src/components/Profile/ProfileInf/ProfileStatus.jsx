@@ -20,9 +20,11 @@ const ProfileStatus = (props) => {
 
   return (
     <div className={s.info}>
-      <div className={s.ia}>
-        <div className={s.UserName}>{props.profile.fullName}</div>
+      <div className={s.Introduction}>
+        <div className={s.heading}>Introduction</div>
+
         <div className={s.status}>
+          <span className={s.preStatus}>Status: </span>
           {!editMode && (
             <span onClick={activateEditMode}>{props.status || '...'}</span>
           )}
@@ -34,12 +36,25 @@ const ProfileStatus = (props) => {
               value={status}
             />
           )}
+          {props.profile.aboutMe && (
+            <div>
+              <span className={s.preStatus}>About me: </span>
+
+              {props.profile.aboutMe}
+            </div>
+          )}
+          <div>
+            {props.profile.lookingForAJob
+              ? 'Looking for job'
+              : ' Not looking for a job'}
+            <br />
+            {props.profile.lookingForAJobDescription
+              ? props.profile.lookingForAJobDescription
+              : ' '}
+          </div>
         </div>
-        <div className={s.AboutMe}>
-          <hr />
-          {props.profile.aboutMe || " didn't tell"}
-          <hr />
-        </div>
+      </div>
+      {/* 
         <div className={s.jobstatus}>
           {props.profile.lookingForAJob
             ? 'Looking for job'
@@ -49,7 +64,7 @@ const ProfileStatus = (props) => {
             ? props.profile.lookingForAJobDescription
             : ' '}
         </div>
-      </div>
+      </div> */}
     </div>
   );
 };

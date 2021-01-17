@@ -1,38 +1,80 @@
-nav {
-  grid-area: n;
-}
+@import url("https://fonts.googleapis.com/css?family=DM+Sans:400,500,700|Source+Sans+Pro:300,400,600,700&display=swap");
+nav
+{
+    width: 250px;
+    height: 100%;
+position: fixed;
+    background-color: #151728;
+  z-index: 1;
+    grid-area: n;
 
-.items {
-  padding: 0 10px;
-  font: 15px;
-  color: #fff;
-  width: auto;
+    /*position: fixed;*/
+    /*left: 208px;*/
+}
+.title{
+  font-family: "DM Sans", sans-serif;
+  padding: 20px 70px ;
+}
+.items
+{
+    font: 15px;
 
-  /* outline: 1px solid red; */
-  /* pad */
+    width: auto;
+    padding: 0 10px;
+
+    color: #fff;
+
+    /* outline: 1px solid red; */
+    /* pad */
 }
-.items a {
-  text-decoration: none;
-  color: #000;
+.items a
+{
+    font-family: "Source Sans Pro", sans-serif;
+
+    text-decoration: none;
+
+    color: #000;
 }
-a.active {
-  color: gold;
+a.active
+{
+    color: gold;
 }
-.items.setting {
-  margin: 0 0 25px 0;
-  padding: 0;
+.items.setting
+{
+    margin: 0 0 25px 0;
+    padding: 0;
 }
-.Friend .fr {
-  border-radius: 50%;
-  background-color: blue;
-  outline: solid;
-  width: 30px;
-  height: 30px;
-  font-size: 10px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
+.Friend .fr
+{
+    font-size: 10px;
+
+    display: flex;
+
+    width: 30px;
+    height: 30px;
+
+    border-radius: 50%;
+    outline: solid;
+    background-color: blue;
+
+    justify-content: center;
+    align-items: center;
 }
-.item a {
-  width: 50px;
+.item{
+
+  padding: 2px 30px;
+}
+.itemMenu{
+  padding: 2px 30px;
+  color: #5C5E6E;
+}
+.item a
+{
+  color: #9C9CAB;
+    width: 50px;
+ font:14px "DM Sans", sans-serif; 
+
+}
+.item a:hover{
+color:#fff;
 }

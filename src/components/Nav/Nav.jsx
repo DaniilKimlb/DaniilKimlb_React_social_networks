@@ -1,9 +1,14 @@
 import { NavLink } from 'react-router-dom';
-import FriendsContainer from './Friends/FriendContainer';
+import Pikachu from '../../assets/images/Pikachu.png';
+import FavouriteContainer from './Favourite/FavouriteContainer';
 import s from './style/Nav.module.css';
 const Nav = (props) => (
   <nav className={s.nav}>
     <div className={s.items}>
+      <div className={s.title}>
+        <span className={s.NH}>PIKACHU</span>
+      </div>
+      <div className={`${s.itemMenu}`}>MENU</div>
       <div className={s.item}>
         <NavLink to="/Profile" activeClassName={s.active}>
           Profile
@@ -24,18 +29,17 @@ const Nav = (props) => (
           Music
         </NavLink>
       </div>
-      <hr />
       <div className={s.item + ' ' + s.FindUsers}>
         <NavLink to="/Users" activeClassName={s.active}>
           Users
         </NavLink>
       </div>
-      <div className={`${s.items} ${s.setting}`}>
+      <div className={`${s.item} ${s.setting}`}>
         <NavLink to="/Setting" activeClassName={s.active}>
           Settings
         </NavLink>
       </div>
-      {/* <FriendsContainer /> */}
+      <FavouriteContainer />
     </div>
   </nav>
 );

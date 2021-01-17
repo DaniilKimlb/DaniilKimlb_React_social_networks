@@ -1,7 +1,8 @@
 import React, { useState } from 'react';
 import Preloader from '../../Preloader/Preloader';
 import s from './ProfileInf.module.css';
-import avatarDefoult from '../../../assets/images/manusericon.png';
+import cap from '../../../assets/images/5.png';
+import avatarDefault from '../../../assets/images/manusericon.png';
 import ProfileStatus from './ProfileStatus';
 import Contact from './Contact';
 const ProfileInf = (props) => {
@@ -10,33 +11,18 @@ const ProfileInf = (props) => {
     return <Preloader />;
   }
   return (
-    <div>
-      <div className={s.img}>
-        <img
-          src="https://p.bigstockphoto.com/GeFvQkBbSLaMdpKXF1Zv_bigstock-Aerial-View-Of-Blue-Lakes-And--227291596.jpg"
-          alt="#"
-        />
+    <div className={s.ProfileInf}>
+      <div className={s.title}>
+        <span className={s.cap}>
+          <img src={cap} alt="#" />
+        </span>
+        <span className={s.avatar}>
+          <img src={props.profile.photos.large || avatarDefault} alt="#" />
+        </span>
+        <span className={s.name}>{props.profile.fullName}</span>
       </div>
-      <div className={s.infoAva}>
-        <div className={s.ava}>
-          <img src={props.profile.photos.large || avatarDefoult} alt="#" />
-          {!IsContacts ? (
-            <span>
-              <button onClick={() => SetIsContact(true)}>show contacts</button>
-            </span>
-          ) : (
-            <span className={s.down}>
-              <button onClick={() => SetIsContact(false)}>hide contacts</button>
-            </span>
-          )}
-        </div>
-        <ProfileStatus
-          {...props}
-          status={props.status}
-          updateStatus={props.updateStatus}
-        />{' '}
-        <Contact {...props} IsContacts={IsContacts} />
-      </div>
+      <ProfileStatus {...props} />
+      <Contact {...props} />
     </div>
   );
 };

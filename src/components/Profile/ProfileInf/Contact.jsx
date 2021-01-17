@@ -1,7 +1,8 @@
 import s from './ProfileInf.module.css';
 const Contact = (props) => {
   return (
-    <>
+    <div className={s.contact}>
+      <div className={s.heading}>Contact</div>
       {props.IsContacts && (
         <div className={s.contacts}>
           {props.profile.contacts.facebook ? (
@@ -48,7 +49,7 @@ const Contact = (props) => {
           )}
         </div>
       )}
-    </>
+    </div>
   );
 };
 export default Contact;

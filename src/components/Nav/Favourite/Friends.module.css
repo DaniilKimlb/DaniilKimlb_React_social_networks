@@ -1,0 +1,29 @@
+.Favorite {
+  outline: none;
+  color: #9c9cab;
+  font: 14px 'DM Sans', sans-serif;
+  width: 0;
+}
+.FavoriteNav {
+  margin-top: 60px;
+}
+.yourFavorite {
+  padding: 5px 30px;
+  color: #5c5e6e;
+  width: 127px;
+}
+.Font {
+  display: flex;
+  padding: 5px 30px;
+}
+.Font img {
+  height: 20px;
+}
+.Font span {
+  margin-left: 10px;
+}
+.Font:hover {
+  cursor: pointer;
+
+  color: #fff;
+}

@@ -1,17 +1,18 @@
 .wrapper {
   display: grid;
   grid-template-columns: 150px 1fr;
-  margin: 0 300px 0 300px;
+  margin: 0 150px 0 150px;
   grid-template-rows: 50px 2fr;
   /* width: 1200px; */
-  grid-gap: 10px;
-  grid-template-areas: 'h h' 'n c';
+  grid-gap: 30px;
+  grid-template-areas: 'n h' 'n c';
   /* outline: 1px solid red; */
 }
 body {
-  background: #edeef0;
+  background: #373e57;
 }
 .content {
+  margin-left: 88px;
   grid-area: c;
-  /* background-color: #fff; */
+  display: flex;
 }
