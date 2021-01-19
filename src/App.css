@@ -4,7 +4,7 @@
   margin: 0 150px 0 150px;
   grid-template-rows: 50px 2fr;
   /* width: 1200px; */
-  grid-gap: 30px;
+  /*grid-gap: 30px;*/
   grid-template-areas: 'n h' 'n c';
   /* outline: 1px solid red; */
 }
@@ -12,7 +12,7 @@ body {
   background: #373e57;
 }
 .content {
-  margin-left: 88px;
+  margin:20px 120px;
   grid-area: c;
   display: flex;
 }
