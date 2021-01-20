@@ -4,6 +4,7 @@ const GET_POST = 'GET-POST';
 const GET_TEXT = 'GET-TEXT';
 const SET_USERS_PROFILE = 'SET_USERS_PROFILE';
 const SET_STATUS = 'SET_STATUS';
+const SET_IS_PROFILE = 'SET_IS_PROFILE';
 const initialState = {
   MessagePo: [
     { id: 1, message: "It's my life!!!", like: 48 },
@@ -37,6 +38,7 @@ const setStatus = (status) => ({
   type: SET_STATUS,
   status,
 });
+
 // Thunk================================================================
 export const getProfile = (usersId) => (dispatch) => {
   profileAPI
