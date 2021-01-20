@@ -3,6 +3,7 @@
   grid-area: p;
 }
 .title {
+  user-select: none;
   height: 255px;
   width: 950px;
   background-color: #151728;
@@ -24,7 +25,6 @@
   border-radius: 5px;
 }
 .name {
-  user-select: none;
   position: relative;
   font: 20px 'DM Sans', sans-serif;
   color: #fff;
@@ -70,4 +70,20 @@
 .contact .heading {
   color: #5c5e6e;
   font: 20px 'DM Sans', sans-serif;
+}
+.contact li {
+  list-style: none;
+  position: relative;
+  left: -40px;
+}
+.contacts {
+  margin: -20px 0 0 0;
+}
+.contacts a {
+  color: #c3c5d5;
+  font: 15px 'DM Sans', sans-serif;
+  text-decoration: none;
+}
+.contacts a:hover {
+  color: #5c5e6e;
 }

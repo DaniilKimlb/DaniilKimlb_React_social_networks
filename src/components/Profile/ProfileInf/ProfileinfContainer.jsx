@@ -3,6 +3,7 @@ import { connect } from 'react-redux';
 import { withRouter } from 'react-router-dom';
 import { compose } from 'redux/es/redux';
 import { withAuthRedirect } from '../../../hoc/withAuthRedirect';
+import { withPreloader } from '../../../hoc/withPreloader';
 import {
   getProfile,
   getStatus,
@@ -32,6 +33,7 @@ const mapStateToProps = (state) => ({
   profile: state.ProfilePage.profile,
   id: state.Auth.userId,
   status: state.ProfilePage.status,
+  isProfile: state.ProfilePage.isProfile,
 });
 export default compose(
   connect(mapStateToProps, {
