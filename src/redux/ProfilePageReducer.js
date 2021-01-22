@@ -38,20 +38,19 @@ const setStatus = (status) => ({
   status,
 });
 // Thunk================================================================
-export const getProfile = (usersId) => (dispatch) => {
-  profileAPI
-    .UsersProfile(usersId)
-    .then((data) => dispatch(setUsersProfile(data)));
+export const getProfile = (usersId) => async (dispatch) => {
+  const data = await profileAPI.UsersProfile(usersId);
+  dispatch(setUsersProfile(data));
 };
-export const getStatus = (usersId) => (dispatch) => {
-  profileAPI.getStatus(usersId).then((data) => dispatch(setStatus(data)));
+export const getStatus = (usersId) => async (dispatch) => {
+  const data = await profileAPI.getStatus(usersId);
+  dispatch(setStatus(data));
 };
-export const updateStatus = (status) => (dispatch) => {
-  profileAPI.updateStatus(status).then((data) => {
-    if (data.resultCode === 0) {
-      dispatch(setStatus(status));
-    }
-  });
+export const updateStatus = (status) => async (dispatch) => {
+  const data = await profileAPI.updateStatus(status);
+  if (data.resultCode === 0) {
+    dispatch(setStatus(status));
+  }
 };
 //
 export default ProfilePageReducer;

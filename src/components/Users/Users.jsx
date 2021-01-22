@@ -1,31 +1,17 @@
 import s from './Users.module.css';
 import React from 'react';
 import userPhoto from '../../assets/images/manusericon.png';
-import * as axios from 'axios';
 import { NavLink } from 'react-router-dom';
-import { usersAPI } from '../../API/API';
+import PageCount from './PageCount';
 const Users = (props) => {
-  const pagesCount = Math.ceil(props.totalUserCount / props.pageSize);
-  const pages = [];
-  for (let i = 1; i < pagesCount + 1; i++) {
-    pages.push(i);
-  }
   return (
     <div>
-      <div className={s.pageCount}>
-        {pages.map((p) => {
-          return (
-            <span
-              className={` ${props.currentPage == p && s.pageSelection}`}
-              onClick={() => {
-                return props.onPageChanged(p);
-              }}
-            >
-              {p}
-            </span>
-          );
-        })}
-      </div>
+      <PageCount
+        totalUserCount={props.totalUserCount}
+        pageSize={props.pageSize}
+        currentPage={props.currentPage}
+        onPageChanged={props.onPageChanged}
+      />
       {props.users.map((m) => (
         <div key={m.id} className={s.wrapper}>
           <span className={s.ava}>

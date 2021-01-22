@@ -8,9 +8,9 @@ import RenderDialogForm from './MyPostForm/MyPostForm';
 const MyPost = (props) => {
   console.log(props);
   // let createReactElement = React.createRef();
-  const Messaq = props.MessagePo.map((m) => (
-    <Post message={m.message} key={m.id} like={m.like} />
-  ));
+  const Messaq = [...props.MessagePo]
+    .reverse()
+    .map((m) => <Post message={m.message} key={m.id} like={m.like} />);
   const onSubmit = (FormInfo) => {
     props.getPost(FormInfo.post);
     FormInfo.post = '';

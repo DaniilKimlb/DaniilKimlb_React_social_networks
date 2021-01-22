@@ -36,39 +36,24 @@ const ProfileStatus = (props) => {
               value={status}
             />
           )}
-          {props.profile.aboutMe && (
+          {props.aboutMe && (
             <div>
               <span className={s.preStatus}>About me: </span>
-
-              {props.profile.aboutMe}
+              {props.aboutMe}
             </div>
           )}
           <div>
-            {props.profile.lookingForAJob
+            {props.lookingForAJob
               ? 'Looking for job'
               : ' Not looking for a job'}
             <br />
-            {props.profile.lookingForAJobDescription
-              ? props.profile.lookingForAJobDescription
+            {props.lookingForAJobDescription
+              ? props.lookingForAJobDescription
               : ' '}
           </div>
         </div>
       </div>
-      {/* 
-        <div className={s.jobstatus}>
-          {props.profile.lookingForAJob
-            ? 'Looking for job'
-            : ' Not looking for a job'}
-          <br />
-          {props.profile.lookingForAJobDescription
-            ? props.profile.lookingForAJobDescription
-            : ' '}
-        </div>
-      </div> */}
     </div>
   );
 };
-
 export default ProfileStatus;
-
-// ==============

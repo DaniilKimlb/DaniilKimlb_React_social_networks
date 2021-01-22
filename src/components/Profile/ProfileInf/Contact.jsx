@@ -3,52 +3,53 @@ const Contact = (props) => {
   return (
     <div className={s.contact}>
       <div className={s.heading}>Contact</div>
-      {props.IsContacts && (
+      <ul>
         <div className={s.contacts}>
-          {props.profile.contacts.facebook ? (
-            <a
-              href={'https://' + props.profile.contacts.facebook}
-              target="_blanc"
-            >
-              facebook{' '}
-            </a>
+          {props.contacts.facebook ? (
+            <li>
+              <a href={'https://' + props.contacts.facebook} target="_blanc">
+                facebook{' '}
+              </a>
+            </li>
           ) : (
             ' '
           )}
-          {props.profile.contacts.vk ? (
-            <a href={'https://' + props.profile.contacts.vk} target="_blanc">
-              vk{' '}
-            </a>
+          {props.contacts.vk ? (
+            <li>
+              <a href={'https://' + props.contacts.vk} target="_blanc">
+                vk{' '}
+              </a>
+            </li>
           ) : (
             ' '
           )}
-          {props.profile.contacts.twitter ? (
-            <a href={props.profile.contacts.twitter}>twitter </a>
+          {props.contacts.twitter ? (
+            <li>
+              <a href={props.contacts.twitter}>twitter </a>
+            </li>
           ) : (
             ' '
           )}
-          {props.profile.contacts.instagram ? (
-            <a
-              href={'https://' + props.profile.contacts.instagram}
-              target="_blanc"
-            >
-              instagram{' '}
-            </a>
+          {props.contacts.instagram ? (
+            <li>
+              <a href={'https://' + props.contacts.instagram} target="_blanc">
+                instagram{' '}
+              </a>
+            </li>
           ) : (
             ' '
           )}
-          {props.profile.contacts.github ? (
-            <a
-              href={'https://' + props.profile.contacts.github}
-              target="_blanc"
-            >
-              github{' '}
-            </a>
+          {props.contacts.github ? (
+            <li>
+              <a href={'https://' + props.contacts.github} target="_blanc">
+                github{' '}
+              </a>
+            </li>
           ) : (
             ' '
           )}
         </div>
-      )}
+      </ul>
     </div>
   );
 };

@@ -1,6 +1,6 @@
 import React from 'react';
 import { Field, reduxForm } from 'redux-form';
-import { FormControls } from '../../Form/FormControls';
+import { createField, FormControls } from '../../Form/FormControls';
 import { maxSymbols, required } from '../../utility/Validation';
 import s from './Login.module.css';
 let FormInput = FormControls('input');
@@ -15,23 +15,13 @@ const LoginForm = (props) => {
           className={s.loginForm}
           onSubmit={props.handleSubmit}
         >
-          <Field
-            component={FormInput}
-            validate={[required]}
-            type="text"
-            name="email"
-            placeholder="email"
-          />
-          <Field
-            component={FormInput}
-            validate={[required]}
-            name="password"
-            type="password"
-            placeholder="password"
-          />
+          {createField(FormInput, 'email', 'text', 'email', [required])}
+          {createField(FormInput, 'password', 'password', 'password', [
+            required,
+          ])}
           <div className={s.rememberMe}>
             <label>
-              <Field component={'input'} type="checkbox" name="rememberMe" />
+              {createField('input', 'rememberMe', 'checkbox')}
               remember me
             </label>
           </div>

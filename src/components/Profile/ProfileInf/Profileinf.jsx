@@ -6,7 +6,6 @@ import avatarDefault from '../../../assets/images/manusericon.png';
 import ProfileStatus from './ProfileStatus';
 import Contact from './Contact';
 const ProfileInf = (props) => {
-  const [IsContacts, SetIsContact] = useState(false);
   if (!props.profile) {
     return <Preloader />;
   }
@@ -21,8 +20,12 @@ const ProfileInf = (props) => {
         </span>
         <span className={s.name}>{props.profile.fullName}</span>
       </div>
-      <ProfileStatus {...props} />
-      <Contact {...props} />
+      <ProfileStatus
+        status={props.status}
+        aboutMe={props.profile.aboutMe}
+        lookingForAJob={props.profile.lookingForAJobDescription}
+      />
+      <Contact contacts={props.profile.contacts} />
     </div>
   );
 };
