@@ -3,6 +3,7 @@
  max-width: 1200px;
   display: grid;
   grid-template-columns: 250px 1fr;
+  grid-template-columns: 150px 1fr;
   margin: 0 150px ;
   grid-template-rows: 50px 2fr;
   /* width: 1200px; */
@@ -10,12 +11,19 @@
   margin: 0 auto;
   grid-template-areas: 'n h' 'n c';
   /* outline: 1px solid red; */
+  grid-template-areas: 'n h' 'n c';
+  /* outline: 1px solid red; */
 }
-
+@media max-width: 1200px{
+  .wrapper{
+    width: 800px; 
+  }
+}
 body {
   background: #373e57;
 }
 .content {
   margin: 20px;
+  margin:20px 120px;
   grid-area: c;
   display: flex;}

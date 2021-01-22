@@ -9,7 +9,7 @@ const Post = (props) => {
 
       <div className={s.message}>{props.message}</div>
 
-      <div className={s.like} title={a}>
+      <div   className={s.like} title={a}>
         <label>
           <img
             className={s.img2}

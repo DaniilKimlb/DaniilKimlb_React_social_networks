@@ -5,43 +5,52 @@ const Contact = (props) => {
       <div className={s.heading}>Contact</div>
       <ul>
         <div className={s.contacts}>
-          {props.contacts.facebook ? (
+          {props.profile.contacts.facebook ? (
             <li>
-              <a href={'https://' + props.contacts.facebook} target="_blanc">
+              <a
+                href={'https://' + props.profile.contacts.facebook}
+                target="_blanc"
+              >
                 facebook{' '}
               </a>
             </li>
           ) : (
             ' '
           )}
-          {props.contacts.vk ? (
+          {props.profile.contacts.vk ? (
             <li>
-              <a href={'https://' + props.contacts.vk} target="_blanc">
+              <a href={'https://' + props.profile.contacts.vk} target="_blanc">
                 vk{' '}
               </a>
             </li>
           ) : (
             ' '
           )}
-          {props.contacts.twitter ? (
+          {props.profile.contacts.twitter ? (
             <li>
-              <a href={props.contacts.twitter}>twitter </a>
+              <a href={props.profile.contacts.twitter}>twitter </a>
             </li>
           ) : (
             ' '
           )}
-          {props.contacts.instagram ? (
+          {props.profile.contacts.instagram ? (
             <li>
-              <a href={'https://' + props.contacts.instagram} target="_blanc">
+              <a
+                href={'https://' + props.profile.contacts.instagram}
+                target="_blanc"
+              >
                 instagram{' '}
               </a>
             </li>
           ) : (
             ' '
           )}
-          {props.contacts.github ? (
+          {props.profile.contacts.github ? (
             <li>
-              <a href={'https://' + props.contacts.github} target="_blanc">
+              <a
+                href={'https://' + props.profile.contacts.github}
+                target="_blanc"
+              >
                 github{' '}
               </a>
             </li>

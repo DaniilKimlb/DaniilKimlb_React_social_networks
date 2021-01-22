@@ -4,7 +4,7 @@ import avatarDefault from '../../../assets/images/manusericon.png';
 import s from './MyPost.module.css';
 import Post from './Post/Post';
 import RenderDialogForm from './MyPostForm/MyPostForm';
-
+import Preloader from '../../Preloader/Preloader';
 const MyPost = (props) => {
   console.log(props);
   // let createReactElement = React.createRef();
