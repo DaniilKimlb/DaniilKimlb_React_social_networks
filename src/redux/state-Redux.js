@@ -1,6 +1,6 @@
 import { createStore } from 'redux';
 import thunkMiddleware from 'redux-thunk';
-import { applyMiddleware, combineReducers } from 'redux/es/redux';
+import { applyMiddleware, combineReducers, compose } from 'redux/es/redux';
 import AuthReducer from './authReducer';
 import DialogPageReducer from './DialogPageReducer';
 import NavPageReducer from './NavPageReducer';
@@ -17,7 +17,10 @@ const reducer = combineReducers({
   form: formReducer,
   App: AppReducer,
 });
-
-const store = createStore(reducer, applyMiddleware(thunkMiddleware));
+const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
+const store = createStore(
+  reducer,
+  composeEnhancers(applyMiddleware(thunkMiddleware))
+);
 window.store = store;
 export default store;

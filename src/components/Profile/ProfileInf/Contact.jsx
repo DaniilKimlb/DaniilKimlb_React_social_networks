@@ -5,10 +5,10 @@ const Contact = (props) => {
       <div className={s.heading}>Contact</div>
       <ul>
         <div className={s.contacts}>
-          {props.profile.contacts.facebook ? (
+          {props.contacts.facebook ? (
             <li>
               <a
-                href={'https://' + props.profile.contacts.facebook}
+                href={'https://' + props.contacts.facebook}
                 target="_blanc"
               >
                 facebook{' '}
@@ -17,26 +17,26 @@ const Contact = (props) => {
           ) : (
             ' '
           )}
-          {props.profile.contacts.vk ? (
+          {props.contacts.vk ? (
             <li>
-              <a href={'https://' + props.profile.contacts.vk} target="_blanc">
+              <a href={'https://' + props.contacts.vk} target="_blanc">
                 vk{' '}
               </a>
             </li>
           ) : (
             ' '
           )}
-          {props.profile.contacts.twitter ? (
+          {props.contacts.twitter ? (
             <li>
-              <a href={props.profile.contacts.twitter}>twitter </a>
+              <a href={props.contacts.twitter}>twitter </a>
             </li>
           ) : (
             ' '
           )}
-          {props.profile.contacts.instagram ? (
+          {props.contacts.instagram ? (
             <li>
               <a
-                href={'https://' + props.profile.contacts.instagram}
+                href={'https://' + props.contacts.instagram}
                 target="_blanc"
               >
                 instagram{' '}
@@ -45,10 +45,10 @@ const Contact = (props) => {
           ) : (
             ' '
           )}
-          {props.profile.contacts.github ? (
+          {props.contacts.github ? (
             <li>
               <a
-                href={'https://' + props.profile.contacts.github}
+                href={'https://' + props.contacts.github}
                 target="_blanc"
               >
                 github{' '}
