@@ -9,8 +9,8 @@ export const getUsers = createSelector(getUsersSelectors, (users) => {
 export const getPageSize = (state) => {
   return state.UsersPage.pageSize;
 };
-export const getTotalUserCount = (state) => {
-  return state.UsersPage.totalUserCount;
+export const getTotalItemsCount = (state) => {
+  return state.UsersPage.totalItemsCount;
 };
 export const getCurrentPage = (state) => {
   return state.UsersPage.currentPage;
@@ -20,4 +20,7 @@ export const getIsFetching = (state) => {
 };
 export const getFollowingInProgress = (state) => {
   return state.UsersPage.followingInProgress;
+};
+export const getPortionSize = (state) => {
+  return state.UsersPage.portionSize;
 };

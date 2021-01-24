@@ -24,6 +24,7 @@ const ProfileInf = (props) => {
         status={props.status}
         aboutMe={props.profile.aboutMe}
         lookingForAJob={props.profile.lookingForAJobDescription}
+        updateStatus={props.updateStatus}
       />
       <Contact contacts={props.profile.contacts} />
     </div>

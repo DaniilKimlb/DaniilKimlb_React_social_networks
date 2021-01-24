@@ -7,7 +7,7 @@ import {
   unfollow,
   setCurrentPage,
   setUsers,
-  setUsersTotalCount,
+  setItemsTotalCount,
   isFollowing,
 } from '../../redux/UsersPageReducer';
 import Users from './Users';
@@ -20,7 +20,8 @@ import {
   getFollowingInProgress,
   getIsFetching,
   getPageSize,
-  getTotalUserCount,
+  getPortionSize,
+  getTotalItemsCount,
   getUsers,
 } from '../../redux/users-selectors';
 // ========================
@@ -37,7 +38,7 @@ class UsersAPIComponent extends React.Component {
       <>
         {this.props.isFetching ? <Preloader /> : null}
         <Users
-          totalUserCount={this.props.totalUserCount}
+          totalItemsCount={this.props.totalItemsCount}
           pageSize={this.props.pageSize}
           currentPage={this.props.currentPage}
           users={this.props.users}
@@ -46,6 +47,7 @@ class UsersAPIComponent extends React.Component {
           onPageChanged={this.onPageChanged}
           followingInProgress={this.props.followingInProgress}
           isFollowing={this.props.isFollowing}
+          portionSize={this.props.portionSize}
         />
       </>
     );
@@ -57,44 +59,22 @@ let mapStateToProps = (state) => {
   return {
     users: getUsers(state),
     pageSize: getPageSize(state),
-    totalUserCount: getTotalUserCount(state),
+    totalItemsCount: getTotalItemsCount(state),
     currentPage: getCurrentPage(state),
     isFetching: getIsFetching(state),
     followingInProgress: getFollowingInProgress(state),
+    portionSize: getPortionSize(state),
   };
 };
-// let mapDispatchToProps = (dispatch) => {
-//   return {
-//     follow: (userId) => {
-//       dispatch(FollowerAC(userId));
-//     },
-//     onFollow: (userId) => {
-//       dispatch(OnFollowerAC(userId));
-//     },
-//     setUsers: (users) => {
-//       dispatch(setUsersAC(users));
-//     },
-//     setCurrentPage: (currentPage) => {
-//       dispatch(setCurrentPageAC(currentPage));
-//     },
-//     setUsersTotalCount: (TotalCount) => {
-//       dispatch(setUsersTotalCountAC(TotalCount));
-//     },
-//     isPreloader: (isFetching) => {
-//       dispatch(isFetchingAC(isFetching));
-//     },
-//   };
-// };
 export default compose(
   connect(mapStateToProps, {
     follow,
     unfollow,
     setUsers,
     setCurrentPage,
-    setUsersTotalCount,
+    setItemsTotalCount,
     isPreloader,
     isFollowing,
     requestUsers,
   })
-  // withAuthRedirect
 )(UsersAPIComponent);

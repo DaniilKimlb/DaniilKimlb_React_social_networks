@@ -11,10 +11,11 @@ const IS_FOLLOWING = 'IS_FOLLOWING';
 const initialState = {
   users: [],
   pageSize: 4,
-  totalUserCount: 0,
+  totalItemsCount: 0,
   currentPage: 1,
   isFetching: false,
   followingInProgress: [],
+  portionSize: 5,
 };
 const UsersPageReducer = (state = initialState, action) => {
   switch (action.type) {
@@ -37,7 +38,7 @@ const UsersPageReducer = (state = initialState, action) => {
     case SET_CURRENT_PAGE:
       return { ...state, currentPage: action.currentPage };
     case SET_USERS_TOTAL_COUNT:
-      return { ...state, totalUserCount: action.totalUserCount };
+      return { ...state, totalItemsCount: action.totalItemsCount };
     case IS_FETCHING:
       return { ...state, isFetching: action.isFetching };
     case IS_FOLLOWING:
@@ -61,9 +62,9 @@ export const setCurrentPage = (currentPage) => ({
   type: SET_CURRENT_PAGE,
   currentPage,
 });
-export const setUsersTotalCount = (totalUserCount) => ({
+export const setItemsTotalCount = (totalItemsCount) => ({
   type: SET_USERS_TOTAL_COUNT,
-  totalUserCount,
+  totalItemsCount,
 });
 export const isPreloader = (isFetching) => ({
   type: IS_FETCHING,
@@ -80,7 +81,7 @@ export const requestUsers = (pageSize, currentPage) => {
     const data = await usersAPI.getUsers(pageSize, currentPage);
     dispatch(isPreloader(false));
     dispatch(setUsers(data.items));
-    dispatch(setUsersTotalCount(data.totalCount));
+    dispatch(setItemsTotalCount(data.totalCount));
   };
 };
 const followUnfollowFlow = async (
