@@ -39,13 +39,13 @@
   border-radius: 5px;
   padding: 10px;
   box-shadow: 0px 0px 3px 0px rgba(0, 0, 0, 0.5);
-  
 }
 .Introduction .heading {
   color: #5c5e6e;
   font: 20px 'DM Sans', sans-serif;
 }
 .Introduction .status {
+  word-wrap: break-word;
   color: #1771d6;
   font: 15px 'DM Sans', sans-serif;
 }
@@ -68,7 +68,7 @@
   padding: 10px;
   margin-top: 20px;
   box-shadow: 0px 0px 3px 0px rgba(0, 0, 0, 0.5);
-  height: 260px;
+  /* height: 260px; */
 }
 .contact .heading {
   color: #5c5e6e;
@@ -90,4 +90,6 @@
 .contacts a:hover {
   color: #5c5e6e;
 }
-
+.wrapper {
+  display: flex;
+}

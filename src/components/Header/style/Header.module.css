@@ -1,167 +1,139 @@
-header
-{
-    position: relative;
-    z-index: 1;
-    right: 0;
-    width: 970px;
-    height: 50px;
-    padding: 0;
+header {
+  position: relative;
+  z-index: 1;
+  right: 0;
+  width: 970px;
+  height: 50px;
+  padding: 0;
 
-    background-color: #151728;
-    box-shadow: 0 0 3px 0 rgba(0, 0, 0, .5);
+  background-color: #151728;
+  box-shadow: 0 0 3px 0 rgba(0, 0, 0, 0.5);
+  /* box-shadow: 3px 0px 3px 0px rgba(0, 0, 255, 0.2); */
 
-    grid-area: h;
+  grid-area: h;
 }
-.search input,
-input:before,
-input:after
-{
-    -webkit-user-select: initial;
-       -moz-user-select: initial;
-        -ms-user-select: initial;
-            user-select: initial;
+.search input {
+  font: 15px 'DM Sans', sans-serif;
 
-     -khtml-user-select: initial;
+  position: relative;
+  top: -23px;
+  left: 45px;
+
+  width: 650px;
+
+  color: #64677a;
+  border: none;
+  outline: none;
+  background-color: #151728;
 }
-.search input
-{
-    font: 15px  'DM Sans', sans-serif;
+.search img {
+  position: relative;
+  top: 25%;
 
-    position: relative;
-    top: -23px;
-    left: 45px;
-
-    width: 650px;
-
-    color: #64677a;
-    border: none;
-    outline: none;
-    background-color: #151728;
+  height: 30px;
+  margin-left: 10px;
 }
-.search img
-{
-    position: relative;
-    top: 25%;
-
-    height: 30px;
-    margin-left: 10px;
+.Pikachu {
+  margin: 7px 305px;
 }
-.Pikachu
-{
-    margin: 7px 305px;
+header a {
+  text-decoration: none;
 }
-header a
-{
-    text-decoration: none;
+.NH {
+  font: 20px Luminari, fantasy;
+  font-weight: bold;
+
+  position: absolute;
+  top: 12px;
+  left: 345px;
+
+  color: #64677a;
 }
-.NH
-{
-    font: 20px Luminari, fantasy;
-    font-weight: bold;
+.l {
+  position: absolute;
+  top: 0;
+  left: 822px;
 
-    position: absolute;
-    top: 12px;
-    left: 345px;
-
-    color: #64677a;
+  width: 150px;
+  height: 50px;
 }
-.l
-{
-    position: absolute;
-    top: 0;
-    left: 822px;
+.notificationIcons img {
+  position: absolute;
+  top: 23px;
 
-    width: 150px;
-    height: 50px;
-}
-.notificationIcons img
-{
-    position: absolute;
-    top: 23px;
+  display: flex;
 
-    display: flex;
-
-    height: 25px;
-    margin-top: -10px;
-    margin-left: 770px ;
+  height: 25px;
+  margin-top: -10px;
+  margin-left: 770px;
 }
 
-.messageIcons img
-{
-    position: absolute;
-    top: 50%;
-    right: 210px;
+.messageIcons img {
+  position: absolute;
+  top: 50%;
+  right: 210px;
 
-    display: inline-flex;
+  display: inline-flex;
 
-    height: 20px;
-    margin-left: 725px ;
+  height: 20px;
+  margin-left: 725px;
 
-    transform: translate(0,-50%);
+  transform: translate(0, -50%);
 }
-.login
-{
-    font: 20px  'DM Sans', sans-serif;
+.login {
+  font: 20px 'DM Sans', sans-serif;
 
-    float: right;
+  float: right;
 
-    margin-top: 10px;
-    margin-right: 20px;
+  margin-top: 10px;
+  margin-right: 20px;
 
-    cursor: pointer;;
+  cursor: pointer;
 }
 
+.login span {
+  font-size: 17px;
 
-.login span
-{
-    font-size: 17px;
+  display: flex;
 
-    display: flex;
+  color: #64677a;
 
-    color: #64677a;
-
-    justify-content: center;
-    align-items: center;
+  justify-content: center;
+  align-items: center;
 }
-.login span .arrowToDown
-{
-    font-size: 10px;
+.login span .arrowToDown {
+  font-size: 10px;
 }
-.login img
-{
-    height: 30px;
-    margin: 0 10px;
+.login img {
+  height: 30px;
+  margin: 0 10px;
 }
-.menu
-{
-    height: 35px;
+.menu {
+  height: 35px;
 
-    border-radius: 5px;
-    background-color: #fff;
-    box-shadow: 0 0 2px 0 rgba(0, 0, 0, .75);
+  border-radius: 5px;
+  background-color: #151728;
+  box-shadow: 0 0 2px 0 rgba(0, 0, 0, 0.75);
 }
-.menu button
-{
-    font: 15px;
-    /* margin: auto auto 0 10px; */
+.menu button {
+  /* margin: auto auto 0 10px; */
 
-    width: 100%;
+  width: 100%;
+  font: 15px 'DM Sans', sans-serif;
 
-    cursor: pointer;
-    transition-duration: .5s;
+  color: #64677a;
+  cursor: pointer;
+  transition-duration: 0.5s;
 
-    border: none;
-    background-color: #fff;
+  border: none;
+  background-color: #151728;
 }
-.menu button:focus
-{
-    background-color: #c6c6c6;
+.menu button:focus,
+.menu button:active {
+  border: none;
+  outline: none;
 }
-.menu button:active
-{
-    outline: none;
-}
-.menu button:hover
-{
-    background-color: #151728;
+
+.menu button:hover {
+  color: #fff;
 }

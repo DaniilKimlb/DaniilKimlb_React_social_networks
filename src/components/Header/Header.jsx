@@ -5,15 +5,15 @@ import searchIcons from '../../assets/images/search.png';
 import messageIcons from '../../assets/images/MessageIcon.png';
 import notificationIcons from '../../assets/images/notification.png';
 import { HeaderReduxForm } from './form/HeaderForm';
-import avatarDefoult from '../../assets/images/manusericon.png';
+import avatarDefault from '../../assets/images/manusericon.png';
 
 const Header = (props) => {
-  const [isa, setIsa] = useState(false);
-  const isaTrue = () => {
-    setIsa(true);
+  const [menu, setMenu] = useState(false);
+  const menuTrue = () => {
+    setMenu(true);
   };
-  const isaFalse = () => {
-    setIsa(false);
+  const menuFalse = () => {
+    setMenu(false);
   };
   const onSubmit = (formData) => {
     console.log(formData);
@@ -38,22 +38,22 @@ const Header = (props) => {
       <div className={s.l}>
         <div className={s.login}>
           {props.IsAuth ? (
-            <span onClick={(isa && isaFalse) || (!isa && isaTrue)}>
+            <span onClick={(menu && menuFalse) || (!menu && menuTrue)}>
               {' '}
               {props.login}
-              <img src={avatarDefoult} alt="#" />
+              <img src={avatarDefault} alt="#" />
               <span className={s.arrowToDown}>▼</span>{' '}
             </span>
           ) : (
             ''
             // <NavLink to="/Login">Login</NavLink>
           )}
-          {isa && (
+          {menu && (
             <div className={s.menu}>
               <button
                 onClick={() => {
                   props.logout();
-                  isaFalse();
+                  menuFalse();
                 }}
               >
                 logout

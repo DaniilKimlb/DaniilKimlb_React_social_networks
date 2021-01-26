@@ -1,3 +1,4 @@
+import { reset } from 'redux-form';
 import { profileAPI, usersAPI } from '../API/API';
 
 const GET_POST = 'GET-POST';
@@ -28,7 +29,7 @@ const ProfilePageReducer = (state = initialState, action) => {
   }
 };
 // ACTION_CREATE================================================
-export const getPost = (text) => ({ type: GET_POST, text });
+export const setPost = (text) => ({ type: GET_POST, text });
 
 const setUsersProfile = (profile) => ({
   type: SET_USERS_PROFILE,
@@ -53,6 +54,10 @@ export const updateStatus = (status) => async (dispatch) => {
   if (data.resultCode === 0) {
     dispatch(setStatus(status));
   }
+};
+export const setPostClear = (text, clearForm) => (dispatch) => {
+  dispatch(setPost(text));
+  dispatch(reset(clearForm));
 };
 //
 export default ProfilePageReducer;

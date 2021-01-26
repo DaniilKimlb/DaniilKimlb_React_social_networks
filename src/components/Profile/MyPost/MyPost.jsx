@@ -5,6 +5,7 @@ import s from './MyPost.module.css';
 import Post from './Post/Post';
 import RenderDialogForm from './MyPostForm/MyPostForm';
 import Preloader from '../../Preloader/Preloader';
+import { reset } from 'redux-form';
 const MyPost = (props) => {
   console.log(props);
   // let createReactElement = React.createRef();
@@ -12,8 +13,7 @@ const MyPost = (props) => {
     .reverse()
     .map((m) => <Post message={m.message} key={m.id} like={m.like} />);
   const onSubmit = (FormInfo) => {
-    props.getPost(FormInfo.post);
-    FormInfo.post = '';
+    props.setPostClear(FormInfo.post, 'MyPost');
   };
   return (
     <div className={s.MyPost}>
