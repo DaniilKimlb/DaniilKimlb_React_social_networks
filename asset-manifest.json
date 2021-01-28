@@ -1,0 +1,37 @@
+{
+  "files": {
+    "main.css": "/React_DaniilKimlb_social_networks/static/css/main.0e976e76.chunk.css",
+    "main.js": "/React_DaniilKimlb_social_networks/static/js/main.52dbf4f3.chunk.js",
+    "main.js.map": "/React_DaniilKimlb_social_networks/static/js/main.52dbf4f3.chunk.js.map",
+    "runtime-main.js": "/React_DaniilKimlb_social_networks/static/js/runtime-main.b4578997.js",
+    "runtime-main.js.map": "/React_DaniilKimlb_social_networks/static/js/runtime-main.b4578997.js.map",
+    "static/js/2.35453a23.chunk.js": "/React_DaniilKimlb_social_networks/static/js/2.35453a23.chunk.js",
+    "static/js/2.35453a23.chunk.js.map": "/React_DaniilKimlb_social_networks/static/js/2.35453a23.chunk.js.map",
+    "static/css/3.bcfc44ce.chunk.css": "/React_DaniilKimlb_social_networks/static/css/3.bcfc44ce.chunk.css",
+    "static/js/3.c5cbd494.chunk.js": "/React_DaniilKimlb_social_networks/static/js/3.c5cbd494.chunk.js",
+    "static/js/3.c5cbd494.chunk.js.map": "/React_DaniilKimlb_social_networks/static/js/3.c5cbd494.chunk.js.map",
+    "static/css/4.4756e43e.chunk.css": "/React_DaniilKimlb_social_networks/static/css/4.4756e43e.chunk.css",
+    "static/js/4.7d660d4a.chunk.js": "/React_DaniilKimlb_social_networks/static/js/4.7d660d4a.chunk.js",
+    "static/js/4.7d660d4a.chunk.js.map": "/React_DaniilKimlb_social_networks/static/js/4.7d660d4a.chunk.js.map",
+    "index.html": "/React_DaniilKimlb_social_networks/index.html",
+    "static/css/3.bcfc44ce.chunk.css.map": "/React_DaniilKimlb_social_networks/static/css/3.bcfc44ce.chunk.css.map",
+    "static/css/4.4756e43e.chunk.css.map": "/React_DaniilKimlb_social_networks/static/css/4.4756e43e.chunk.css.map",
+    "static/css/main.0e976e76.chunk.css.map": "/React_DaniilKimlb_social_networks/static/css/main.0e976e76.chunk.css.map",
+    "static/js/2.35453a23.chunk.js.LICENSE.txt": "/React_DaniilKimlb_social_networks/static/js/2.35453a23.chunk.js.LICENSE.txt",
+    "static/media/5.679c842d.png": "/React_DaniilKimlb_social_networks/static/media/5.679c842d.png",
+    "static/media/MessageIcon.1ec68dda.png": "/React_DaniilKimlb_social_networks/static/media/MessageIcon.1ec68dda.png",
+    "static/media/Motorbike.31b48ad9.png": "/React_DaniilKimlb_social_networks/static/media/Motorbike.31b48ad9.png",
+    "static/media/animals.9955c005.png": "/React_DaniilKimlb_social_networks/static/media/animals.9955c005.png",
+    "static/media/bird.10d9b062.png": "/React_DaniilKimlb_social_networks/static/media/bird.10d9b062.png",
+    "static/media/forrest.9c92f02d.png": "/React_DaniilKimlb_social_networks/static/media/forrest.9c92f02d.png",
+    "static/media/manusericon.png": "/React_DaniilKimlb_social_networks/static/media/manusericon.b43d61ea.png",
+    "static/media/notification.efbe2a33.png": "/React_DaniilKimlb_social_networks/static/media/notification.efbe2a33.png",
+    "static/media/search.98f562b5.png": "/React_DaniilKimlb_social_networks/static/media/search.98f562b5.png"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.b4578997.js",
+    "static/js/2.35453a23.chunk.js",
+    "static/css/main.0e976e76.chunk.css",
+    "static/js/main.52dbf4f3.chunk.js"
+  ]
+}
