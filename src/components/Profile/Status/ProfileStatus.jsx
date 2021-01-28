@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import s from './ProfileInf.module.css';
+import s from '../Profile.module.css';
 
 const ProfileStatus = (props) => {
   const [editMode, setEditMode] = useState(false);

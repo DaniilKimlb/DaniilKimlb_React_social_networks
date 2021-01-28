@@ -1,4 +1,4 @@
-import { stopSubmit } from 'redux-form';
+import { reset, stopSubmit } from 'redux-form';
 import { authAPI } from '../API/API';
 
 const IS_AUTH = 'IS_AUTH';
@@ -33,7 +33,9 @@ export const authInfo = () => async (dispatch) => {
     dispatch(UserData(id, email, login, true));
   }
 };
-export const login = (email, password, rememberMe) => async (dispatch) => {
+export const login = (email, password, rememberMe, clearForm) => async (
+  dispatch
+) => {
   const data = await authAPI.login(email, password, rememberMe);
   if (data.resultCode === 0) {
     dispatch(authInfo());
@@ -44,7 +46,7 @@ export const login = (email, password, rememberMe) => async (dispatch) => {
 };
 
 export const logout = () => async (dispatch) => {
-  const data = authAPI.logout();
+  const data = await authAPI.logout();
   if (data.resultCode === 0) {
     dispatch(UserData(null, null, null, false));
   }

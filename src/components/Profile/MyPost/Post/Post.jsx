@@ -5,11 +5,12 @@ const Post = (props) => {
   let a = `  ${props.like} likes`;
   return (
     <div className={s.posts}>
-      <img className={s.img1} src={avatarDefault} alt="#" />
+      <img className={s.img1} src={props.avatar || avatarDefault} alt="#" />
+      <span className={s.fullName}>{props.fullName}</span>
 
       <div className={s.message}>{props.message}</div>
 
-      <div   className={s.like} title={a}>
+      <div className={s.like} title={a}>
         <label>
           <img
             className={s.img2}

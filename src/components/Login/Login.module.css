@@ -3,11 +3,13 @@
   padding: 8% 0 0;
 }
 .title {
-  font-size: 25px;
+ 
+  font: 25px 'DM Sans', sans-serif;
 }
 .form {
+  background-color: #151728;
+border-radius: 5px;
   position: relative;
-  background: #ffffff;
   margin: 0 auto 100px;
   padding: 45px;
   text-align: center;
@@ -17,41 +19,50 @@
   margin: 20px auto;
   background-color: #ffd6cc;
   width: 302px;
-  font-family: 'Roboto', sans-serif;
+  font: 14px 'DM Sans', sans-serif;
   border-radius: 5px;
 }
+.form{
+  color: #64677a;
+
+}
 .form input {
-  font-family: 'Roboto', sans-serif;
+  font: 14px 'DM Sans', sans-serif;
   outline: 0;
   background: #f2f2f2;
   border-radius: 5px;
   width: 270px;
   border: 0;
+  color: #64677a;
   margin: 0 0 15px;
   padding: 15px;
-  font-size: 14px;
+ 
 }
 .rememberMe input {
   width: 20px;
+
 }
 .rememberMe {
   position: relative;
   left: -93px;
-  font-family: 'Roboto', sans-serif;
+  font: 15px 'DM Sans', sans-serif;
+
 }
 .form button {
   border-radius: 5px;
 
-  font-family: 'Roboto', sans-serif;
+  font: 14px 'DM Sans', sans-serif;
   text-transform: uppercase;
   outline: 0;
   transition-duration: 0.5s;
-  background: #5181b8;
+  box-shadow: 0px 0px 3px 0px #1b86f9;
+  transition-duration: 0.5s;
+
+  background-color: #1b86f9;
   width: 302px;
   border: 0;
   padding: 15px;
   color: #ffffff;
-  font-size: 14px;
   cursor: pointer;
 }
 .form button:hover,

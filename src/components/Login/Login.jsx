@@ -7,9 +7,8 @@ import s from './Login.module.css';
 
 const Login = (props) => {
   const onSubmit = (formData) => {
-    console.log(formData);
     const { email, password, rememberMe } = formData;
-    props.login(email, password, rememberMe);
+    props.login(email, password, rememberMe, 'login');
   };
 
   return (

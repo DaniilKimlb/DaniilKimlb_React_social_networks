@@ -1,56 +1,43 @@
-import { connect } from 'react-redux';
-import { withRouter } from 'react-router-dom/cjs/react-router-dom.min';
-import { compose } from 'redux/es/redux';
-import MyPost from './MyPost/MyPost';
+import React, { useState } from 'react';
 import s from './Profile.module.css';
-import {
-  getProfile,
-  getStatus,
-  updateStatus,
-  setPostClear,
-} from '../../redux/ProfilePageReducer';
-import { useEffect } from 'react';
-import ProfileInf from './ProfileInf/Profileinf';
-import Preloader from '../Preloader/Preloader';
+import cap from '../../assets/images/5.png';
+import avatarDefault from '../../assets/images/manusericon.png';
+import ProfileStatus from './Status/ProfileStatus';
+import Contacts from './Contacts/Contacts';
+import MyPost from './MyPost/MyPost';
 const Profile = (props) => {
-  let userID = props.match.params.usersId;
-  useEffect(() => {
-    if (!userID) {
-      userID = props.id;
-    }
-    props.getProfile(userID);
-    props.getStatus(userID);
-  }, [userID]);
-  if (!props.profile) {
-    return <Preloader />;
-  }
   return (
-    <div className={s.content}>
-      <ProfileInf
-        profile={props.profile}
-        id={props.id}
-        status={props.status}
-        isProfile={props.isProfile}
-        updateStatus={props.updateStatus}
-        setPostClear={props.setPostClear}
-        MessagePo={props.MessagePo}
-      />
+    <div className={s.ProfileInf}>
+      <div className={s.title}>
+        <span className={s.cap}>
+          <img src={cap} alt="#" />
+        </span>
+        <span className={s.avatar}>
+          <img src={props.profile.photos.large || avatarDefault} alt="#" />
+        </span>
+        <span className={s.name}>{props.profile.fullName}</span>
+      </div>
+      <div className={s.wrapper}>
+        <div className={s.left}>
+          <ProfileStatus
+            status={props.status}
+            aboutMe={props.profile.aboutMe}
+            lookingForAJob={props.profile.lookingForAJobDescription}
+            updateStatus={props.updateStatus}
+          />
+          <Contacts contacts={props.profile.contacts} />
+        </div>
+        <div className={s.right}>
+          <MyPost
+            fullName={props.profile.fullName}
+            setPostClear={props.setPostClear}
+            MessagePo={props.MessagePo}
+            avatar={props.profile.photos.large}
+          />
+        </div>
+      </div>
     </div>
   );
 };
-const mapStateToProps = (state) => ({
-  profile: state.ProfilePage.profile,
-  id: state.Auth.userId,
-  status: state.ProfilePage.status,
-  isProfile: state.ProfilePage.isProfile,
-  MessagePo: state.ProfilePage.MessagePo,
-});
-export default compose(
-  connect(mapStateToProps, {
-    getProfile,
-    getStatus,
-    updateStatus,
-    setPostClear,
-  }),
-  withRouter
-)(Profile);
+
+export default Profile;

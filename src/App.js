@@ -17,7 +17,9 @@ import withSuspense from './hoc/withSuspense';
 const DialogsContainer = React.lazy(() =>
   import('./components/Dialogs/DialogContainer')
 );
-const Profile = React.lazy(() => import('./components/Profile/Profile'));
+const ProfileContainer = React.lazy(() =>
+  import('./components/Profile/ProfileContainer')
+);
 class App extends React.Component {
   componentDidMount() {
     this.props.initializeApp();
@@ -32,7 +34,10 @@ class App extends React.Component {
           <HeaderContainer />
           <Nav />
           <div class="content">
-            <Route path="/Profile/:usersId?" render={withSuspense(Profile)} />
+            <Route
+              path="/Profile/:usersId?"
+              render={withSuspense(ProfileContainer)}
+            />
             <Route path="/Messages" render={withSuspense(DialogsContainer)} />
             <Route path="/News" render={() => <News />} />
             <Route path="/Music" render={() => <Music />} />
