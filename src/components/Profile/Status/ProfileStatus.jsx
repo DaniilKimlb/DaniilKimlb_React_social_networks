@@ -26,9 +26,9 @@ const ProfileStatus = (props) => {
         <div className={s.status}>
           <span className={s.preStatus}>Status: </span>
           {!editMode && (
-            <span onClick={activateEditMode}>{props.status || '...'}</span>
+            <span onClick={props.isOfter && activateEditMode}>{props.status || '...'}</span>
           )}
-          {editMode && (
+          {props.isOfter && editMode && (
             <input
               onChange={onStatusChange}
               autoFocus={true}

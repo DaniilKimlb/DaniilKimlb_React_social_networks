@@ -6,6 +6,7 @@ const GET_TEXT = 'GET-TEXT';
 const SET_USERS_PROFILE = 'SET_USERS_PROFILE';
 const SET_STATUS = 'SET_STATUS';
 const SET_IS_PROFILE = 'SET_IS_PROFILE';
+const SAVE_PHOTO_SUCCESS = 'SAVE_PHOTO_SUCCESS';
 const initialState = {
   MessagePo: [
     { id: 1, message: "It's my life!!!", like: 48 },
@@ -24,6 +25,8 @@ const ProfilePageReducer = (state = initialState, action) => {
       return { ...state, profile: action.profile };
     case SET_STATUS:
       return { ...state, status: action.status };
+    case SAVE_PHOTO_SUCCESS:
+      return { ...state, profile: { ...state.profile, photos: action.photos } };
     default:
       return state;
   }
@@ -38,6 +41,10 @@ const setUsersProfile = (profile) => ({
 const setStatus = (status) => ({
   type: SET_STATUS,
   status,
+});
+const savePhotoSuccess = (photos) => ({
+  type: SAVE_PHOTO_SUCCESS,
+  photos,
 });
 
 // Thunk================================================================
@@ -58,6 +65,12 @@ export const updateStatus = (status) => async (dispatch) => {
 export const setPostClear = (text, clearForm) => (dispatch) => {
   dispatch(setPost(text));
   dispatch(reset(clearForm));
+};
+export const savePhoto = (file) => async (dispatch) => {
+  const data = await profileAPI.savePhoto(file);
+  if (data.resultCode === 0) {
+    dispatch(savePhotoSuccess(data.data.photos));
+  }
 };
 //
 export default ProfilePageReducer;

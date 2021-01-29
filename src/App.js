@@ -30,6 +30,7 @@ class App extends React.Component {
     }
     return (
       <BrowserRouter>
+          <Route path="/Login" render={() => <Login />} />
         <div className="wrapper">
           <HeaderContainer />
           <Nav />
@@ -43,7 +44,6 @@ class App extends React.Component {
             <Route path="/Music" render={() => <Music />} />
             <Route path="/Setting" render={() => <Setting />} />
             <Route path="/Users" render={() => <UsersContainer />} />
-            <Route path="/Login" render={() => <Login />} />
           </div>
         </div>
       </BrowserRouter>

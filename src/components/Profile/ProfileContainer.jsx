@@ -7,6 +7,7 @@ import {
   getStatus,
   updateStatus,
   setPostClear,
+  savePhoto,
 } from '../../redux/ProfilePageReducer';
 import { useEffect } from 'react';
 import Profile from './Profile';
@@ -33,6 +34,8 @@ const ProfileContainer = (props) => {
         updateStatus={props.updateStatus}
         setPostClear={props.setPostClear}
         MessagePo={props.MessagePo}
+        savePhoto={props.savePhoto}
+        isOfter={!props.match.params.usersId}
       />
     </div>
   );
@@ -50,6 +53,7 @@ export default compose(
     getStatus,
     updateStatus,
     setPostClear,
+    savePhoto,
   }),
   withRouter
 )(ProfileContainer);

@@ -41,7 +41,7 @@ const Header = (props) => {
             <span onClick={(menu && menuFalse) || (!menu && menuTrue)}>
               {' '}
               {props.login}
-              <img src={avatarDefault} alt="#" />
+              <img src={props.photos || avatarDefault} alt="#" />
               <span className={s.arrowToDown}>▼</span>{' '}
             </span>
           ) : (

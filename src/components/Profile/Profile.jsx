@@ -6,16 +6,33 @@ import ProfileStatus from './Status/ProfileStatus';
 import Contacts from './Contacts/Contacts';
 import MyPost from './MyPost/MyPost';
 const Profile = (props) => {
+  const changePhoto = (event) => {
+    event.target.files.length && props.savePhoto(event.target.files[0]);
+  };
+  const [changeAvatar, setChangeAvatar] = useState(false);
   return (
     <div className={s.ProfileInf}>
       <div className={s.title}>
         <span className={s.cap}>
           <img src={cap} alt="#" />
         </span>
-        <span className={s.avatar}>
-          <img src={props.profile.photos.large || avatarDefault} alt="#" />
+        <span
+          className={props.isOfter ? s.avatar + '  ' + s.setting : s.avatar}
+        >
+          <label>
+            <img
+              onMouseOver={() => props.isOfter && setChangeAvatar(true)}
+              onMouseOut={() => setChangeAvatar(false)}
+              src={props.profile.photos.large || avatarDefault}
+              alt="#"
+            />
+            {props.isOfter && <input type="file" onChange={changePhoto} />}
+          </label>
         </span>
         <span className={s.name}>{props.profile.fullName}</span>
+        {changeAvatar && (
+          <div className={s.changeAvatar}>Change your avatar</div>
+        )}
       </div>
       <div className={s.wrapper}>
         <div className={s.left}>
@@ -24,6 +41,7 @@ const Profile = (props) => {
             aboutMe={props.profile.aboutMe}
             lookingForAJob={props.profile.lookingForAJobDescription}
             updateStatus={props.updateStatus}
+            isOfter={props.isOfter}
           />
           <Contacts contacts={props.profile.contacts} />
         </div>

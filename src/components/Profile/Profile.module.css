@@ -10,7 +10,10 @@
   background-color: #151728;
   border-radius: 5px;
 }
-.title .avatar img {
+.avatar input{ 
+display: none;
+ }
+ .title .avatar img {
   position: relative;
   left: 25px;
   width: 150px;
@@ -18,6 +21,9 @@
   top: -105px;
   border-radius: 50%;
   border: 1px solid #000;
+}
+.setting img{
+  cursor: pointer;
 }
 .title .cap img {
   height: 190px;
@@ -30,6 +36,22 @@
   color: #fff;
   top: -180px;
   left: 32px;
+}
+.changeAvatar{
+
+  font: 10px 'DM Sans', sans-serif;
+  color: #fff;
+  position: relative;
+  margin: -109px 0 0 48.4px;
+  border-radius: 10px;
+  background-color: #151728;
+  padding: 5px;
+  width: 92px;
+  transition-duration: 10s;
+
+}
+.setting:hover{
+  background-color: 
 }
 .Introduction {
   background-color: #151728;
