@@ -14,42 +14,42 @@ import { connect } from 'react-redux';
 import { initializeApp } from './redux/AppReducer';
 import Preloader from './components/Preloader/Preloader';
 import withSuspense from './hoc/withSuspense';
+import { useEffect } from 'react';
 const DialogsContainer = React.lazy(() =>
   import('./components/Dialogs/DialogContainer')
 );
 const ProfileContainer = React.lazy(() =>
   import('./components/Profile/ProfileContainer')
 );
-class App extends React.Component {
-  componentDidMount() {
-    this.props.initializeApp();
+const App = (props) => {
+  useEffect(() => {
+    props.initializeApp();
+  }, []);
+  if (!props.initialized) {
+    return <Preloader />;
   }
-  render() {
-    if (!this.props.initialized) {
-      return <Preloader />;
-    }
-    return (
-      <BrowserRouter>
-          <Route path="/Login" render={() => <Login />} />
-        <div className="wrapper">
-          <HeaderContainer />
-          <Nav />
-          <div class="content">
-            <Route
-              path="/Profile/:usersId?"
-              render={withSuspense(ProfileContainer)}
-            />
-            <Route path="/Messages" render={withSuspense(DialogsContainer)} />
-            <Route path="/News" render={() => <News />} />
-            <Route path="/Music" render={() => <Music />} />
-            <Route path="/Setting" render={() => <Setting />} />
-            <Route path="/Users" render={() => <UsersContainer />} />
-          </div>
+  return (
+    <BrowserRouter>
+      <Route path="/Login" render={() => <Login />} />
+      <div className="wrapper">
+        <HeaderContainer />
+        <Nav />
+        <div class="content">
+          <Route
+            path="/Profile/:usersId?"
+            render={withSuspense(ProfileContainer)}
+          />
+          <Route path="/Messages" render={withSuspense(DialogsContainer)} />
+          <Route path="/News" render={() => <News />} />
+          <Route path="/Music" render={() => <Music />} />
+          <Route path="/Setting" render={() => <Setting />} />
+          <Route path="/Users" render={() => <UsersContainer />} />
         </div>
-      </BrowserRouter>
-    );
-  }
-}
+      </div>
+    </BrowserRouter>
+  );
+};
+
 const mapStateToProps = (state) => ({
   initialized: state.App.initialized,
 });
