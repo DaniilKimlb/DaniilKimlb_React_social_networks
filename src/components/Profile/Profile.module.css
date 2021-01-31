@@ -10,10 +10,38 @@
   background-color: #151728;
   border-radius: 5px;
 }
-.avatar input{ 
-display: none;
- }
- .title .avatar img {
+.avatar input {
+  display: none;
+}
+.editMode .heading {
+  color: #5c5e6e;
+  font: 20px 'DM Sans', sans-serif;
+}
+
+.editMode {
+  width: 310px;
+  min-height: 50px;
+  background-color: #151728;
+  margin-top: 20px;
+  padding: 10px;
+}
+.edit {
+  font: 25px 'DM Sans', sans-serif;
+  position: relative;
+  top: -101px;
+  left: 650px;
+  color: #5c5e6e;
+  transition: color 0.5s;
+  cursor: pointer;
+}
+.active {
+  color: #fff;
+  border-bottom: 2px solid #1b86f9;
+}
+.edit:hover {
+  color: #fff;
+}
+.title .avatar img {
   position: relative;
   left: 25px;
   width: 150px;
@@ -22,7 +50,7 @@ display: none;
   border-radius: 50%;
   border: 1px solid #000;
 }
-.setting img{
+.setting img {
   cursor: pointer;
 }
 .title .cap img {
@@ -37,8 +65,7 @@ display: none;
   top: -180px;
   left: 32px;
 }
-.changeAvatar{
-
+.changeAvatar {
   font: 10px 'DM Sans', sans-serif;
   color: #fff;
   position: relative;
@@ -49,13 +76,11 @@ display: none;
   width: 92px;
   box-shadow: 0px 0px 3px 0px rgba(0, 0, 0, 0.5);
 }
-.setting:hover{
-  background-color: 
-}
+
 .Introduction {
   background-color: #151728;
   width: 310px;
-  height: 150px;
+  min-height: 50px;
   margin-top: 20px;
   border-radius: 5px;
   padding: 10px;

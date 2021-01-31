@@ -26,7 +26,9 @@ const ProfileStatus = (props) => {
         <div className={s.status}>
           <span className={s.preStatus}>Status: </span>
           {!editMode && (
-            <span onClick={props.isOfter && activateEditMode}>{props.status || '...'}</span>
+            <span onClick={props.isOfter && activateEditMode}>
+              {props.status || '...'}
+            </span>
           )}
           {props.isOfter && editMode && (
             <input
@@ -43,13 +45,15 @@ const ProfileStatus = (props) => {
             </div>
           )}
           <div>
-            {props.lookingForAJob
-              ? 'Looking for job'
-              : ' Not looking for a job'}
-            <br />
-            {props.lookingForAJobDescription
-              ? props.lookingForAJobDescription
-              : ' '}
+            <span className={s.preStatus}>Looking for a job: </span>
+            {props.lookingForAJob ? 'yes' : 'no'}
+
+            {props.lookingForAJobDescription && (
+              <div>
+                <span className={s.preStatus}>Professional skills: </span>
+                {props.lookingForAJobDescription}
+              </div>
+            )}
           </div>
         </div>
       </div>

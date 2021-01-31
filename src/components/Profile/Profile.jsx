@@ -5,10 +5,13 @@ import avatarDefault from '../../assets/images/manusericon.png';
 import ProfileStatus from './Status/ProfileStatus';
 import Contacts from './Contacts/Contacts';
 import MyPost from './MyPost/MyPost';
+import ProfileStatusForm from './Status/ProfileStatusForm';
+import Edit from './Edit';
 const Profile = (props) => {
   const changePhoto = (event) => {
     event.target.files.length && props.savePhoto(event.target.files[0]);
   };
+  const [editMode, setEditMode] = useState(false);
   const [changeAvatar, setChangeAvatar] = useState(false);
   return (
     <div className={s.ProfileInf}>
@@ -33,17 +36,34 @@ const Profile = (props) => {
         {changeAvatar && (
           <div className={s.changeAvatar}>Change your avatar</div>
         )}
+        {props.isOfter && (
+          <span
+            className={`${s.edit}  ${editMode && s.active}`}
+            onClick={() => setEditMode(true)}
+          >
+            edit
+          </span>
+        )}
       </div>
       <div className={s.wrapper}>
         <div className={s.left}>
-          <ProfileStatus
-            status={props.status}
-            aboutMe={props.profile.aboutMe}
-            lookingForAJob={props.profile.lookingForAJobDescription}
-            updateStatus={props.updateStatus}
-            isOfter={props.isOfter}
-          />
-          <Contacts contacts={props.profile.contacts} />
+          {editMode ? (
+            <Edit />
+          ) : (
+            <>
+              <ProfileStatus
+                status={props.status}
+                aboutMe={props.profile.aboutMe}
+                lookingForAJob={props.profile.lookingForAJobDescription}
+                lookingForAJobDescription={
+                  props.profile.lookingForAJobDescription
+                }
+                updateStatus={props.updateStatus}
+                isOfter={props.isOfter}
+              />
+              <Contacts contacts={props.profile.contacts} />
+            </>
+          )}
         </div>
         <div className={s.right}>
           <MyPost
