@@ -1,11 +1,19 @@
+import { reduxForm } from 'redux-form';
+import ContactsForm from './Contacts/ContactsForm';
 import s from './Profile.module.css';
 import ProfileStatusReduxForm from './Status/ProfileStatusForm';
-const Edit = () => {
+const Edit = (props) => {
   return (
-    <div className={s.editMode}>
-      <div className={s.heading}>Edit</div>
+    <form onSubmit={props.handleSubmit}>
+      <div className={s.heading + '  ' + s.editHeader}>Edit</div>
+
       <ProfileStatusReduxForm />
-    </div>
+      <ContactsForm contacts={props.contacts} />
+      <span className={s.save}>
+        <button>save</button>
+      </span>
+    </form>
   );
 };
-export default Edit;
+const EditForm = reduxForm({ form: 'EditProfile' })(Edit);
+export default EditForm;

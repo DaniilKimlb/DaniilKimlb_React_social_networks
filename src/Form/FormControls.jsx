@@ -14,7 +14,15 @@ export const FormControls = (Element) => ({ input, meta, ...props }) => {
   );
 };
 
-export const createField = (component, name, type, placeholder, validate) => {
+export const createField = (
+  component,
+  name,
+  type,
+  placeholder,
+  value,
+  validate,
+  id
+) => {
   return (
     <Field
       component={component}
@@ -22,6 +30,8 @@ export const createField = (component, name, type, placeholder, validate) => {
       placeholder={placeholder}
       name={name}
       validate={validate}
+      value={value}
+      id={id}
     />
   );
 };

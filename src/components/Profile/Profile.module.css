@@ -19,17 +19,100 @@
 }
 
 .editMode {
-  width: 310px;
-  min-height: 50px;
-  background-color: #151728;
   margin-top: 20px;
+  width: 310px;
+  box-shadow: 0px 0px 3px 0px rgba(0, 0, 0, 0.5);
+  min-height: 50px;
+  border-radius: 5px;
+  background-color: #151728;
   padding: 10px;
 }
-.edit {
-  font: 25px 'DM Sans', sans-serif;
+.editMode .save button {
+  box-shadow: 0px 0px 3px 0px #1b86f9;
+  transition-duration: 0.5s;
+  background-color: #1b86f9;
+  border: none;
+  height: 20px;
+  width: 70px;
+  margin-left: 15px;
+  border-radius: 5px;
+  color: #fff;
+  /* margin-left: 225px; */
+}
+.editMode .cancel {
+  float: right;
   position: relative;
-  top: -101px;
-  left: 650px;
+  height: 20px;
+  width: 70px;
+  top: -24px;
+  margin-right: 20px;
+}
+.editMode .cancel button {
+  box-shadow: 0px 0px 3px 0px red;
+  transition-duration: 0.5s;
+  background-color: red;
+  border: none;
+  height: 20px;
+  width: 70px;
+  border-radius: 5px;
+  color: #fff;
+}
+.editMode .save button:focus,
+.editMode .save button:active,
+.editMode .save button:hover {
+  outline: none;
+  border: none;
+  opacity: 0.88;
+}
+.editMode .cancel button:focus,
+.editMode .cancel button:active,
+.editMode .cancel button:hover {
+  outline: none;
+  border: none;
+  opacity: 0.88;
+}
+
+.editMode input:focus {
+  border-bottom: 1px solid#1771d6;
+}
+.lookingForAJobCheckBox {
+  display: inline-flex;
+}
+.lookingForAJobCheckBox span input {
+  height: 10px;
+  width: 10px;
+}
+.lookingForAJobCheckBox span {
+  margin-left: 5px;
+  font: 20px 'DM Sans', sans-serif;
+  color: #1771d6;
+}
+.editMode li {
+  list-style: none;
+}
+.editHeader {
+  text-align: center;
+}
+.editMode ul {
+  position: relative;
+  left: -25px;
+}
+.lookingForAJobDescriptionInput input {
+  width: 100px;
+}
+.editMode input {
+  background-color: #151728;
+  color: #1771d6;
+  border: none;
+  width: 100%;
+  border-bottom: 1px solid #fff;
+  outline: none;
+  font: 15px 'DM Sans', sans-serif;
+}
+.edit {
+  font: 15px 'DM Sans', sans-serif;
+  position: relative;
+  top: -98px;
   color: #5c5e6e;
   transition: color 0.5s;
   cursor: pointer;
@@ -39,6 +122,7 @@
   border-bottom: 2px solid #1b86f9;
 }
 .edit:hover {
+  border-bottom: 2px solid #1b86f9;
   color: #fff;
 }
 .title .avatar img {
@@ -95,7 +179,8 @@
   color: #1771d6;
   font: 15px 'DM Sans', sans-serif;
 }
-.Introduction .status .preStatus {
+.preStatus {
+  font: 15px 'DM Sans', sans-serif;
   color: #c3c5d5;
 }
 .Introduction .status input {

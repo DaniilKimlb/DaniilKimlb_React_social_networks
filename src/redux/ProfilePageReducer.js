@@ -72,5 +72,12 @@ export const savePhoto = (file) => async (dispatch) => {
     dispatch(savePhotoSuccess(data.data.photos));
   }
 };
+export const updateProfile = (profile) => async (dispatch) => {
+  const data = await profileAPI.update(profile);
+  debugger;
+  if (data.resultCode === 0) {
+    dispatch(getProfile(data.data));
+  }
+};
 //
 export default ProfilePageReducer;

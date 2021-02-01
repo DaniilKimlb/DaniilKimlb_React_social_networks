@@ -13,6 +13,10 @@ const Profile = (props) => {
   };
   const [editMode, setEditMode] = useState(false);
   const [changeAvatar, setChangeAvatar] = useState(false);
+  const onSubmit = (formData) => {
+    props.updateProfile(formData);
+    console.log(formData);
+  };
   return (
     <div className={s.ProfileInf}>
       <div className={s.title}>
@@ -32,10 +36,6 @@ const Profile = (props) => {
             {props.isOfter && <input type="file" onChange={changePhoto} />}
           </label>
         </span>
-        <span className={s.name}>{props.profile.fullName}</span>
-        {changeAvatar && (
-          <div className={s.changeAvatar}>Change your avatar</div>
-        )}
         {props.isOfter && (
           <span
             className={`${s.edit}  ${editMode && s.active}`}
@@ -44,11 +44,24 @@ const Profile = (props) => {
             edit
           </span>
         )}
+        <span className={s.name}>{props.profile.fullName}</span>
+        {changeAvatar && (
+          <div className={s.changeAvatar}>Change your avatar</div>
+        )}
       </div>
       <div className={s.wrapper}>
         <div className={s.left}>
           {editMode ? (
-            <Edit />
+            <div className={s.editMode}>
+              <Edit
+                initialValues={props.profile}
+                contacts={props.profile.contacts}
+                onSubmit={onSubmit}
+              />
+              <span className={s.cancel}>
+                <button onClick={() => setEditMode(false)}>Cancel</button>
+              </span>
+            </div>
           ) : (
             <>
               <ProfileStatus

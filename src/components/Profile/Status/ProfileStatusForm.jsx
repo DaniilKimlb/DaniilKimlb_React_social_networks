@@ -5,30 +5,56 @@ import s from '../Profile.module.css';
 const ProfileStatusForm = (props) => {
   return (
     <div>
-      <div className={s.heading}>Introduction</div>
       {/* {props.aboutMe && ( */}
       <div>
-        <form onSubmit={props.handleSubmit}>
-          <span className={s.preStatus}>Full name: </span>
-          {createField('input', 'fullName', 'text', 'Full name')}
-        </form>
+        <ul>
+          {' '}
+          <div className={s.heading}>Introduction</div>
+          <li>
+            <span className={s.preStatus}>Full name: </span>
+
+            {createField('input', 'fullName', 'text')}
+          </li>
+          <li>
+            <span className={s.preStatus}>Looking for a job: </span>
+            <span className={s.lookingForAJobCheckBox}>
+              <label>
+                <span>
+                  {createField(
+                    'input',
+                    'lookingForAJob',
+                    'radio',
+                    null,
+                    'true'
+                  )}
+                </span>
+                <span>yes</span>
+              </label>
+              <label>
+                <span>
+                  {createField(
+                    'input',
+                    'lookingForAJob',
+                    'radio',
+                    null,
+                    'false'
+                  )}
+                </span>
+                <span>no</span>
+              </label>
+            </span>
+          </li>
+          <li>
+            <span className={s.preStatus}>Professional skills: </span>
+            {createField('input', 'lookingForAJobDescription', 'text')}
+          </li>
+          <li>
+            <span className={s.preStatus}>About me : </span>
+            {createField('input', 'aboutMe', 'text')}
+          </li>
+        </ul>
       </div>
-      {/* )} */}
-      {/* <div>
-              <span className={s.preStatus}>Looking for a job: </span>
-              {props.lookingForAJob ? 'yes' : 'no'}
-  
-              {props.lookingForAJobDescription && (
-                <div>
-                  <span className={s.preStatus}>Professional skills: </span>
-                  {props.lookingForAJobDescription}
-                </div>
-              )}
-            </div> */}
     </div>
   );
 };
-const ProfileStatusReduxForm = reduxForm({ form: 'profile' })(
-  ProfileStatusForm
-);
-export default ProfileStatusReduxForm;
+export default ProfileStatusForm;
