@@ -38,6 +38,7 @@ const ProfileContainer = (props) => {
         savePhoto={props.savePhoto}
         isOfter={!props.match.params.usersId}
         updateProfile={props.updateProfile}
+        profileUpdate={props.profileUpdate}
       />
     </div>
   );
@@ -48,6 +49,7 @@ const mapStateToProps = (state) => ({
   status: state.ProfilePage.status,
   isProfile: state.ProfilePage.isProfile,
   MessagePo: state.ProfilePage.MessagePo,
+  profileUpdate: state.ProfilePage.profileUpdate,
 });
 export default compose(
   connect(mapStateToProps, {

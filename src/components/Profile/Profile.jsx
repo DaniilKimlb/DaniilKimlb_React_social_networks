@@ -5,8 +5,8 @@ import avatarDefault from '../../assets/images/manusericon.png';
 import ProfileStatus from './Status/ProfileStatus';
 import Contacts from './Contacts/Contacts';
 import MyPost from './MyPost/MyPost';
-import ProfileStatusForm from './Status/ProfileStatusForm';
 import Edit from './Edit';
+import { TrendingUpTwoTone } from '@material-ui/icons';
 const Profile = (props) => {
   const changePhoto = (event) => {
     event.target.files.length && props.savePhoto(event.target.files[0]);
@@ -15,7 +15,7 @@ const Profile = (props) => {
   const [changeAvatar, setChangeAvatar] = useState(false);
   const onSubmit = (formData) => {
     props.updateProfile(formData);
-    console.log(formData);
+    props.profileUpdate ? setEditMode(false) : setEditMode(true);
   };
   return (
     <div className={s.ProfileInf}>
@@ -54,6 +54,7 @@ const Profile = (props) => {
           {editMode ? (
             <div className={s.editMode}>
               <Edit
+                lookingForAJob={props.profile.lookingForAJob}
                 initialValues={props.profile}
                 contacts={props.profile.contacts}
                 onSubmit={onSubmit}

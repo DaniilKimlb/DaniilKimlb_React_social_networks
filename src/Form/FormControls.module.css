@@ -1,9 +1,9 @@
-.Form_error textarea,
-.Form_error input {
-  outline: none;
-  border: 2px solid red;
+.Form_error input,
+.Form_error textarea {
+  z-index: 1000;
+  border-bottom: 2px solid red !important;
 }
 .error {
-  font: 15px 'Roboto', sans-serif;
+  font: 15px 'DM Sans', sans-serif;
   color: red;
 }

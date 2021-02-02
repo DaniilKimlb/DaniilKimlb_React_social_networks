@@ -6,8 +6,8 @@ const Edit = (props) => {
   return (
     <form onSubmit={props.handleSubmit}>
       <div className={s.heading + '  ' + s.editHeader}>Edit</div>
-
-      <ProfileStatusReduxForm />
+      {props.error &&<div className={s.error}>{props.error}</div>}
+      <ProfileStatusReduxForm lookingForAJob={props.lookingForAJob} />
       <ContactsForm contacts={props.contacts} />
       <span className={s.save}>
         <button>save</button>

@@ -1,8 +1,10 @@
-import { reduxForm } from 'redux-form';
-import { createField } from '../../../Form/FormControls';
+import { Field, reduxForm } from 'redux-form';
+import { createField, FormControls } from '../../../Form/FormControls';
+import { required } from '../../../utility/Validation';
 import s from '../Profile.module.css';
 
 const ProfileStatusForm = (props) => {
+  const FormInput = FormControls('input');
   return (
     <div>
       {/* {props.aboutMe && ( */}
@@ -13,25 +15,20 @@ const ProfileStatusForm = (props) => {
           <li>
             <span className={s.preStatus}>Full name: </span>
 
-            {createField('input', 'fullName', 'text')}
+            {createField(FormInput, 'fullName', 'text', null, null, [required])}
           </li>
           <li>
             <span className={s.preStatus}>Looking for a job: </span>
             <span className={s.lookingForAJobCheckBox}>
               <label>
                 <span>
-                  {createField(
-                    'input',
-                    'lookingForAJob',
-                    'radio',
-                    null,
-                    'true'
-                  )}
+                  {createField('input', 'lookingForAJob', 'radio', 'true')}
                 </span>
                 <span>yes</span>
               </label>
               <label>
                 <span>
+                  {' '}
                   {createField(
                     'input',
                     'lookingForAJob',
@@ -46,11 +43,18 @@ const ProfileStatusForm = (props) => {
           </li>
           <li>
             <span className={s.preStatus}>Professional skills: </span>
-            {createField('input', 'lookingForAJobDescription', 'text')}
+            {createField(
+              FormInput,
+              'lookingForAJobDescription',
+              'text',
+              null,
+              null,
+              [required]
+            )}
           </li>
           <li>
             <span className={s.preStatus}>About me : </span>
-            {createField('input', 'aboutMe', 'text')}
+            {createField(FormInput, 'aboutMe', 'text', null, null, [required])}
           </li>
         </ul>
       </div>

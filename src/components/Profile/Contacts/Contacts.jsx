@@ -9,7 +9,7 @@ const Contacts = ({ contacts }) => {
   return (
     arrContacts.length > 0 && (
       <div className={s.contact}>
-        <div className={s.heading}>Contact</div>
+        <div className={s.heading}>Contacts</div>
         <div className={s.contacts}>
           <ul>
             {arrContacts.map((c) => (

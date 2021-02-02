@@ -1,12 +1,13 @@
 import { NavLink } from 'react-router-dom';
-import Pikachu from '../../assets/images/Pikachu.png';
 import FavouriteContainer from './Favourite/FavouriteContainer';
 import s from './style/Nav.module.css';
 const Nav = (props) => (
   <nav className={s.nav}>
     <div className={s.items}>
       <div className={s.title}>
-        <span className={s.NH}>PIKACHU</span>
+        <span className={s.NH}>
+          PIKACHU
+        </span>
       </div>
       <div className={`${s.itemMenu}`}>MENU</div>
       <div className={s.item}>

@@ -1,5 +1,5 @@
 import { NavLink } from 'react-router-dom/cjs/react-router-dom.min';
-import s from './Friends.module.css';
+import s from './Favorite.module.css';
 // let backgroundColor = 'background-color: blue';
 const Favorite = (props) => {
   const state = props.InfoFavorite;

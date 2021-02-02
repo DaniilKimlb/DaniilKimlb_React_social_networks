@@ -19,7 +19,7 @@ const Header = (props) => {
     console.log(formData);
   };
   return (
-    <header className={s.header}>
+    <header className={s.header} id="header">
       <span className={s.search}>
         <img src={searchIcons} alt="#" />
         <HeaderReduxForm onSubmit={onSubmit} />
