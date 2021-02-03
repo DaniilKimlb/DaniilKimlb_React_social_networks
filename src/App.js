@@ -15,11 +15,9 @@ import { initializeApp } from './redux/AppReducer';
 import Preloader from './components/Preloader/Preloader';
 import withSuspense from './hoc/withSuspense';
 import { useEffect } from 'react';
+import ProfileContainer from './components/Profile/ProfileContainer'
 const DialogsContainer = React.lazy(() =>
   import('./components/Dialogs/DialogContainer')
-);
-const ProfileContainer = React.lazy(() =>
-  import('./components/Profile/ProfileContainer')
 );
 const App = (props) => {
   useEffect(() => {
@@ -37,7 +35,7 @@ const App = (props) => {
         <div class="content">
           <Route
             path="/Profile/:usersId?"
-            render={withSuspense(ProfileContainer)}
+            render={()=><ProfileContainer/>}
           />
           <Route path="/Messages" render={withSuspense(DialogsContainer)} />
           <Route path="/News" render={() => <News />} />

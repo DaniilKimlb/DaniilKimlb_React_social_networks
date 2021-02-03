@@ -10,7 +10,7 @@ const Edit = (props) => {
       <ProfileStatusReduxForm lookingForAJob={props.lookingForAJob} />
       <ContactsForm contacts={props.contacts} />
       <span className={s.save}>
-        <button>save</button>
+        <button>Save</button>
       </span>
     </form>
   );

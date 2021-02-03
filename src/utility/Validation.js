@@ -1,6 +1,6 @@
 export const required = (value) => {
   if (value && value.trim()) return null;
-  return 'You have not entered text!';
+  return 'this field is required';
 };
 
 export const maxSymbols = (m) => (value) => {

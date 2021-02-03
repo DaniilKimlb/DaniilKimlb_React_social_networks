@@ -44,7 +44,9 @@ const Profile = (props) => {
             edit
           </span>
         )}
-        <span className={s.name}>{props.profile.fullName}</span>
+        <span className={`${s.name}  ${props.isOfter && s.nameE}`}>
+          {props.profile.fullName}
+        </span>
         {changeAvatar && (
           <div className={s.changeAvatar}>Change your avatar</div>
         )}

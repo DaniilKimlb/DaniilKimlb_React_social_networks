@@ -10,7 +10,7 @@ const IS_FETCHING = 'IS_FETCHING';
 const IS_FOLLOWING = 'IS_FOLLOWING';
 const initialState = {
   users: [],
-  pageSize: 4,
+  pageSize: 24,
   totalItemsCount: 0,
   currentPage: 1,
   isFetching: false,

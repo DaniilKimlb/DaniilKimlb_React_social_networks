@@ -82,16 +82,26 @@ export const savePhoto = (file) => async (dispatch) => {
     dispatch(savePhotoSuccess(data.data.photos));
   }
 };
-export const updateProfile = (profile) => async (dispatch) => {
+export const updateProfile = (profile) => async (dispatch, getState) => {
   const data = await profileAPI.update(profile);
   if (data.resultCode === 0) {
     dispatch(profileUpdateSuccess());
-    dispatch(getProfile(data.data));
+    dispatch(getProfile(getState().Auth.userId));
   } else {
     dispatch(profileUpdateError());
-    const messages =  JSON.parse(data.messages[0]).splite('>')
-    dispatch(stopSubmit('EditProfile', { 'contacts':{ 'facebook' : data.messages[0] }}));
-    debugger
+    const errObject = {};
+    for (let i of data.messages) {
+      const d = i.split('>');
+      const err = i.split('(');
+      const element = d[1].slice(0, -1).toLowerCase();
+      errObject[element === 'mainlink' ? element.replace('l', 'L') : element] =
+        err[0];
+    }
+    dispatch(
+      stopSubmit('EditProfile', {
+        contacts: { ...errObject },
+      })
+    );
   }
 };
 

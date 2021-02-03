@@ -17,7 +17,6 @@
 }
 .editMode .heading {
   font: 20px 'DM Sans', sans-serif;
-
   color: #5c5e6e;
 }
 
@@ -44,6 +43,7 @@
   background-color: #1b86f9;
   box-shadow: 0 0 3px 0 #1b86f9;
   /* margin-left: 225px; */
+  font: 15px 'DM Sans', sans-serif;
 }
 .editMode .cancel {
   position: relative;
@@ -60,12 +60,13 @@
   height: 20px;
 
   transition-duration: 0.5s;
+  font: 15px 'DM Sans', sans-serif;
 
   color: #fff;
   border: none;
   border-radius: 5px;
-  background-color: red;
-  box-shadow: 0 0 3px 0 red;
+  background-color: #ff0000;
+  box-shadow: 0 0 3px 0 #ff0000;
 }
 .editMode .save button:focus,
 .editMode .save button:active,
@@ -207,7 +208,14 @@
 .Introduction .heading {
   font: 20px 'DM Sans', sans-serif;
 
-  color: #5c5e6e;
+  color: #35363d;
+}
+.nameE {
+  position: relative;
+  left: 4px;
+}
+.editAndName {
+  display: flex;
 }
 .Introduction .status {
   font: 15px 'DM Sans', sans-serif;
