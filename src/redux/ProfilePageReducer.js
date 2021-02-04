@@ -6,6 +6,7 @@ const SET_USERS_PROFILE = 'SET_USERS_PROFILE';
 const SET_STATUS = 'SET_STATUS';
 const SAVE_PHOTO_SUCCESS = 'SAVE_PHOTO_SUCCESS';
 const PROFILE_UPDATE_SUCCESS = 'PROFILE_UPDATE_SUCCESS';
+const DELETE_POST = 'DELETE_POST';
 const PROFILE_UPDATE_ERROR = 'PROFILE_UPDATE_ERROR';
 const initialState = {
   MessagePo: [
@@ -20,7 +21,11 @@ const initialState = {
 const ProfilePageReducer = (state = initialState, action) => {
   switch (action.type) {
     case GET_POST:
-      const m = { id: 3, message: action.text, like: 0 };
+      const m = {
+        id: [...state.MessagePo].length + 1,
+        message: action.text,
+        like: 0,
+      };
       return { ...state, MessagePo: [...state.MessagePo, m] };
     case SET_USERS_PROFILE:
       return { ...state, profile: action.profile };
@@ -32,6 +37,11 @@ const ProfilePageReducer = (state = initialState, action) => {
       return { ...state, profileUpdate: true };
     case PROFILE_UPDATE_ERROR:
       return { ...state, profileUpdate: false };
+    case DELETE_POST:
+      return {
+        ...state,
+        MessagePo: [...state.MessagePo].filter((p) => action.postId !== p.id),
+      };
     default:
       return state;
   }
@@ -50,6 +60,10 @@ const setStatus = (status) => ({
 const savePhotoSuccess = (photos) => ({
   type: SAVE_PHOTO_SUCCESS,
   photos,
+});
+export const deletePost = (postId) => ({
+  type: DELETE_POST,
+  postId,
 });
 const profileUpdateSuccess = () => ({
   type: PROFILE_UPDATE_SUCCESS,
@@ -85,8 +99,8 @@ export const savePhoto = (file) => async (dispatch) => {
 export const updateProfile = (profile) => async (dispatch, getState) => {
   const data = await profileAPI.update(profile);
   if (data.resultCode === 0) {
-    dispatch(profileUpdateSuccess());
     dispatch(getProfile(getState().Auth.userId));
+    dispatch(profileUpdateSuccess());
   } else {
     dispatch(profileUpdateError());
     const errObject = {};

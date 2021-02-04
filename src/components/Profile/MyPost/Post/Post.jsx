@@ -7,7 +7,9 @@ const Post = (props) => {
     <div className={s.posts}>
       <img className={s.img1} src={props.avatar || avatarDefault} alt="#" />
       <span className={s.fullName}>{props.fullName}</span>
-
+      <span className={s.deletePost} onClick={() => props.deletePost(props.id)}>
+        X
+      </span>
       <div className={s.message}>{props.message}</div>
 
       <div className={s.like} title={a}>

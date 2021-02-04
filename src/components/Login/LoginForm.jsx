@@ -15,7 +15,7 @@ const LoginForm = (props) => {
           className={s.loginForm}
           onSubmit={props.handleSubmit}
         >
-          {createField(FormInput, 'email', 'text', 'email', [required])}
+          {createField(FormInput, 'email', 'text', 'email')}
           {createField(FormInput, 'password', 'password', 'password', [
             required,
           ])}
@@ -25,6 +25,12 @@ const LoginForm = (props) => {
               remember me
             </label>
           </div>
+          {props.captchaURL && (
+            <div className={s.captcha}>
+              <img src={props.captchaURL} alt="#" />
+              {createField(FormInput, 'captcha', 'text', 'captcha')}
+            </div>
+          )}
           <div>
             <button>login</button>
           </div>

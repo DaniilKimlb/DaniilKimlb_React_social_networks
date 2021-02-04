@@ -36,3 +36,10 @@
   margin-left: 5px;
   /*outline: 1px solid;*/
 }
+.deletePost:hover {
+  color: red;
+  cursor: pointer;
+}
+.deletePost {
+  float: right;
+}

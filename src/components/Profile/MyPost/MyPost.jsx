@@ -10,8 +10,10 @@ const MyPost = (props) => {
     .reverse()
     .map((m) => (
       <Post
+        deletePost={props.deletePost}
         message={m.message}
         key={m.id}
+        id={m.id}
         like={m.like}
         fullName={props.fullName}
         avatar={props.avatar}

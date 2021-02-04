@@ -1,16 +1,14 @@
 .loginPage {
-
-  margin: auto; 
+  margin: auto;
   width: 740px;
   padding: 8% 0 0;
 }
 .title {
- 
   font: 25px 'DM Sans', sans-serif;
 }
 .form {
   background-color: #151728;
-border-radius: 5px;
+  border-radius: 5px;
   position: relative;
   margin: 0 auto 100px;
   padding: 45px;
@@ -21,12 +19,28 @@ border-radius: 5px;
   margin: 20px auto;
   background-color: #ffd6cc;
   width: 302px;
-  font: 14px 'DM Sans', sans-serif;
   border-radius: 5px;
+  font: 14px 'DM Sans', sans-serif;
 }
-.form{
+.form {
   color: #64677a;
-
+}
+.captcha {
+  display: flex;
+  /* margin-right: 5px; */
+  justify-content: center;
+}
+.captcha input {
+  width: 175.5px !important;
+  border-top-left-radius: 0 !important;
+  border-bottom-left-radius: 0 !important;
+}
+.captcha img {
+  opacity: 0.95;
+  width: 100x;
+  height: 48px;
+  border-top-left-radius: 5px;
+  border-bottom-left-radius: 5px;
 }
 .form input {
   font: 14px 'DM Sans', sans-serif;
@@ -38,25 +52,20 @@ border-radius: 5px;
   color: #64677a;
   margin: 0 0 15px;
   padding: 15px;
- 
 }
 .rememberMe input {
   width: 20px;
-
 }
 .rememberMe {
   position: relative;
   left: -93px;
   font: 15px 'DM Sans', sans-serif;
-
 }
 .form button {
   border-radius: 5px;
-
   font: 14px 'DM Sans', sans-serif;
   text-transform: uppercase;
   outline: 0;
-  transition-duration: 0.5s;
   box-shadow: 0px 0px 3px 0px #1b86f9;
   transition-duration: 0.5s;
 

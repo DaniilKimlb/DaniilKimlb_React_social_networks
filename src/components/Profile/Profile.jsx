@@ -6,7 +6,6 @@ import ProfileStatus from './Status/ProfileStatus';
 import Contacts from './Contacts/Contacts';
 import MyPost from './MyPost/MyPost';
 import Edit from './Edit';
-import { TrendingUpTwoTone } from '@material-ui/icons';
 const Profile = (props) => {
   const changePhoto = (event) => {
     event.target.files.length && props.savePhoto(event.target.files[0]);
@@ -14,8 +13,8 @@ const Profile = (props) => {
   const [editMode, setEditMode] = useState(false);
   const [changeAvatar, setChangeAvatar] = useState(false);
   const onSubmit = (formData) => {
-    props.updateProfile(formData);
     props.profileUpdate ? setEditMode(false) : setEditMode(true);
+    props.updateProfile(formData);
   };
   return (
     <div className={s.ProfileInf}>
@@ -83,6 +82,7 @@ const Profile = (props) => {
         </div>
         <div className={s.right}>
           <MyPost
+            deletePost={props.deletePost}
             fullName={props.profile.fullName}
             setPostClear={props.setPostClear}
             MessagePo={props.MessagePo}
