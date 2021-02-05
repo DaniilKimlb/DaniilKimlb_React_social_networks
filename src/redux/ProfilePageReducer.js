@@ -5,9 +5,8 @@ const GET_POST = 'GET-POST';
 const SET_USERS_PROFILE = 'SET_USERS_PROFILE';
 const SET_STATUS = 'SET_STATUS';
 const SAVE_PHOTO_SUCCESS = 'SAVE_PHOTO_SUCCESS';
-const PROFILE_UPDATE_SUCCESS = 'PROFILE_UPDATE_SUCCESS';
 const DELETE_POST = 'DELETE_POST';
-const PROFILE_UPDATE_ERROR = 'PROFILE_UPDATE_ERROR';
+const PROFILE_UPDATE = 'profile/PROFILE_UPDATE';
 const initialState = {
   MessagePo: [
     { id: 1, message: "It's my life!!!", like: 48 },
@@ -16,7 +15,7 @@ const initialState = {
   profile: null,
   IsContacts: false,
   status: '',
-  profileUpdate: null,
+  profileUpdateComplete: null,
 };
 const ProfilePageReducer = (state = initialState, action) => {
   switch (action.type) {
@@ -33,10 +32,8 @@ const ProfilePageReducer = (state = initialState, action) => {
       return { ...state, status: action.status };
     case SAVE_PHOTO_SUCCESS:
       return { ...state, profile: { ...state.profile, photos: action.photos } };
-    case PROFILE_UPDATE_SUCCESS:
-      return { ...state, profileUpdate: true };
-    case PROFILE_UPDATE_ERROR:
-      return { ...state, profileUpdate: false };
+    case PROFILE_UPDATE:
+      return { ...state, profileUpdateComplete: action.updateProfile };
     case DELETE_POST:
       return {
         ...state,
@@ -65,12 +62,11 @@ export const deletePost = (postId) => ({
   type: DELETE_POST,
   postId,
 });
-const profileUpdateSuccess = () => ({
-  type: PROFILE_UPDATE_SUCCESS,
+export const profileUpdate = (updateProfile) => ({
+  type: PROFILE_UPDATE,
+  updateProfile,
 });
-const profileUpdateError = () => ({
-  type: PROFILE_UPDATE_ERROR,
-});
+
 // Thunk================================================================
 export const getProfile = (usersId) => async (dispatch) => {
   const data = await profileAPI.UsersProfile(usersId);
@@ -98,11 +94,12 @@ export const savePhoto = (file) => async (dispatch) => {
 };
 export const updateProfile = (profile) => async (dispatch, getState) => {
   const data = await profileAPI.update(profile);
+  dispatch(profileUpdate(false));
   if (data.resultCode === 0) {
     dispatch(getProfile(getState().Auth.userId));
-    dispatch(profileUpdateSuccess());
+    dispatch(profileUpdate(true));
   } else {
-    dispatch(profileUpdateError());
+    dispatch(profileUpdate(false));
     const errObject = {};
     for (let i of data.messages) {
       const d = i.split('>');

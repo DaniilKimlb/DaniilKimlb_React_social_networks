@@ -3,6 +3,7 @@ import { withRouter } from 'react-router-dom/cjs/react-router-dom.min';
 import { compose } from 'redux/es/redux';
 import s from './Profile.module.css';
 import {
+  profileUpdate,
   getProfile,
   getStatus,
   updateStatus,
@@ -29,6 +30,7 @@ const ProfileContainer = (props) => {
   return (
     <div className={s.content}>
       <Profile
+        profileUpdate={props.profileUpdate}
         profile={props.profile}
         id={props.id}
         status={props.status}
@@ -39,7 +41,7 @@ const ProfileContainer = (props) => {
         savePhoto={props.savePhoto}
         isOfter={!props.match.params.usersId}
         updateProfile={props.updateProfile}
-        profileUpdate={props.profileUpdate}
+        profileUpdateComplete={props.profileUpdateComplete}
         deletePost={props.deletePost}
       />
     </div>
@@ -51,7 +53,7 @@ const mapStateToProps = (state) => ({
   status: state.ProfilePage.status,
   isProfile: state.ProfilePage.isProfile,
   MessagePo: state.ProfilePage.MessagePo,
-  profileUpdate: state.ProfilePage.profileUpdate,
+  profileUpdateComplete: state.ProfilePage.profileUpdateComplete,
 });
 export default compose(
   connect(mapStateToProps, {
@@ -62,6 +64,7 @@ export default compose(
     savePhoto,
     updateProfile,
     deletePost,
+    profileUpdate,
   }),
   withRouter
 )(ProfileContainer);

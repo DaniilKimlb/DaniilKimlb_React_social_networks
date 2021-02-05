@@ -13,7 +13,6 @@ const Profile = (props) => {
   const [editMode, setEditMode] = useState(false);
   const [changeAvatar, setChangeAvatar] = useState(false);
   const onSubmit = (formData) => {
-    props.profileUpdate ? setEditMode(false) : setEditMode(true);
     props.updateProfile(formData);
   };
   return (
@@ -55,13 +54,21 @@ const Profile = (props) => {
           {editMode ? (
             <div className={s.editMode}>
               <Edit
+                profileUpdateComplete={props.profileUpdateComplete}
                 lookingForAJob={props.profile.lookingForAJob}
                 initialValues={props.profile}
                 contacts={props.profile.contacts}
                 onSubmit={onSubmit}
               />
               <span className={s.cancel}>
-                <button onClick={() => setEditMode(false)}>Cancel</button>
+                <button
+                  onClick={() => {
+                    setEditMode(false);
+                    props.profileUpdate(false);
+                  }}
+                >
+                  Cancel
+                </button>
               </span>
             </div>
           ) : (
@@ -69,7 +76,7 @@ const Profile = (props) => {
               <ProfileStatus
                 status={props.status}
                 aboutMe={props.profile.aboutMe}
-                lookingForAJob={props.profile.lookingForAJobDescription}
+                lookingForAJob={props.profile.lookingForAJob}
                 lookingForAJobDescription={
                   props.profile.lookingForAJobDescription
                 }

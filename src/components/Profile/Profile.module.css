@@ -186,14 +186,14 @@
   background-color: #151728;
   box-shadow: 0 0 3px 0 rgba(0, 0, 0, 0.5);
 }
-.editMode .error {
+.editMode .profileUpdateComplete {
   padding: 7px;
-  margin: 20px auto;
   text-align: center;
-  background-color: #ffd6cc;
-  font: 16px 'DM Sans', sans-serif;
+  background-color: #def0d3;
+  font: 12px 'DM Sans', sans-serif;
   border-radius: 5px;
-  color: red;
+  font-weight: bold;
+  color: #000;
 }
 .Introduction {
   width: 310px;

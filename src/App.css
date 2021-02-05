@@ -1,9 +1,8 @@
-  
 .wrapper {
- max-width: 1200px;
+  max-width: 1200px;
   display: grid;
   grid-template-columns: 250px 1fr;
-  margin: 0 150px ;
+  margin: 0 150px;
   grid-template-rows: 50px 2fr;
   margin: 0 auto;
   grid-template-areas: 'n h' 'n c';
@@ -13,6 +12,26 @@ body {
 }
 .content {
   margin: 20px;
- 
+
   grid-area: c;
-  display: flex;}
+  display: flex;
+}
+.Error {
+  text-align: center;
+  position: relative;
+  font: 14px 'DM Sans', sans-serif;
+
+  left: 10px;
+  margin: 0 auto;
+  width: 1220px;
+  background-color: red;
+  /* outline: 1px; */
+}
+.close {
+  float: right;
+  margin-right: 5px;
+  cursor: pointer;
+}
+.close:hover {
+  color: #fff;
+}

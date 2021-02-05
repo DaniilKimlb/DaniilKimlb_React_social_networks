@@ -22,7 +22,13 @@ const ProfileStatusForm = (props) => {
             <span className={s.lookingForAJobCheckBox}>
               <label>
                 <span>
-                  {createField('input', 'lookingForAJob', 'radio', 'true')}
+                  {createField(
+                    'input',
+                    'lookingForAJob',
+                    'radio',
+                    null,
+                    'true'
+                  )}
                 </span>
                 <span>yes</span>
               </label>

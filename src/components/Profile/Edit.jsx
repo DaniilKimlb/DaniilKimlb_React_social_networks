@@ -6,7 +6,9 @@ const Edit = (props) => {
   return (
     <form onSubmit={props.handleSubmit}>
       <div className={s.heading + '  ' + s.editHeader}>Edit</div>
-      {props.error &&<div className={s.error}>{props.error}</div>}
+      {props.profileUpdateComplete && (
+        <div className={s.profileUpdateComplete}>The changes are saved</div>
+      )}
       <ProfileStatusReduxForm lookingForAJob={props.lookingForAJob} />
       <ContactsForm contacts={props.contacts} />
       <span className={s.save}>
