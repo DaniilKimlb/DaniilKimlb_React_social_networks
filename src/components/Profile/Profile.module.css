@@ -1,7 +1,3 @@
-@import url('https://fonts.googleapis.com/css?family=DM+Sans:400,500,700|Source+Sans+Pro:300,400,600,700&display=swap');
-.Profileinf {
-  grid-area: p;
-}
 .title {
   width: 950px;
   height: 255px;
@@ -30,51 +26,35 @@
   background-color: #151728;
   box-shadow: 0 0 3px 0 rgba(0, 0, 0, 0.5);
 }
-.editMode .save button {
-  width: 70px;
-  height: 20px;
-  margin-left: 15px;
-
-  transition-duration: 0.5s;
-
-  color: #fff;
-  border: none;
-  border-radius: 5px;
-  background-color: #1b86f9;
-  box-shadow: 0 0 3px 0 #1b86f9;
-  /* margin-left: 225px; */
-  font: 15px 'DM Sans', sans-serif;
-}
-.editMode .cancel {
-  position: relative;
-  top: -24px;
-
-  float: right;
-
-  width: 70px;
-  height: 20px;
-  margin-right: 20px;
-}
+.editMode .save button,
 .editMode .cancel button {
   width: 70px;
   height: 20px;
-
   transition-duration: 0.5s;
   font: 15px 'DM Sans', sans-serif;
-
-  color: #fff;
   border: none;
   border-radius: 5px;
+  color: #fff;
+}
+.editMode .save button {
+  margin-left: 15px;
+  background-color: #1b86f9;
+  box-shadow: 0 0 3px 0 #1b86f9;
+}
+.editMode .cancel {
+  position: relative;
+  top: -22px;
+  right: -5px;
+  float: right;
+  margin-right: 20px;
+}
+.editMode .cancel button {
   background-color: #ff0000;
   box-shadow: 0 0 3px 0 #ff0000;
 }
 .editMode .save button:focus,
 .editMode .save button:active,
-.editMode .save button:hover {
-  opacity: 0.88;
-  border: none;
-  outline: none;
-}
+.editMode .save button:hover,
 .editMode .cancel button:focus,
 .editMode .cancel button:active,
 .editMode .cancel button:hover {
@@ -135,10 +115,7 @@
 
   color: #5c5e6e;
 }
-.active {
-  color: #fff;
-  border-bottom: 2px solid #1b86f9;
-}
+.active,
 .edit:hover {
   color: #fff;
   border-bottom: 2px solid #1b86f9;
@@ -195,21 +172,6 @@
   font-weight: bold;
   color: #000;
 }
-.Introduction {
-  width: 310px;
-  min-height: 50px;
-  margin-top: 20px;
-  padding: 10px;
-
-  border-radius: 5px;
-  background-color: #151728;
-  box-shadow: 0 0 3px 0 rgba(0, 0, 0, 0.5);
-}
-.Introduction .heading {
-  font: 20px 'DM Sans', sans-serif;
-
-  color: #35363d;
-}
 .nameE {
   position: relative;
   left: 4px;
@@ -238,7 +200,8 @@
   background-color: #151728;
   box-shadow: 0 0 3px 0 rgba(0, 0, 0, 0.5);
 }
-.contact {
+.contact,
+.Introduction {
   width: 310px;
   margin-top: 20px;
   padding: 10px;
@@ -247,7 +210,8 @@
   background-color: #151728;
   box-shadow: 0 0 3px 0 rgba(0, 0, 0, 0.5);
 }
-.contact .heading {
+.contact .heading,
+.Introduction .heading {
   font: 20px 'DM Sans', sans-serif;
 
   color: #5c5e6e;
@@ -259,7 +223,7 @@
   list-style: none;
 }
 .contacts {
-  margin: -20px 0 0 0;
+  margin: -20px 0 -15px;
 }
 .contacts a {
   font: 15px 'DM Sans', sans-serif;

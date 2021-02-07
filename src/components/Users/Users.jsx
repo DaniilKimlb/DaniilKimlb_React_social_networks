@@ -2,6 +2,7 @@ import s from './Users.module.css';
 import React from 'react';
 import userPhoto from '../../assets/images/manusericon.png';
 import { NavLink } from 'react-router-dom';
+import cn from 'classnames';
 import PageCount from './PageCount';
 const Users = (props) => {
   return (
@@ -34,7 +35,7 @@ const Users = (props) => {
               </div>
             </span>
             {m.followed ? (
-              <div className={s.but + '  ' + s.Unfollowed}>
+              <div className={cn(s.but, s.Unfollowed)}>
                 <button
                   disabled={props.followingInProgress.some((id) => id === m.id)}
                   onClick={() => props.unfollow(m.id)}
@@ -43,7 +44,7 @@ const Users = (props) => {
                 </button>
               </div>
             ) : (
-              <div className={s.but + '  ' + s.followed}>
+              <div className={cn(s.but, s.followed)}>
                 <button
                   className={s.but}
                   disabled={props.followingInProgress.some((id) => id === m.id)}

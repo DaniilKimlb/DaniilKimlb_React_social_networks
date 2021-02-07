@@ -6,6 +6,7 @@ import ProfileStatus from './Status/ProfileStatus';
 import Contacts from './Contacts/Contacts';
 import MyPost from './MyPost/MyPost';
 import Edit from './Edit';
+import cn from 'classnames';
 const Profile = (props) => {
   const changePhoto = (event) => {
     event.target.files.length && props.savePhoto(event.target.files[0]);
@@ -21,9 +22,7 @@ const Profile = (props) => {
         <span className={s.cap}>
           <img src={cap} alt="#" />
         </span>
-        <span
-          className={props.isOfter ? s.avatar + '  ' + s.setting : s.avatar}
-        >
+        <span className={cn(s.avatar, { [s.setting]: props.isOfter })}>
           <label>
             <img
               onMouseOver={() => props.isOfter && setChangeAvatar(true)}
@@ -36,13 +35,13 @@ const Profile = (props) => {
         </span>
         {props.isOfter && (
           <span
-            className={`${s.edit}  ${editMode && s.active}`}
+            className={cn(s.edit, { [s.active]: editMode })}
             onClick={() => setEditMode(true)}
           >
             edit
           </span>
         )}
-        <span className={`${s.name}  ${props.isOfter && s.nameE}`}>
+        <span className={cn(s.name, { [s.nameE]: props.isOfter })}>
           {props.profile.fullName}
         </span>
         {changeAvatar && (

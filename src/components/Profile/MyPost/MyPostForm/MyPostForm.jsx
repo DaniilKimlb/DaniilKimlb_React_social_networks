@@ -3,7 +3,6 @@ import s from './../MyPost.module.css';
 import { reduxForm } from 'redux-form';
 import { required } from '../../../../utility/Validation';
 import { createField } from '../../../../Form/FormControls';
-
 const MyPostForm = (props) => {
   return (
     <form onSubmit={props.handleSubmit}>

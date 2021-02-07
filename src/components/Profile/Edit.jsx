@@ -2,10 +2,11 @@ import { reduxForm } from 'redux-form';
 import ContactsForm from './Contacts/ContactsForm';
 import s from './Profile.module.css';
 import ProfileStatusReduxForm from './Status/ProfileStatusForm';
+import cn from 'classnames';
 const Edit = (props) => {
   return (
     <form onSubmit={props.handleSubmit}>
-      <div className={s.heading + '  ' + s.editHeader}>Edit</div>
+      <div className={cn(s.heading, s.editHeader)}>Edit</div>
       {props.profileUpdateComplete && (
         <div className={s.profileUpdateComplete}>The changes are saved</div>
       )}

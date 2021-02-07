@@ -1,6 +1,4 @@
-import { NavLink } from 'react-router-dom/cjs/react-router-dom.min';
 import s from './Favorite.module.css';
-// let backgroundColor = 'background-color: blue';
 const Favorite = (props) => {
   const state = props.InfoFavorite;
   let a = state.map((f) => (
@@ -15,7 +13,6 @@ const Favorite = (props) => {
     <div className={s.FavoriteNav}>
       <div class={s.Favorite}>
         <div className={s.yourFavorite}>YOUR FAVORITE</div>
-
         {a}
       </div>
     </div>

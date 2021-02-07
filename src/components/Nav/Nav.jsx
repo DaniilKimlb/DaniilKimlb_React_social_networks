@@ -1,13 +1,12 @@
 import { NavLink } from 'react-router-dom';
+import cn from 'classnames';
 import FavouriteContainer from './Favourite/FavouriteContainer';
 import s from './style/Nav.module.css';
 const Nav = (props) => (
   <nav className={s.nav}>
     <div className={s.items}>
       <div className={s.title}>
-        <span className={s.NH}>
-          PIKACHU
-        </span>
+        <span className={s.NH}>PIKACHU</span>
       </div>
       <div className={`${s.itemMenu}`}>MENU</div>
       <div className={s.item}>
@@ -30,12 +29,12 @@ const Nav = (props) => (
           Music
         </NavLink>
       </div>
-      <div className={s.item + ' ' + s.FindUsers}>
+      <div className={cn(s.item, s.FindUsers)}>
         <NavLink to="/Users" activeClassName={s.active}>
           Users
         </NavLink>
       </div>
-      <div className={`${s.item} ${s.setting}`}>
+      <div className={cn(s.item, s.setting)}>
         <NavLink to="/Setting" activeClassName={s.active}>
           Settings
         </NavLink>

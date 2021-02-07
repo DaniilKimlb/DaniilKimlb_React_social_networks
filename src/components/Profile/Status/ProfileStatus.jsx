@@ -47,7 +47,6 @@ const ProfileStatus = (props) => {
           <div>
             <span className={s.preStatus}>Looking for a job: </span>
             {props.lookingForAJob ? 'yes' : 'no'}
-
             {props.lookingForAJobDescription && (
               <div>
                 <span className={s.preStatus}>Professional skills: </span>

@@ -17,6 +17,7 @@ import withSuspense from './hoc/withSuspense';
 import { useEffect } from 'react';
 import ProfileContainer from './components/Profile/ProfileContainer';
 import { Redirect, Switch } from 'react-router-dom';
+import Headroom from 'react-headroom';
 const DialogsContainer = React.lazy(() =>
   import('./components/Dialogs/DialogContainer')
 );

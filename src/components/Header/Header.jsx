@@ -6,7 +6,7 @@ import messageIcons from '../../assets/images/MessageIcon.png';
 import notificationIcons from '../../assets/images/notification.png';
 import { HeaderReduxForm } from './form/HeaderForm';
 import avatarDefault from '../../assets/images/manusericon.png';
-
+import cn from 'classnames';
 const Header = (props) => {
   const [menu, setMenu] = useState(false);
   const menuTrue = () => {

@@ -1,13 +1,14 @@
 import React from 'react';
 import { Field } from 'redux-form';
 import s from './FormControls.module.css';
+import cn from 'classnames';
 
 export const FormControls = (Element) => ({ input, meta, ...props }) => {
   const mTError = meta.touched && meta.error;
   return (
     <>
       <div className={s.error}>{mTError}</div>{' '}
-      <div className={mTError && s.Form_error}>
+      <div className={cn({ [s.Form_error]: mTError })}>
         <Element
           // style={{ borderBottom: '2px solid red' }}
           {...input}

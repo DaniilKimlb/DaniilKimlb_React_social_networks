@@ -15,34 +15,43 @@ const PageCount = ({ portionSize = 5, ...props }) => {
   return (
     <div className={s.pageCount}>
       {portionNumber > 1 && (
-        <button onClick={() => setPortionNumber(portionNumber - 1)}>
-          &larr;
-        </button>
+        <>
+          <span className={s.arrow}>
+            <button onClick={() => setPortionNumber(portionNumber - 1)}>
+              PREV
+            </button>
+          </span>
+        </>
       )}
       {pages
         .filter((p) => p >= leftPortionNumber && p <= rightPortionNumber)
         .map((p) => {
           return (
-            <span
+            <div
               className={cn(
                 { [s.pageSelection]: props.currentPage === p },
-                s.pageNumber
+                s.page
               )}
-              key={p}
-              onClick={() => {
-                return props.onPageChanged(p);
-              }}
             >
-              {p}
-            </span>
+              <span
+                className={cn(s.pageNumber)}
+                key={p}
+                onClick={() => {
+                  return props.onPageChanged(p);
+                }}
+              >
+                {p}
+              </span>
+            </div>
           );
         })}
       {portionCount > portionNumber && (
-        <button onClick={() => setPortionNumber(portionNumber + 1)}>
-          &rarr;
-        </button>
+        <span className={s.arrow}>
+          <button onClick={() => setPortionNumber(portionNumber + 1)}>
+            NEXT
+          </button>
+        </span>
       )}
-      <button onClick={() => setPortionNumber((portionNumber = 1))}>da</button>
     </div>
   );
 };
