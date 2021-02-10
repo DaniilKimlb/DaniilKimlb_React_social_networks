@@ -1,5 +1,6 @@
 .ava img {
   width: 100px;
+  border: 1px solid #000;
   height: 100px;
   border-radius: 50%;
   margin: 0 auto;
@@ -7,7 +8,7 @@
 
 .ava img:hover {
   transition-duration: 1.5s;
-  transform: rotate(720deg) scale(1.2);
+  transform: scale(1.2);
 }
 .content {
   display: grid;
