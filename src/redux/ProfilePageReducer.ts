@@ -1,25 +1,35 @@
+import { profileType } from './../types/types';
 import { reset, stopSubmit } from 'redux-form';
 import { profileAPI } from '../API/API';
 
-const GET_POST = 'GET-POST';
-const SET_USERS_PROFILE = 'SET_USERS_PROFILE';
-const SET_STATUS = 'SET_STATUS';
-const SAVE_PHOTO_SUCCESS = 'SAVE_PHOTO_SUCCESS';
-const DELETE_POST = 'DELETE_POST';
+const SET_POST = 'profile/SET-POST';
+const SET_USERS_PROFILE = 'profile/SET_USERS_PROFILE';
+const SET_STATUS = 'profile/SET_STATUS';
+const SAVE_PHOTO_SUCCESS = 'profile/SAVE_PHOTO_SUCCESS';
+const DELETE_POST = 'profile/DELETE_POST';
 const PROFILE_UPDATE = 'profile/PROFILE_UPDATE';
+type MessagePoType = {
+  id: number;
+  message: string;
+  like: number;
+};
 const initialState = {
   MessagePo: [
     { id: 1, message: "It's my life!!!", like: 48 },
     { id: 2, message: 'How are you do?', like: 14 },
-  ],
-  profile: null,
+  ] as Array<MessagePoType>,
+  profile: null as profileType | null,
   IsContacts: false,
   status: '',
-  profileUpdateComplete: null,
+  profileUpdateComplete: null as boolean | null,
 };
-const ProfilePageReducer = (state = initialState, action) => {
+export type initialStateType = typeof initialState;
+const ProfilePageReducer = (
+  state = initialState,
+  action: any
+): initialStateType => {
   switch (action.type) {
-    case GET_POST:
+    case SET_POST:
       const m = {
         id: [...state.MessagePo].length + 1,
         message: action.text,
@@ -31,7 +41,10 @@ const ProfilePageReducer = (state = initialState, action) => {
     case SET_STATUS:
       return { ...state, status: action.status };
     case SAVE_PHOTO_SUCCESS:
-      return { ...state, profile: { ...state.profile, photos: action.photos } };
+      return {
+        ...state,
+        profile: { ...state.profile, photos: action.photos } as profileType,
+      };
     case PROFILE_UPDATE:
       return { ...state, profileUpdateComplete: action.updateProfile };
     case DELETE_POST:
@@ -44,55 +57,77 @@ const ProfilePageReducer = (state = initialState, action) => {
   }
 };
 // ACTION_CREATE================================================
-export const setPost = (text) => ({ type: GET_POST, text });
 
-const setUsersProfile = (profile) => ({
+type setPostType = { type: typeof SET_POST; text: string };
+export const setPost = (text: string): setPostType => ({
+  type: SET_POST,
+  text,
+});
+
+type setUsersProfileType = {
+  type: typeof SET_USERS_PROFILE;
+  profile: profileType;
+};
+const setUsersProfile = (profile: profileType): setUsersProfileType => ({
   type: SET_USERS_PROFILE,
   profile,
 });
-const setStatus = (status) => ({
+type setStatusProfileType = { type: typeof SET_STATUS; status: string };
+const setStatus = (status: string): setStatusProfileType => ({
   type: SET_STATUS,
   status,
 });
-const savePhotoSuccess = (photos) => ({
+type savePhotoSuccessType = { type: typeof SAVE_PHOTO_SUCCESS; photos: string };
+
+const savePhotoSuccess = (photos: string): savePhotoSuccessType => ({
   type: SAVE_PHOTO_SUCCESS,
   photos,
 });
-export const deletePost = (postId) => ({
+type deletePostType = { type: typeof DELETE_POST; postId: number };
+export const deletePost = (postId: number): deletePostType => ({
   type: DELETE_POST,
   postId,
 });
-export const profileUpdate = (updateProfile) => ({
+type profileUpdateType = {
+  type: typeof PROFILE_UPDATE;
+  updateProfile: boolean;
+};
+export const profileUpdate = (updateProfile: boolean): profileUpdateType => ({
   type: PROFILE_UPDATE,
   updateProfile,
 });
 
 // Thunk================================================================
-export const getProfile = (usersId) => async (dispatch) => {
+export const getProfile = (usersId: number) => async (dispatch: any) => {
   const data = await profileAPI.UsersProfile(usersId);
   dispatch(setUsersProfile(data));
 };
-export const getStatus = (usersId) => async (dispatch) => {
+export const getStatus = (usersId: number) => async (dispatch: any) => {
   const data = await profileAPI.getStatus(usersId);
   dispatch(setStatus(data));
 };
-export const updateStatus = (status) => async (dispatch) => {
+export const updateStatus = (status: string) => async (dispatch: any) => {
   const data = await profileAPI.updateStatus(status);
   if (data.resultCode === 0) {
     dispatch(setStatus(status));
   }
 };
-export const setPostClear = (text, clearForm) => (dispatch) => {
+export const setPostClear = (text: string, clearForm: string) => (
+  dispatch: any
+) => {
   dispatch(setPost(text));
   dispatch(reset(clearForm));
 };
-export const savePhoto = (file) => async (dispatch) => {
+export const savePhoto = (file: any) => async (dispatch: any) => {
   const data = await profileAPI.savePhoto(file);
   if (data.resultCode === 0) {
     dispatch(savePhotoSuccess(data.data.photos));
   }
 };
-export const updateProfile = (profile) => async (dispatch, getState) => {
+export const updateProfile = (profile: profileType) => async (
+  dispatch: any,
+  getState: any
+) => {
   const data = await profileAPI.update(profile);
   dispatch(profileUpdate(false));
   if (data.resultCode === 0) {
@@ -100,11 +135,11 @@ export const updateProfile = (profile) => async (dispatch, getState) => {
     dispatch(profileUpdate(true));
   } else {
     dispatch(profileUpdate(false));
-    const errObject = {};
+    const errObject: any = {};
     for (let i of data.messages) {
-      const d = i.split('>');
-      const err = i.split('(');
-      const element = d[1].slice(0, -1).toLowerCase();
+      const d: Array<string> = i.split('>');
+      const err: Array<string> = i.split('(');
+      const element: string = d[1].slice(0, -1).toLowerCase();
       errObject[element === 'mainlink' ? element.replace('l', 'L') : element] =
         err[0];
     }

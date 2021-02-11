@@ -1,4 +1,14 @@
 const GET_MESSAGE = 'GET-MESSAGE';
+
+type ItemDialogsInfType = {
+  id: number;
+  name: string;
+  ava: string;
+};
+type MessageI = {
+  id: number;
+  message: string;
+};
 const initialState = {
   ItemDialogsInf: [
     {
@@ -28,7 +38,7 @@ const initialState = {
       ava:
         'https://i.pinimg.com/236x/74/05/5f/74055f83bfbdc20fdc1f9d1fc116fd26.jpg',
     },
-  ],
+  ] as Array<ItemDialogsInfType>,
   MessageI: [
     { id: 1, message: 'Hi!' },
     { id: 2, message: 'Hi!' },
@@ -45,9 +55,13 @@ const initialState = {
     { id: 1, message: 'ok!!!' },
     { id: 2, message: 'ok!!!' },
     { id: 1, message: 'ok!!!' },
-  ],
+  ] as Array<MessageI>,
 };
-const DialogPageReducer = (state = initialState, action) => {
+export type initialStateType = typeof initialState;
+const DialogPageReducer = (
+  state = initialState,
+  action: any
+): initialStateType => {
   switch (action.type) {
     case GET_MESSAGE: {
       const m = { id: 1, message: action.text };
@@ -57,5 +71,10 @@ const DialogPageReducer = (state = initialState, action) => {
       return state;
   }
 };
-export let sub = (text) => ({ type: GET_MESSAGE, text });
+type subType = {
+  type: typeof GET_MESSAGE;
+  text: string;
+};
+
+export const sub = (text: string): subType => ({ type: GET_MESSAGE, text });
 export default DialogPageReducer;
