@@ -60,7 +60,7 @@ const initialState = {
 export type initialStateType = typeof initialState;
 const DialogPageReducer = (
   state = initialState,
-  action: any
+  action: ActionType
 ): initialStateType => {
   switch (action.type) {
     case GET_MESSAGE: {
@@ -71,6 +71,7 @@ const DialogPageReducer = (
       return state;
   }
 };
+type ActionType = subType;
 type subType = {
   type: typeof GET_MESSAGE;
   text: string;

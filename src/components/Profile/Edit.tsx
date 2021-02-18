@@ -3,7 +3,17 @@ import ContactsForm from './Contacts/ContactsForm';
 import s from './Profile.module.css';
 import ProfileStatusReduxForm from './Status/ProfileStatusForm';
 import cn from 'classnames';
-const Edit = (props) => {
+import { contactsType, profileType } from '../../types/types';
+type PropsType = {
+  profileUpdateComplete: boolean;
+  contacts: contactsType;
+  onSubmit: any;
+  handleSubmit: any;
+  lookingForAJob: boolean;
+  initialValues: profileType;
+};
+
+const Edit: React.FC<PropsType> = ({ ...props }) => {
   return (
     <form onSubmit={props.handleSubmit}>
       <div className={cn(s.heading, s.editHeader)}>Edit</div>
@@ -18,5 +28,5 @@ const Edit = (props) => {
     </form>
   );
 };
-const EditForm = reduxForm({ form: 'EditProfile' })(Edit);
+const EditForm = reduxForm<any, any>({ form: 'EditProfile' })(Edit);
 export default EditForm;

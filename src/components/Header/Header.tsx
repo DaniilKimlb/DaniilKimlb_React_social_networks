@@ -1,5 +1,4 @@
 import React, { useState } from 'react';
-import Pikachu from '../../assets/images/Pikachu.png';
 import s from './style/Header.module.css';
 import searchIcons from '../../assets/images/search.png';
 import messageIcons from '../../assets/images/MessageIcon.png';
@@ -7,7 +6,12 @@ import notificationIcons from '../../assets/images/notification.png';
 import { HeaderReduxForm } from './form/HeaderForm';
 import avatarDefault from '../../assets/images/manusericon.png';
 import cn from 'classnames';
-const Header = (props) => {
+type PropsType = {
+  IsAuth: boolean;
+  login: string | null;
+  logout: () => void;
+};
+const Header: React.FC<PropsType> = ({ IsAuth, login, logout }) => {
   const [menu, setMenu] = useState(false);
   const menuTrue = () => {
     setMenu(true);
@@ -15,7 +19,7 @@ const Header = (props) => {
   const menuFalse = () => {
     setMenu(false);
   };
-  const onSubmit = (formData) => {
+  const onSubmit = (formData: any) => {
     console.log(formData);
   };
   return (
@@ -37,11 +41,15 @@ const Header = (props) => {
       </span>
       <div className={s.l}>
         <div className={s.login}>
-          {props.IsAuth ? (
-            <span onClick={(menu && menuFalse) || (!menu && menuTrue)}>
+          {IsAuth ? (
+            <span
+              onClick={(event: React.MouseEvent<HTMLInputElement>) =>
+                (menu && menuFalse()) || (!menu && menuTrue())
+              }
+            >
               {' '}
-              {props.login}
-              <img src={props.photos || avatarDefault} alt="#" />
+              {login}
+              <img src={avatarDefault} alt="#" />
               <span className={s.arrowToDown}>▼</span>{' '}
             </span>
           ) : (
@@ -52,7 +60,7 @@ const Header = (props) => {
             <div className={s.menu}>
               <button
                 onClick={() => {
-                  props.logout();
+                  logout();
                   menuFalse();
                 }}
               >

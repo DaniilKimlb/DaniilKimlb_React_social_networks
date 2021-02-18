@@ -9,7 +9,6 @@ import UsersContainer from './components/Users/UsersContainer';
 import HeaderContainer from './components/Header/HeaderContainer';
 import Login from './components/Login/Login';
 import { compose } from 'redux/es/redux';
-import { withRouter } from 'react-router-dom/cjs/react-router-dom.min';
 import { connect } from 'react-redux';
 import { initializeApp, globalError } from './redux/AppReducer';
 import Preloader from './components/Preloader/Preloader';
@@ -17,7 +16,6 @@ import withSuspense from './hoc/withSuspense';
 import { useEffect } from 'react';
 import ProfileContainer from './components/Profile/ProfileContainer';
 import { Redirect, Switch } from 'react-router-dom';
-import Headroom from 'react-headroom';
 const DialogsContainer = React.lazy(() =>
   import('./components/Dialogs/DialogContainer')
 );
@@ -40,7 +38,6 @@ const App = (props) => {
   }
   return (
     <BrowserRouter>
-      <Route path="/Login" render={() => <Login />} />
       {props.isGlobalError && (
         <div className={'Error'}>
           <span className="message">
@@ -51,11 +48,11 @@ const App = (props) => {
           </span>
         </div>
       )}
-      <div className="wrapper">
-        <HeaderContainer />
-        <Nav />
-        <div class="content">
-          <Switch>
+      <Switch>
+        <div className="wrapper">
+          <HeaderContainer />
+          <Nav />
+          <div class="content">
             <Route
               path="/Profile/:usersId?"
               render={() => <ProfileContainer />}
@@ -65,11 +62,12 @@ const App = (props) => {
             <Route path="/Music" render={() => <Music />} />
             <Route path="/Setting" render={() => <Setting />} />
             <Route path="/Users" render={() => <UsersContainer />} />
-            <Redirect from="/" to="/Profile" />
-            <Route path="*" render={() => <h1>404 not fouls</h1>} />
-          </Switch>
+            <Route path="/Login" render={() => <Login />} />
+          </div>
         </div>
-      </div>
+        <Redirect from="/" to="/Profile" />
+        <Route path="*" render={() => <h1>404 not fouls</h1>} />
+      </Switch>
     </BrowserRouter>
   );
 };

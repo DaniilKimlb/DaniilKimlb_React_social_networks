@@ -2,7 +2,7 @@ import { NavLink } from 'react-router-dom';
 import cn from 'classnames';
 import FavouriteContainer from './Favourite/FavouriteContainer';
 import s from './style/Nav.module.css';
-const Nav = (props) => (
+const Nav = () => (
   <nav className={s.nav}>
     <div className={s.items}>
       <div className={s.title}>

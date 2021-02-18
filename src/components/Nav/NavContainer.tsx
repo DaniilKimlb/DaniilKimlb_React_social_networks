@@ -1,17 +1,14 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { compose } from 'redux/es/redux';
+import { compose } from 'redux';
 import { withAuthRedirect } from '../../hoc/withAuthRedirect';
+import { AppStateType } from '../../redux/state-Redux';
 import Nav from './Nav';
-class NavContainer extends React.Component {
-  render() {
-    return <Nav {...this.props} />;
-  }
-}
+const NavContainer = () => {
+  return <Nav />;
+};
 
-const mapStateToProps = (state) => ({
-  isAuth: state.Auth.isAuth,
-});
+const mapStateToProps = (state: AppStateType) => ({});
 
 export default compose(
   withAuthRedirect,

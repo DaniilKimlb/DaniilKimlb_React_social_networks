@@ -7,13 +7,29 @@ import Contacts from './Contacts/Contacts';
 import MyPost from './MyPost/MyPost';
 import Edit from './Edit';
 import cn from 'classnames';
-const Profile = (props) => {
-  const changePhoto = (event) => {
+import { MessagePoType, profileType } from '../../types/types';
+type PropsType = {
+  profileUpdate: (status: boolean) => void;
+  profile: profileType;
+  id: number | null;
+  status: string;
+  IsContacts: boolean;
+  updateProfile: (profile: profileType) => void;
+  setPostClear: (formInfo: any, PostClear: string) => void;
+  MessagePo: Array<MessagePoType>;
+  savePhoto: (photos: any) => void;
+  isOfter: boolean;
+  updateStatus: (status: string) => void;
+  profileUpdateComplete: boolean | null;
+  deletePost: (id: number) => void;
+};
+const Profile: React.FC<PropsType> = ({ ...props }) => {
+  const changePhoto = (event: any): void => {
     event.target.files.length && props.savePhoto(event.target.files[0]);
   };
   const [editMode, setEditMode] = useState(false);
   const [changeAvatar, setChangeAvatar] = useState(false);
-  const onSubmit = (formData) => {
+  const onSubmit = (formData: any) => {
     props.updateProfile(formData);
   };
   return (
@@ -53,9 +69,8 @@ const Profile = (props) => {
           {editMode ? (
             <div className={s.editMode}>
               <Edit
-                profileUpdateComplete={props.profileUpdateComplete}
-                lookingForAJob={props.profile.lookingForAJob}
                 initialValues={props.profile}
+                profileUpdateComplete={props.profileUpdateComplete}
                 contacts={props.profile.contacts}
                 onSubmit={onSubmit}
               />
@@ -82,7 +97,7 @@ const Profile = (props) => {
                 updateStatus={props.updateStatus}
                 isOfter={props.isOfter}
               />
-              <Contacts contacts={props.profile.contacts} />
+              <Contacts contact={props.profile.contacts} />
             </>
           )}
         </div>

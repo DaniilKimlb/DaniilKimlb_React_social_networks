@@ -5,7 +5,7 @@ const IS_AUTH = 'auth/IS_AUTH';
 const SET_USER_DATA = 'auth/SET_USER_DATA';
 const GET_CAPTCHA = 'auth/GET_CAPTCHA';
 const initialState = {
-  userId: null as string | null,
+  userId: null as number | null,
   login: null as string | null,
   email: null as string | null,
   isAuth: false,
@@ -22,7 +22,7 @@ const AuthReducer = (state = initialState, action: any): initialStateType => {
   }
 };
 type payloadType = {
-  userId: string | null;
+  userId: number | null;
   login: string | null;
   email: string | null;
   isAuth: boolean | null;
@@ -32,7 +32,7 @@ type UserDataType = {
   payload: payloadType;
 };
 export const UserData = (
-  userId: string | null,
+  userId: number | null,
   email: string | null,
   login: string | null,
   isAuth: boolean | null

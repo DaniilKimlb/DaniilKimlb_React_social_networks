@@ -1,7 +1,14 @@
 import s from './Post.module.css';
 import avatarDefault from '../../../../assets/images/manusericon.png';
-
-const Post = (props) => {
+type PropsType = {
+  deletePost: (id: number) => void;
+  id: number;
+  like: number;
+  fullName: string;
+  avatar: string | null;
+  message: string;
+};
+const Post: React.FC<PropsType> = (props) => {
   let a = `  ${props.like} likes`;
   return (
     <div className={s.posts}>

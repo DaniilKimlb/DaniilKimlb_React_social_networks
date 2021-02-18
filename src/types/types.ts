@@ -16,6 +16,7 @@ export type profileType = {
   userId: number;
   lookingForAJob: boolean;
   lookingForAJobDescription: string;
+  aboutMe: string;
   fullName: string;
   contacts: contactsType;
   photos: photosType;
@@ -26,4 +27,9 @@ export type usersType = {
   photos: photosType;
   status: string | null;
   followed: boolean;
+};
+export type MessagePoType = {
+  id: number;
+  message: string;
+  like: number;
 };

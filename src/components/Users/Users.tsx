@@ -4,7 +4,23 @@ import userPhoto from '../../assets/images/manusericon.png';
 import { NavLink } from 'react-router-dom';
 import cn from 'classnames';
 import PageCount from './PageCount';
-const Users = (props) => {
+import { usersType } from '../../types/types';
+
+type PropsType = {
+  users: Array<usersType>;
+  pageSize: number;
+  totalItemsCount: number;
+  currentPage: number;
+  followingInProgress?: any;
+  portionSize: number;
+  follow: (userId: number) => void;
+  unfollow: (userId: number) => void;
+  onPageChanged: (pageNumber: any) => void;
+  isFollowing: (  isFol: boolean,
+    userId: number) => void;
+};
+
+const Users: React.FC<PropsType> = ({ ...props }) => {
   return (
     <div>
       <PageCount
@@ -37,7 +53,9 @@ const Users = (props) => {
             {m.followed ? (
               <div className={cn(s.but, s.Unfollowed)}>
                 <button
-                  disabled={props.followingInProgress.some((id) => id === m.id)}
+                  disabled={props.followingInProgress.some(
+                    (id: number) => id === m.id
+                  )}
                   onClick={() => props.unfollow(m.id)}
                 >
                   Unfollower
@@ -47,7 +65,9 @@ const Users = (props) => {
               <div className={cn(s.but, s.followed)}>
                 <button
                   className={s.but}
-                  disabled={props.followingInProgress.some((id) => id === m.id)}
+                  disabled={props.followingInProgress.some(
+                    (id: number) => id === m.id
+                  )}
                   onClick={() => props.follow(m.id)}
                 >
                   follower

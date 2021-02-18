@@ -4,7 +4,16 @@ import avatarDefault from '../../../assets/images/manusericon.png';
 import s from './MyPost.module.css';
 import Post from './Post/Post';
 import RenderDialogForm from './MyPostForm/MyPostForm';
-const MyPost = (props) => {
+import { MessagePoType } from '../../../types/types';
+
+type PropsType = {
+  deletePost: (id: number) => void;
+  fullName: string;
+  setPostClear: (formInfo: any, PostClear: string) => void;
+  MessagePo: Array<MessagePoType>;
+  avatar: string | null;
+};
+const MyPost: React.FC<PropsType> = ({ ...props }) => {
   // let createReactElement = React.createRef();
   const Messaq = [...props.MessagePo]
     .reverse()
@@ -19,7 +28,7 @@ const MyPost = (props) => {
         avatar={props.avatar}
       />
     ));
-  const onSubmit = (FormInfo) => {
+  const onSubmit = (FormInfo: any) => {
     props.setPostClear(FormInfo.post, 'MyPost');
   };
   return (

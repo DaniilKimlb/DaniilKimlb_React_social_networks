@@ -1,7 +1,16 @@
 import { useState } from 'react';
 import s from './Users.module.css';
 import cn from 'classnames';
-const PageCount = ({ portionSize = 5, ...props }) => {
+
+type StateType = {
+  portionSize: number;
+  totalItemsCount: number;
+  pageSize: number;
+  currentPage: number;
+  onPageChanged: (p: number) => void;
+};
+
+const PageCount: React.FC<StateType> = ({ portionSize = 5, ...props }) => {
   const pagesCount = Math.ceil(props.totalItemsCount / props.pageSize);
   const pages = [];
   for (let i = 1; i < pagesCount + 1; i++) {
@@ -24,8 +33,10 @@ const PageCount = ({ portionSize = 5, ...props }) => {
         </>
       )}
       {pages
-        .filter((p) => p >= leftPortionNumber && p <= rightPortionNumber)
-        .map((p) => {
+        .filter(
+          (p: number) => p >= leftPortionNumber && p <= rightPortionNumber
+        )
+        .map((p: number) => {
           return (
             <div
               className={cn(

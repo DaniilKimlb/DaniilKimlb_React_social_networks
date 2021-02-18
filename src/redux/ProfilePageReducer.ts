@@ -1,6 +1,8 @@
-import { profileType } from './../types/types';
+import { MessagePoType, profileType } from '../types/types';
 import { reset, stopSubmit } from 'redux-form';
 import { profileAPI } from '../API/API';
+import { ThunkAction } from 'redux-thunk';
+import { AppStateType } from './state-Redux';
 
 const SET_POST = 'profile/SET-POST';
 const SET_USERS_PROFILE = 'profile/SET_USERS_PROFILE';
@@ -8,11 +10,6 @@ const SET_STATUS = 'profile/SET_STATUS';
 const SAVE_PHOTO_SUCCESS = 'profile/SAVE_PHOTO_SUCCESS';
 const DELETE_POST = 'profile/DELETE_POST';
 const PROFILE_UPDATE = 'profile/PROFILE_UPDATE';
-type MessagePoType = {
-  id: number;
-  message: string;
-  like: number;
-};
 const initialState = {
   MessagePo: [
     { id: 1, message: "It's my life!!!", like: 48 },
@@ -21,12 +18,12 @@ const initialState = {
   profile: null as profileType | null,
   IsContacts: false,
   status: '',
-  profileUpdateComplete: null as boolean | null,
+  profileUpdateComplete: false,
 };
 export type initialStateType = typeof initialState;
 const ProfilePageReducer = (
   state = initialState,
-  action: any
+  action: ActionsTypes
 ): initialStateType => {
   switch (action.type) {
     case SET_POST:
@@ -43,7 +40,7 @@ const ProfilePageReducer = (
     case SAVE_PHOTO_SUCCESS:
       return {
         ...state,
-        profile: { ...state.profile, photos: action.photos } as profileType,
+        profile: { ...state.profile, photos: action.photos } as any,
       };
     case PROFILE_UPDATE:
       return { ...state, profileUpdateComplete: action.updateProfile };
@@ -57,7 +54,15 @@ const ProfilePageReducer = (
   }
 };
 // ACTION_CREATE================================================
-
+type ActionsTypes =
+  | setPostType
+  | setPostType
+  | savePhotoSuccessType
+  | setStatusProfileType
+  | setUsersProfileType
+  | deletePostType
+  | profileUpdateType;
+type ThunkType = ThunkAction<Promise<any>, AppStateType, unknown, ActionsTypes>;
 type setPostType = { type: typeof SET_POST; text: string };
 export const setPost = (text: string): setPostType => ({
   type: SET_POST,
@@ -79,7 +84,7 @@ const setStatus = (status: string): setStatusProfileType => ({
 });
 type savePhotoSuccessType = { type: typeof SAVE_PHOTO_SUCCESS; photos: string };
 
-const savePhotoSuccess = (photos: string): savePhotoSuccessType => ({
+const savePhotoSuccess = (photos: any): savePhotoSuccessType => ({
   type: SAVE_PHOTO_SUCCESS,
   photos,
 });
@@ -98,33 +103,40 @@ export const profileUpdate = (updateProfile: boolean): profileUpdateType => ({
 });
 
 // Thunk================================================================
-export const getProfile = (usersId: number) => async (dispatch: any) => {
+export const getProfile = (usersId: number): ThunkType => async (
+  dispatch: any
+) => {
   const data = await profileAPI.UsersProfile(usersId);
   dispatch(setUsersProfile(data));
 };
-export const getStatus = (usersId: number) => async (dispatch: any) => {
+export const getStatus = (usersId: number): ThunkType => async (
+  dispatch: any
+) => {
   const data = await profileAPI.getStatus(usersId);
   dispatch(setStatus(data));
 };
-export const updateStatus = (status: string) => async (dispatch: any) => {
+export const updateStatus = (status: string): ThunkType => async (
+  dispatch: any
+) => {
   const data = await profileAPI.updateStatus(status);
   if (data.resultCode === 0) {
     dispatch(setStatus(status));
   }
 };
-export const setPostClear = (text: string, clearForm: string) => (
-  dispatch: any
-) => {
+export const setPostClear = (
+  text: string,
+  clearForm: string
+): ThunkType => async (dispatch: any) => {
   dispatch(setPost(text));
   dispatch(reset(clearForm));
 };
-export const savePhoto = (file: any) => async (dispatch: any) => {
+export const savePhoto = (file: any): ThunkType => async (dispatch: any) => {
   const data = await profileAPI.savePhoto(file);
   if (data.resultCode === 0) {
     dispatch(savePhotoSuccess(data.data.photos));
   }
 };
-export const updateProfile = (profile: profileType) => async (
+export const updateProfile = (profile: profileType): ThunkType => async (
   dispatch: any,
   getState: any
 ) => {

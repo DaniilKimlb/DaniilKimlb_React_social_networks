@@ -1,7 +1,14 @@
 import React, { useEffect, useState } from 'react';
 import s from '../Profile.module.css';
-
-const ProfileStatus = (props) => {
+type PropsType = {
+  status: string;
+  aboutMe: string;
+  lookingForAJob: boolean;
+  lookingForAJobDescription: string;
+  updateStatus: (status: string) => void;
+  isOfter: boolean;
+};
+const ProfileStatus: React.FC<PropsType> = (props) => {
   const [editMode, setEditMode] = useState(false);
   const [status, setStatus] = useState(props.status);
   const activateEditMode = () => {
@@ -11,7 +18,7 @@ const ProfileStatus = (props) => {
     setEditMode(false);
     props.updateStatus(status);
   };
-  const onStatusChange = (e) => {
+  const onStatusChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setStatus(e.currentTarget.value);
   };
   useEffect(() => {
@@ -26,7 +33,11 @@ const ProfileStatus = (props) => {
         <div className={s.status}>
           <span className={s.preStatus}>Status: </span>
           {!editMode && (
-            <span onClick={props.isOfter && activateEditMode}>
+            <span
+              onClick={(event: React.MouseEvent<HTMLSpanElement, MouseEvent>) =>
+                props.isOfter && activateEditMode()
+              }
+            >
               {props.status || '...'}
             </span>
           )}
